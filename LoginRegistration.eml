@@ -4,6 +4,9 @@
 	<contentEntry url="file://$MODULE_DIR$"/>
 	<lib name="Tomcat 9.0.65" scope="PROVIDED"/>
 	<levels>
+		<level name="org.eclipse.jst.j2ee.internal.web.container" value="project"/>
+		<level name="org.eclipse.jst.j2ee.internal.module.container" value="project"/>
+		<level name="mysql-connector-j-8.0.33" value="project"/>
 		<level name="Tomcat 9.0.65" value="application_server_libraries"/>
 	</levels>
 </component>
