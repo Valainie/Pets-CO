@@ -58,7 +58,7 @@ public class PModelDS implements PModel{
 
         int result = 0;
         PreparedStatement ps1 =ds.getConnection().prepareStatement(
-                "Delete * from Prodotto Where Codice=?");
+                "Delete from Prodotto Where Codice=?");
         
         return false;
     }

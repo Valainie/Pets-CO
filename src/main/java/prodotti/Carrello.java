@@ -1,17 +1,33 @@
 package prodotti;
 
+import bean.PBean;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Carrello {
 
-    private int numP;//numP sono i prodotti
+    private List<PBean> products;
 
     public Carrello() {
-        numP=0;
+        products = new ArrayList<PBean>();
     }
 
-    public int totP(){
-        return numP;
+    public void addProduct(PBean product) {
+        products.add(product);
     }
 
-
-
+    public void deleteProduct(PBean product) {
+        for(PBean prod : products) {
+            if(prod.getCodice() == product.getCodice()) {
+                products.remove(prod);
+                break;
+            }
+        }
+    }
+    public List<PBean> getProducts() {
+        return  products;
+    }
 }
+
+
