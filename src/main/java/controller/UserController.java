@@ -7,17 +7,14 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserController {
     private static DataSource ds;
 
-    public boolean register(String cf, String username,String password,String nome,String cognome, int telefono, String email,int fax, int civico, String via, int cap, String dettagli) throws IOException {
+    public boolean register(String cf, String username,String password,String nome,String cognome, int telefono, String email,int fax, int civico, String via, int cap, String dettagli) {
 
-
-        {
             try {
                 Context initCtx = new InitialContext();
                 Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -27,7 +24,7 @@ public class UserController {
             } catch (NamingException e) {
                 System.out.println("Error:" + e.getMessage());
             }
-        }
+        
 
         try {
             PreparedStatement ps =ds.getConnection().prepareStatement(
@@ -54,14 +51,17 @@ public class UserController {
 
                 int rs1 = ps.executeUpdate();
                 if (rs1 > 0) {
+                    rs.close();
                     return true;
                 }
-
-
+                ps.close();
+                ps1.close();
             }
+
         } catch (Exception e) {
             System.err.println(e);
         }
+
         return false;
     }
 
@@ -71,12 +71,11 @@ public class UserController {
             UserBean user = UserDAO.login(email, password);
 
             return user.isValid() ? user : null;
-        } catch (Throwable exception) {
+        } catch (Exception exception) {
             System.err.println(exception);
         }
         return null;
     }
-
 }
 
 

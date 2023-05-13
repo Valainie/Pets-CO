@@ -1,6 +1,8 @@
 package bean;
 
-    public class UserBean {
+import java.io.Serializable;
+
+public class UserBean implements Serializable {
 
         private String username;
         private String password;
@@ -116,11 +118,6 @@ package bean;
         public String getUsername(String username) {
             return this.username;
         }
-
-        public void setUserName(String newUsername) {
-            username = newUsername;
-        }
-
 
         public boolean isValid() {
             return valid;

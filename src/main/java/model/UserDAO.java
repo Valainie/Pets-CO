@@ -11,9 +11,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserDAO {
+
     static Connection currentCon = null;
     static ResultSet rs = null;
     private static DataSource ds;
+    private UserDAO(){}
 
     static {
         try {
@@ -30,10 +32,10 @@ public class UserDAO {
 
     public static UserBean login(String email, String password) {
         UserBean bean = new UserBean();
+        PreparedStatement stmt = null;
         try {
-            Connection connection = ds.getConnection();
-            PreparedStatement stmt = connection.prepareStatement(
-
+            currentCon = ds.getConnection();
+            stmt = currentCon.prepareStatement(
                     "SELECT * from Cliente where Email = ? AND Password = ?");
 
             stmt.setString(1, email);
@@ -63,17 +65,26 @@ public class UserDAO {
                 rs = null;
             }
 
+
             if (currentCon != null) {
                 try {
                     currentCon.close();
                 } catch (Exception e) {
                     System.err.println(e);
                 }
-
                 currentCon = null;
             }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                    System.err.println(e);
+                }
+            }
+
+            }
+
+            return (bean);
         }
-        return (bean);
     }
-}
 

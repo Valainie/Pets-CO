@@ -1,6 +1,6 @@
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Login</title>
 </head>
@@ -12,12 +12,14 @@
 
     <br>
     <br>
-
-
-
-    Email:  <input align="right" type="text" name="Email"/><br>
-Password:  <input align="right" type="text" name="Password"/>
-    <input  align="right" type="submit" value="submit">
+    <label>
+        Email:
+        <input type="text" name="Email"/>
+        <br>
+        Password:
+        <input type="text" name="Password"/>
+        <input  type="submit" value="submit">
+    </label>
 
 </form>
 </body>
