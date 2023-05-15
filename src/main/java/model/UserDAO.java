@@ -65,7 +65,6 @@ public class UserDAO {
                 rs = null;
             }
 
-
             if (currentCon != null) {
                 try {
                     currentCon.close();
