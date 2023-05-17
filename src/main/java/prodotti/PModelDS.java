@@ -57,10 +57,21 @@ public class PModelDS implements PModel{
     @Override
     public boolean doDelete(int code) throws SQLException {
 
-        int result = 0;
+//SO CHE PRODOTTO NON HO PIU, QUINDI DO IL, CODICE E MI CANCELLA IL PRODOTTO DAL CATALOGO
         PreparedStatement ps1 =ds.getConnection().prepareStatement(
-                "Delete from Prodotto Where Codice=?");
-        
+                "DELETE from Prodotto Where Codice=?");
+        try {
+            ps1.setInt(1, code);
+            int rs = ps1.executeUpdate();
+        } finally {
+            try {
+                if (ds != null)
+                    ps1.close();
+            } finally {
+                if (ps1 != null)
+                    ps1.close();
+            }
+        }
         return false;
     }
 

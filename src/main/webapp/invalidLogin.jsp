@@ -1,14 +1,19 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en" xml:lang="en">>
+<html lang="en" xml:lang="en">
 <head>
     <title>Ops</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/invalidLogin.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-<p> SOMETHING WENT WRONG</p> <br><br>
-<img alt="govno" src="https://static.boredpanda.com/blog/wp-content/uploads/2017/09/saddest-cat-luhu-maggie-liu-lanlan731-38-59c0bfed09657__700.jpg" style="width: 600px; height: 600px; class:center";>
+<h1> SOMETHING WENT WRONG</h1> <br><br>
+<a href="/homePage.jsp">
+    <img alt="govno" src="https://i.imgur.com/aSIgGlT.png" style="width: 480px; height: 480px; class:center";>
+</a>
+>
 
 </body>
 </html>
+

@@ -12,15 +12,15 @@ public class OrdineProdotto {
     }
 
     public ProdottoCatalogo getItem() {
-        return(Tipo);
+        return item;
     }
 
     protected void setItem(ProdottoCatalogo item) {
         this.item = item;
     }
 
-    public String getCodice() {
-        return(getItem().getCodice());
+    public int getCodice() {
+        return item.getCodice();
     }
 
     public String getDescrizioneBreve() {
@@ -28,12 +28,12 @@ public class OrdineProdotto {
     }
 
     public String getDescrizioneLunga() {
-        return(getItem().getDescrizioneLunga());
+        return item.getDescrizioneLunga();
     }
 
 
     public int getNumItems() {
-        return(numItems);
+        return numItems;
     }
 
     public void setNumItems(int n) {
@@ -41,7 +41,7 @@ public class OrdineProdotto {
     }
 
     public void incrementNumItems() {
-        setNumItems(getNumItems() + 1);
+        setNumItems(numItems + 1);
     }
 
     public void cancelOrder() {
@@ -51,5 +51,4 @@ public class OrdineProdotto {
     public double getTotalCost() {
         return numItems * item.getPrezzo();
     }
-}
 }

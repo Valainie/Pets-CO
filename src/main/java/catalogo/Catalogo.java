@@ -17,8 +17,14 @@ public class Catalogo {
 
     private static DataSource ds;
 
-    public boolean prodotto(int codice, String tipo, String descrizioneBreve, String descrizioneLunga, String immagine, float prezzo)
+    public Catalogo()
     {
+        int codice;
+        String tipo;
+        String descrizioneBreve;
+        String descrizioneLunga;
+        String immagine;
+        float prezzo;
 
         try {
             Context initCtx = new InitialContext();
