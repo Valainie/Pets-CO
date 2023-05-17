@@ -24,16 +24,13 @@ public class OrdineProdotto {
     }
 
     public String getDescrizioneBreve() {
-        return(getItem().getDescrizioneBreve());
+        return item.getDescrizioneBreve();
     }
 
     public String getDescrizioneLunga() {
         return(getItem().getDescrizioneLunga());
     }
 
-    public double getUnitCost() {
-        return(getItem().getItem());
-    }
 
     public int getNumItems() {
         return(numItems);
@@ -52,7 +49,7 @@ public class OrdineProdotto {
     }
 
     public double getTotalCost() {
-        return(getNumItems() * getUnitCost());
+        return numItems * item.getPrezzo();
     }
 }
 }

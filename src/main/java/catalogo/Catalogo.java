@@ -43,15 +43,16 @@ public class Catalogo {
                 prezzo = rs.getFloat("Prezzo");
 
                 cat.add(new ProdottoCatalogo(codice, tipo, descrizioneBreve, descrizioneLunga, immagine, prezzo));
-
-                return true;
             }
             ps.close();
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
-        }
-        return false;
+        }}
+
+    public ArrayList<ProdottoCatalogo> getCat() {
+        return cat;
     }
+
 }
 
 

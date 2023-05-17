@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class PModelDS implements PModel{
     private static DataSource ds;
@@ -100,6 +101,45 @@ public class PModelDS implements PModel{
     }
     @Override
     public Collection<PBean> doRetrieveAll(String order) throws SQLException {
-        return null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        Collection<PBean> products = new LinkedList<PBean>();
+
+        String selectSQL = "SELECT * FROM Prodotto";
+
+        if (order != null && !order.equals("")) {
+            selectSQL += " ORDER BY" + order;
+        }
+
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                PBean bean = new PBean();
+
+                bean.setCodice(rs.getInt("Codice"));
+                bean.setTipo(rs.getString("Tipo"));
+                bean.setDescrizioneBreve(rs.getString("DescizioneBreve"));
+                bean.setDescrizioneLunga(rs.getString("DescizioneLunga"));
+                bean.setImmagine(rs.getString("Immagine"));
+                bean.setPrezzo(rs.getInt("Prezzo"));
+                products.add(bean);
+            }
+
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
+        return products;
     }
 }
+
