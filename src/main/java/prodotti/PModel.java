@@ -12,6 +12,6 @@ public interface PModel {
 
     public PBean doRetrieveByKey(int code) throws SQLException;
 
-    public Collection<PBean> doRetrieveAll(String order) throws SQLException;
+    public Collection<PBean> doRetrieveAll(String codice) throws SQLException;
 }
 
