@@ -24,7 +24,7 @@ public class PBean implements Serializable {
                 '}';
     }
 
-    public int getCodice() {
+    public static int getCodice() {
         return codice;
     }
 
@@ -32,7 +32,7 @@ public class PBean implements Serializable {
         this.codice = codice;
     }
 
-    public String getTipo() {
+    public static String getTipo() {
         return tipo;
     }
 

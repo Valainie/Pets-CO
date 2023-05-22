@@ -15,7 +15,7 @@ public class CatalogServlet extends HttpServlet {
     private Catalogo catalogo = new Catalogo();
     private String title;
 
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (catalogo == null) {

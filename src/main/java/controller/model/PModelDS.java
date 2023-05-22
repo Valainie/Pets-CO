@@ -110,8 +110,8 @@ public class PModelDS implements PModel {
         }
         return bean;
     }
-    @Override
-    public Collection<PBean> doRetrieveAll(String order) throws SQLException {
+    public Collection<PBean> doRetrieveAll(String codice) throws SQLException {
+        String order = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 

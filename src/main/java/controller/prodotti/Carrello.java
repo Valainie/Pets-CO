@@ -2,31 +2,34 @@ package controller.prodotti;
 
 import bean.PBean;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class Carrello {
+public class Carrello implements Cart {
+    double quantita;
+    float prezzoTot;
+    private ArrayList<Carrello> cart = new ArrayList<>();
 
-    private List<PBean> products;
 
-    public Carrello() {
-        products = new ArrayList<PBean>();
+
+    @Override
+    public void addToCart(PBean product) throws SQLException {
+
     }
 
-    public void addProduct(PBean product) {
-        products.add(product);
+    @Override
+    public boolean deleteFromCart(int code) throws SQLException {
+        return false;
     }
 
-    public void deleteProduct(PBean product) {
-        for(PBean prod : products) {
-            if(prod.getCodice() == product.getCodice()) {
-                products.remove(prod);
-                break;
-            }
-        }
+    @Override
+    public PBean showCart(int code) throws SQLException {
+        return null;
     }
-    public List<PBean> getProducts() {
-        return  products;
+
+    @Override
+    public boolean getTot(int code) throws SQLException {
+        return false;
     }
 }
 
