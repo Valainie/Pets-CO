@@ -1,7 +1,6 @@
-package controller;
+package controller.user;
 
 import bean.UserBean;
-import model.UserDAO;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

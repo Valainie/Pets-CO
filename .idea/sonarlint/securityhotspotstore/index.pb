@@ -48,8 +48,6 @@ G.idea/sonarlint/issuestore/3/b/3b872b8af5efecdeec3dc408c32fd3323ce5bf64,5\b\5b
 Q.idea/sonarlint/securityhotspotstore/c/b/cbfb0d2e9b2b9fbf9d54374577c894a38643c6d0,d\2\d2a54ba37d749ed85d3d65f19ec47351434db5df
 Å
 Q.idea/sonarlint/securityhotspotstore/3/5/354079a72b91a4280407c16a36f47d1986fd85a5,f\7\f7cd964224388f04fa8798a29c0b800ad4980fc6
-Z
-*src/main/java/prodotti/ProductModelDM.java,8\e\8e35581b8d88587bd3c457a56f029f54cee357a4
 P
  src/main/java/bean/UserBean.java,7\e\7e39ab0e9a95959d370edfa5f697a14774da70a7
 Å

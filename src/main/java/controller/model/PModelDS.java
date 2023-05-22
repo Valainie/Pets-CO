@@ -1,4 +1,4 @@
-package prodotti;
+package controller.model;
 
 import bean.PBean;
 
@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class PModelDS implements PModel{
+public class PModelDS implements PModel {
     private static DataSource ds;
 
     static {

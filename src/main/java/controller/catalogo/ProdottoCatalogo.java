@@ -1,4 +1,4 @@
-package catalogo;
+package controller.catalogo;
 
 public class ProdottoCatalogo {
     private int codice;

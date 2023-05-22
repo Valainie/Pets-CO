@@ -1,7 +1,7 @@
-package servlet;
+package controller.servlet;
 
 import bean.UserBean;
-import controller.UserController;
+import controller.user.UserController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

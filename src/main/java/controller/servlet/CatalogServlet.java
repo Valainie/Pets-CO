@@ -1,6 +1,8 @@
-package servlet;
+package controller.servlet;
 
 import catalogo.*;
+import controller.catalogo.Catalogo;
+import controller.catalogo.ProdottoCatalogo;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -55,7 +57,6 @@ public class CatalogServlet extends HttpServlet {
                                 "<H2>"+item.getTipo()+"\">\n"+
                                 ","+ item.getDescrizioneBreve() +
                                 " ($" + item.getPrezzo() + ")</H2>\n" +
-                                item.getDescrizioneLunga() + "\n" +
                                 "<P>\n<CENTER>\n" +
                                 "<INPUT TYPE=\"SUBMIT\" " +
                                 "VALUE=\"Add to Shopping Cart\">\n" +

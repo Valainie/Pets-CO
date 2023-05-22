@@ -1,7 +1,4 @@
-package catalogo;
-
-import bean.PBean;
-import bean.UserBean;
+package controller.catalogo;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -50,6 +47,7 @@ public class Catalogo {
 
                 cat.add(new ProdottoCatalogo(codice, tipo, descrizioneBreve, descrizioneLunga, immagine, prezzo));
             }
+
             ps.close();
         } catch (SQLException ex) {
             throw new RuntimeException(ex);

@@ -1,4 +1,4 @@
-package model;
+package controller.user;
 
 import bean.UserBean;
 

@@ -1,6 +1,6 @@
-package servlet;
+package controller.servlet;
 
-import controller.UserController;
+import controller.user.UserController;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

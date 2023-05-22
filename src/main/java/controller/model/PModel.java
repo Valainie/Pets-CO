@@ -1,4 +1,4 @@
-package prodotti;
+package controller.model;
 
 import bean.PBean;
 

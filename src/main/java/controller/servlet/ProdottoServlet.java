@@ -1,9 +1,9 @@
-package servlet;
+package controller.servlet;
 
 import bean.PBean;
-import prodotti.Carrello;
-import prodotti.PModel;
-import prodotti.PModelDS;
+import controller.prodotti.Carrello;
+import controller.model.PModel;
+import controller.model.PModelDS;
 import prodotti.ProductModelDM;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -48,8 +48,6 @@ Y
 )src/main/java/servlet/CatalogServlet.java,a\4\a4442434736b533ff98cb7322a623e77fbbce34e
 R
 "src/main/java/prodotti/PModel.java,9\a\9a6eb8a93b7969b8b4f0c469e48e8e404bfb4f13
-Z
-*src/main/java/prodotti/ProductModelDM.java,8\e\8e35581b8d88587bd3c457a56f029f54cee357a4
 P
  src/main/java/bean/UserBean.java,7\e\7e39ab0e9a95959d370edfa5f697a14774da70a7
 P
