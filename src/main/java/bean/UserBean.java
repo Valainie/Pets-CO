@@ -5,127 +5,114 @@ import java.io.Serializable;
 public class UserBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    String cf;
+    String username;
+    String password;
+    String nome;
+    String cognome;
+    int tel;
+    String email;
+    String dettagli;
 
-    private String username;
-        private String password;
-        private String email;
-        private String nome;
-        private String cognome;
-        private int telefono;
-        private int fax;
-        private int civico;
-        private String via;
-        private int cap;
-        private String dettagli;
-
-        public String getUsername() {
-            return username;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public String getNome() {
-            return nome;
-        }
-
-        public void setNome(String nome) {
-            this.nome = nome;
-        }
-
-        public String getCognome() {
-            return cognome;
-        }
-
-        public void setCognome(String cognome) {
-            this.cognome = cognome;
-        }
-
-        public int getTelefono() {
-            return telefono;
-        }
-
-        public void setTelefono(int telefono) {
-            this.telefono = telefono;
-        }
-
-        public int getFax() {
-            return fax;
-        }
-
-        public void setFax(int fax) {
-            this.fax = fax;
-        }
-
-        public int getCivico() {
-            return civico;
-        }
-
-        public void setCivico(int civico) {
-            this.civico = civico;
-        }
-
-        public String getVia() {
-            return via;
-        }
-
-        public void setVia(String via) {
-            this.via = via;
-        }
-
-        public int getCap() {
-            return cap;
-        }
-
-        public void setCap(int cap) {
-            this.cap = cap;
-        }
-
-        public String getDettagli() {
-            return dettagli;
-        }
-
-        public void setDettagli(String dettagli) {
-            this.dettagli = dettagli;
-        }
-
-        public boolean valid = false;
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
-
-        public String getEmail(String email) {
-            return this.email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
-        public String getPassword(String password) {
-            return this.password;
-        }
-
-        public void setPassword(String newPassword) {
-            password = newPassword;
-        }
-
-
-        public String getUsername(String username) {
-            return this.username;
-        }
-
-        public boolean isValid() {
-            return valid;
-        }
-
-        public void setValid(boolean newValid) {
-            valid = newValid;
-        }
+    public UserBean(){}
+    public UserBean(String cf, String username, String password, String nome, String cognome, int tel, String email, String dettagli) {
+        this.cf = cf;
+        this.username = username;
+        this.password = password;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.tel = tel;
+        this.email = email;
+        this.dettagli = dettagli;
     }
+
+    public String getCf() {
+        return cf;
+    }
+
+    public void setCf(String cf) {
+        this.cf = cf;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public int getTel() {
+        return tel;
+    }
+
+    public void setTel(int tel) {
+        this.tel = tel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDettagli() {
+        return dettagli;
+    }
+
+    public void setDettagli(String dettagli) {
+        this.dettagli = dettagli;
+    }
+
+    @Override
+    public String toString() {
+        return "UserBean{" +
+                "cf='" + cf + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", tel=" + tel +
+                ", email='" + email + '\'' +
+                ", dettagli='" + dettagli + '\'' +
+                '}';
+    }
+
+    public boolean valid = false;
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean newValid) {
+        valid = newValid;
+    }
+
+}
+

@@ -3,26 +3,35 @@ package bean;
 import java.io.Serializable;
 
 public class RecensioneBean implements Serializable {
-    private static final long serialVersionUID = 1L;
 
-    String componenti;
+    String commenti;
+    String username;
     int zampette;
-    String cfCliente;
     int codiceProdotto;
 
-    public RecensioneBean(String componenti, int zampette, String cfCliente, int codiceProdotto) {
-        this.componenti = componenti;
+    //Generate
+
+    public RecensioneBean(String commenti, String username, int zampette, int codiceProdotto) {
+        this.commenti = commenti;
+        this.username = username;
         this.zampette = zampette;
-        this.cfCliente = cfCliente;
         this.codiceProdotto = codiceProdotto;
     }
 
-    public String getComponenti() {
-        return componenti;
+    public String getCommenti() {
+        return commenti;
     }
 
-    public void setComponenti(String componenti) {
-        this.componenti = componenti;
+    public void setCommenti(String commenti) {
+        this.commenti = commenti;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getZampette() {
@@ -31,14 +40,6 @@ public class RecensioneBean implements Serializable {
 
     public void setZampette(int zampette) {
         this.zampette = zampette;
-    }
-
-    public String getCfCliente() {
-        return cfCliente;
-    }
-
-    public void setCfCliente(String cfCliente) {
-        this.cfCliente = cfCliente;
     }
 
     public int getCodiceProdotto() {
@@ -52,11 +53,9 @@ public class RecensioneBean implements Serializable {
     @Override
     public String toString() {
         return "RecensioneBean{" +
-                "componenti='" + componenti + '\'' +
+                "commenti='" + commenti + '\'' +
                 ", zampette=" + zampette +
-                ", cfCliente='" + cfCliente + '\'' +
                 ", codiceProdotto=" + codiceProdotto +
                 '}';
     }
 }
-

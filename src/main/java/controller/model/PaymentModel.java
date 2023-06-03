@@ -2,8 +2,6 @@ package controller.model;
 
 import bean.PBean;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -33,6 +31,11 @@ public class PaymentModel implements PModel{
 
     @Override
     public Collection<PBean> doRetrieveAll(String order) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Collection<PBean> doRetrieveByResearch(String ric) throws SQLException {
         return null;
     }
 }

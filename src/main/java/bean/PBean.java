@@ -6,25 +6,50 @@ public class PBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     int codice;
-    String tipo;
+    int categoria;
+    String Immagine;
+    String nome;
+    int disponibilita;
+    float prezzo;
     String descrizioneBreve;
     String descrizioneLunga;
-    String immagine;
-    float prezzo;
-
-    @Override
-    public String toString() {
-        return "PBean{" +
-                "codice=" + codice +
-                ", tipo='" + tipo + '\'' +
-                ", descrizioneBreve='" + descrizioneBreve + '\'' +
-                ", descrizioneLunga='" + descrizioneLunga + '\'' +
-                ", immagine='" + immagine + '\'' +
-                ", prezzo=" + prezzo +
-                '}';
+    boolean novita;
+    boolean offerta;
+    
+    public PBean(int codice,int categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, int novita, int offerta) {
+        this.codice = codice;
+        this.categoria=categoria;
+        Immagine = immagine;
+        this.nome = nome;
+        this.disponibilita = disponibilita;
+        this.prezzo = prezzo;
+        this.descrizioneBreve = descrizioneBreve;
+        this.descrizioneLunga = descrizioneLunga;
+        novita = novita;
+        offerta = offerta;
     }
 
-    public static int getCodice() {
+    public int getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(int categoria) {
+        this.categoria = categoria;
+    }
+
+    public boolean isNovita() {
+        return novita;
+    }
+
+    public boolean isOfferta() {
+        return offerta;
+    }
+
+    public PBean() {
+
+    }
+
+    public int getCodice() {
         return codice;
     }
 
@@ -32,12 +57,36 @@ public class PBean implements Serializable {
         this.codice = codice;
     }
 
-    public static String getTipo() {
-        return tipo;
+    public String getImmagine() {
+        return Immagine;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setImmagine(String immagine) {
+        Immagine = immagine;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getDisponibilita() {
+        return disponibilita;
+    }
+
+    public void setDisponibilita(int disponibilita) {
+        this.disponibilita = disponibilita;
+    }
+
+    public float getPrezzo() {
+        return prezzo;
+    }
+
+    public void setPrezzo(float prezzo) {
+        this.prezzo = prezzo;
     }
 
     public String getDescrizioneBreve() {
@@ -56,19 +105,35 @@ public class PBean implements Serializable {
         this.descrizioneLunga = descrizioneLunga;
     }
 
-    public String getImmagine() {
-        return immagine;
+    public boolean getNovita() {
+        return novita;
     }
 
-    public void setImmagine(String immagine) {
-        this.immagine = immagine;
+    public void setNovita(boolean novita) {
+        this.novita = novita;
     }
 
-    public float getPrezzo() {
-        return prezzo;
+    public boolean getOfferta() {
+        return offerta;
     }
 
-    public void setPrezzo(float prezzo) {
-        this.prezzo = prezzo;
+    public void setOfferta(boolean offerta) {
+        this.offerta = offerta;
     }
+
+    @Override
+    public String toString() {
+        return "PBean{" +
+                "codice=" + codice +
+                ", Immagine='" + Immagine + '\'' +
+                ", nome='" + nome + '\'' +
+                ", disponibilita=" + disponibilita +
+                ", prezzo=" + prezzo +
+                ", descrizioneBreve='" + descrizioneBreve + '\'' +
+                ", descrizioneLunga='" + descrizioneLunga + '\'' +
+                ", novita=" + novita +
+                ", offerta=" + offerta +
+                '}';
+    }
+
 }

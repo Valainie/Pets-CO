@@ -13,5 +13,12 @@ public interface PModel {
     public PBean doRetrieveByKey(int code) throws SQLException;
 
     public Collection<PBean> doRetrieveAll(String codice) throws SQLException;
+
+
+    public  Collection<PBean> doRetrieveByResearch (String ric) throws SQLException;
+
+
+
+
 }
 

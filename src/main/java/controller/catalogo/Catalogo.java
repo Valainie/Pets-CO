@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class Catalogo {
     private ArrayList<ProdottoCatalogo> cat = new ArrayList<>();
-
     private static DataSource ds;
 
     public Catalogo()

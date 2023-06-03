@@ -1,56 +1,25 @@
 
-b
-2.idea/artifacts/LoginRegistration_Web_exploded.xml,f\d\fd0857d2699c6db409d55f36d8b371a405bd881a
-:
-
-.classpath,3\5\354079a72b91a4280407c16a36f47d1986fd85a5
-E
-LoginRegistration.iml,9\5\95a3858e6368269d4de6c2c1a2103233f132dc97
-E
-LoginRegistration.eml,3\b\3b872b8af5efecdeec3dc408c32fd3323ce5bf64
-\
-,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
-\
-,.idea/libraries/mysql_connector_j_8_0_33.xml,4\c\4c9c0290b7cc5ba67c9e75dc8e01b98fd59bb809
-T
-$src/main/webapp/META-INF/context.xml,c\b\cbfb0d2e9b2b9fbf9d54374577c894a38643c6d0
+Z
+*src/main/java/controller/user/UserDAO.java,7\6\762789a65ffec04aabe31b590536c0babd21665e
+g
+7src/main/java/controller/catalogo/ProdottoCatalogo.java,c\8\c8a4954cd0e09df8b3c92c710ca72d8a1a117560
 W
-'src/main/java/servlet/LoginServlet.java,3\5\356d5a28e4a241bbd03f9442ffe190465779a925
-w
-G.idea/sonarlint/issuestore/4/c/4c9c0290b7cc5ba67c9e75dc8e01b98fd59bb809,6\b\6b6b2bd4e28c0b626ecb9b5d5bc3122d8fb3fccd
-w
-G.idea/sonarlint/issuestore/9/5/95a3858e6368269d4de6c2c1a2103233f132dc97,7\e\7eb3e0299bbf5618efc98fdd44b853d0054d82e7
+'src/main/java/bean/NavigazioneBean.java,8\8\884efc2723e6976a94ab0b7a1dd585883aa2c412
+b
+2src/main/java/controller/servlet/LoginServlet.java,1\e\1e379857f6c9a6c7343625c667f75db3153eda40
 R
-"src/main/java/prodotti/PModel.java,9\a\9a6eb8a93b7969b8b4f0c469e48e8e404bfb4f13
-Y
-)src/main/java/servlet/CatalogServlet.java,a\4\a4442434736b533ff98cb7322a623e77fbbce34e
-Å
-Q.idea/sonarlint/securityhotspotstore/4/c/4c9c0290b7cc5ba67c9e75dc8e01b98fd59bb809,5\b\5b8c56d479edd7d98068433c7e79cbce08c6e4cb
-w
-G.idea/sonarlint/issuestore/4/9/496a238a6afa168dbaf6efd37bb459331589579c,6\e\6e9644ddf83ab52f39902ecdbfdf4118285ac40c
-w
-G.idea/sonarlint/issuestore/3/5/354079a72b91a4280407c16a36f47d1986fd85a5,d\f\dfac3e46bbca562b4966f9fd066d5dfc4be02a5f
-w
-G.idea/sonarlint/issuestore/f/d/fd0857d2699c6db409d55f36d8b371a405bd881a,2\a\2a821056593e40a1fe802273392e86d4a588855a
-Å
-Q.idea/sonarlint/securityhotspotstore/9/5/95a3858e6368269d4de6c2c1a2103233f132dc97,e\7\e791a7cf6fb37116f735613ee86246223b832592
-Å
-Q.idea/sonarlint/securityhotspotstore/3/b/3b872b8af5efecdeec3dc408c32fd3323ce5bf64,7\8\7823faf2b9dfff71d2b36c7416468803a80444fc
-w
-G.idea/sonarlint/issuestore/c/b/cbfb0d2e9b2b9fbf9d54374577c894a38643c6d0,8\8\887424ff43161ac95f72a166ab180d5044955b6e
-O
-src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
-Å
-Q.idea/sonarlint/securityhotspotstore/4/9/496a238a6afa168dbaf6efd37bb459331589579c,b\0\b0bb0a26d88d16d2e82502fe47e034e248a527a2
-w
-G.idea/sonarlint/issuestore/3/b/3b872b8af5efecdeec3dc408c32fd3323ce5bf64,5\b\5b79ba5c56fe8af1cbe4221b21302bc2549e4ca9
-Å
-Q.idea/sonarlint/securityhotspotstore/c/b/cbfb0d2e9b2b9fbf9d54374577c894a38643c6d0,d\2\d2a54ba37d749ed85d3d65f19ec47351434db5df
-Å
-Q.idea/sonarlint/securityhotspotstore/3/5/354079a72b91a4280407c16a36f47d1986fd85a5,f\7\f7cd964224388f04fa8798a29c0b800ad4980fc6
+"src/main/webapp/css/userLogged.css,a\5\a5bd7fa9584b6721fa13dd8738c7d4b3bd523cbd
 P
- src/main/java/bean/UserBean.java,7\e\7e39ab0e9a95959d370edfa5f697a14774da70a7
-Å
-Q.idea/sonarlint/securityhotspotstore/f/d/fd0857d2699c6db409d55f36d8b371a405bd881a,f\3\f32af6f3bc6b65ec58264860cad951c723134d32
+ src/main/webapp/editProducts.jsp,6\f\6f927f010a87f2a9de3f0a2d53e8c24bc2b2b5a1
 P
- src/main/java/model/UserDAO.java,3\a\3a355b5c188947a0955c42e735ebb401e3ce7012
+ src/main/webapp/invalidLogin.jsp,7\8\7837a7ed8c1ff3bbc6667fabc67ab3413a8a5c0a
+V
+&src/main/webapp/rimuoviDalCarrello.jsp,6\2\62f164dde40790566a17f0486615725449ef1f61
+P
+ src/main/webapp/loginServlet.jsp,f\8\f8c087024e16ec68ea91bd66eb58800944028ad7
+N
+src/main/webapp/userLogged.jsp,1\9\19104efee00ae6945471e8b8d96277e5890a40fd
+K
+src/main/webapp/deliver.jsp,f\c\fcaf82643a08d58c08f76f313942f71c8b6049e7
+R
+"src/main/webapp/deleteProducts.jsp,b\a\ba3659e1182a1c5e363abe2c07e2a904dc95cae0

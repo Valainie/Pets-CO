@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="java.sql.*"%>
+<%@ page import="controller.model.PModelDS"%>
 <%@ page import="javax.naming.Context" %>
 <%@ page import="javax.naming.InitialContext" %>
-<%@ page import="javax.sql.DataSource" %>
 <%@ page import="javax.naming.NamingException" %>
-<%@ page import="bean.PBean" %>
-<%@ page import="prodotti.PModelDS" %>
+<%@ page import="javax.sql.DataSource" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +24,7 @@
     <title>Online Shopping System</title>
     <!-- Importing all ui libs -->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -54,7 +54,7 @@
                                 class="icon-bar"></span>
                         </button>
                     </div>
-                    <jsp:include page="header.jsp"></jsp:include>
+                    <jsp:include page="includes/header.jsp"></jsp:include>
                 </div>
             </nav>
         </div>
@@ -64,7 +64,7 @@
                 <a href="checkout.jsp">
                     <%
                         PreparedStatement resultCount =ds.getConnection().prepareStatement(
-                                "SELECT count (*) FROM Acquisto where CFCliente=? " + session.getAttribute("codice") + "'");
+                                "SELECT count (*) FROM Acquisto where usernameCliente=? " + session.getAttribute("codice") + "");
                         ResultSet rs = resultCount.executeQuery();
                         rs.next();
                         int count = rs.getInt(1);
@@ -124,6 +124,6 @@
         </div>
     </div>
 </div>
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="includes/footer.jsp"></jsp:include>
 </body>
 </html>

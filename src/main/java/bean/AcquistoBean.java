@@ -1,71 +1,86 @@
 package bean;
 
-import javafx.scene.chart.XYChart;
-
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.time.LocalDate;
 
 public class AcquistoBean implements Serializable {
     private static final long serialVersionUID = 1L;
-local
-    String codice;
-    int quantità;
-    float prezzoTot;
-    String cfCliente;
+
+
+    LocalDate dataSpedizione, dataOrdine;
+    int codiceAcquisto;
+    String indirizzoSpedizione;
+    float importo;
+    String statoProdotti;
+    BigInteger metodo;
     int codiceProdotto;
 
-    public AcquistoBean(XYChart.Data data, String codice, int quantità, float prezzoTot, String cfCliente, int codiceProdotto) {
-        this.data = data;
-        this.codice = codice;
-        this.quantità = quantità;
-        this.prezzoTot = prezzoTot;
-        this.cfCliente = cfCliente;
+    public AcquistoBean(LocalDate dataSpedizione, LocalDate dataOrdine, int codiceAcquisto, String indirizzoSpedizione, float importo, String statoProdotti, BigInteger metodo, int codiceProdotto) {
+        this.dataSpedizione = dataSpedizione;
+        this.dataOrdine = dataOrdine;
+        this.codiceAcquisto = codiceAcquisto;
+        this.indirizzoSpedizione = indirizzoSpedizione;
+        this.importo = importo;
+        this.statoProdotti = statoProdotti;
+        this.metodo = metodo;
         this.codiceProdotto = codiceProdotto;
     }
 
-    @Override
-    public String toString() {
-        return "AcquistoBean{" +
-                "data=" + data +
-                ", codice='" + codice + '\'' +
-                ", quantità=" + quantità +
-                ", prezzoTot=" + prezzoTot +
-                ", cfCliente='" + cfCliente + '\'' +
-                ", codiceProdotto=" + codiceProdotto +
-                '}';
+    public LocalDate getDataSpedizione() {
+        return dataSpedizione;
     }
 
-
-
-    public String getCodice() {
-        return codice;
+    public void setDataSpedizione(LocalDate dataSpedizione) {
+        this.dataSpedizione = dataSpedizione;
     }
 
-    public void setCodice(String codice) {
-        this.codice = codice;
+    public LocalDate getDataOrdine() {
+        return dataOrdine;
     }
 
-    public int getQuantità() {
-        return quantità;
+    public void setDataOrdine(LocalDate dataOrdine) {
+        this.dataOrdine = dataOrdine;
     }
 
-    public void setQuantità(int quantità) {
-        this.quantità = quantità;
+    public int getCodiceAcquisto() {
+        return codiceAcquisto;
     }
 
-    public float getPrezzoTot() {
-        return prezzoTot;
+    public void setCodiceAcquisto(int codiceAcquisto) {
+        this.codiceAcquisto = codiceAcquisto;
     }
 
-    public void setPrezzoTot(float prezzoTot) {
-        this.prezzoTot = prezzoTot;
+    public String getIndirizzoSpedizione() {
+        return indirizzoSpedizione;
     }
 
-    public String getCfCliente() {
-        return cfCliente;
+    public void setIndirizzoSpedizione(String indirizzoSpedizione) {
+        this.indirizzoSpedizione = indirizzoSpedizione;
     }
 
-    public void setCfCliente(String cfCliente) {
-        this.cfCliente = cfCliente;
+    public float getImporto() {
+        return importo;
+    }
+
+    public void setImporto(float importo) {
+        this.importo = importo;
+    }
+
+    public String getStatoProdotti() {
+        return statoProdotti;
+    }
+
+    public void setStatoProdotti(String statoProdotti) {
+        this.statoProdotti = statoProdotti;
+    }
+
+    public BigInteger getMetodo() {
+        return metodo;
+    }
+
+    public void setMetodo(BigInteger metodo) {
+        this.metodo = metodo;
     }
 
     public int getCodiceProdotto() {
@@ -76,3 +91,5 @@ local
         this.codiceProdotto = codiceProdotto;
     }
 }
+
+

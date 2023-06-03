@@ -24,7 +24,7 @@
     <c:forEach var="item" items="${sessionScope.cart }">
         <c:set var="total" value="${total + item.product.price * item.quantity }"></c:set>
         <tr>
-                <a href="${pageContext.request.contextPath }/addToCartServlet?action=remove&id=${item.product.id }"
+                <a href="${pageContext.request.contextPath }/cart?action=remove&id=${item.product.id }"
                    onclick="return confirm('Are you sure?')">Remove</a>
             </td>
             <td>${item.product.id }</td>

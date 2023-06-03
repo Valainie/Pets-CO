@@ -3,27 +3,26 @@ package bean;
 import java.io.Serializable;
 
 public class AdminBean implements Serializable {
-    private static final long serialVersionUID = 1L;
-    String cf;
+    String recapito;
     String username;
     String password;
     String nome;
     String cognome;
 
-    public AdminBean() {
-        cf = "";
-        username = "";
-        password = "";
-        nome = "";
-        cognome = "";
+    public AdminBean(String recapito, String username, String password, String nome, String cognome) {
+        this.recapito = recapito;
+        this.username = username;
+        this.password = password;
+        this.nome = nome;
+        this.cognome = cognome;
     }
 
-    public String getCf() {
-        return cf;
+    public String getRecapito() {
+        return recapito;
     }
 
-    public void setCf(String cf) {
-        this.cf = cf;
+    public void setRecapito(String recapito) {
+        this.recapito = recapito;
     }
 
     public String getUsername() {
@@ -61,7 +60,7 @@ public class AdminBean implements Serializable {
     @Override
     public String toString() {
         return "AdminBean{" +
-                "cf='" + cf + '\'' +
+                "recapito='" + recapito + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", nome='" + nome + '\'' +
@@ -69,4 +68,3 @@ public class AdminBean implements Serializable {
                 '}';
     }
 }
-

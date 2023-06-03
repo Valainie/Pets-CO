@@ -1,0 +1,33 @@
+
+body{
+    background-color: #9d8cc0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn {
+
+    background-color: #055686;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+
+}
+.btn:hover {
+    background-color: #25ed21;}
+.navbar {
+    display: flex;
+    color: #F9FAF8;
+    background-color: #8067b5;
+    padding: 20px 0px 20px 100px;
+    align-items: center;
+}
+
+
+
+

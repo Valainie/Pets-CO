@@ -1,10 +1,10 @@
 package controller.servlet;
 
 import bean.PBean;
-import controller.prodotti.Carrello;
 import controller.model.PModel;
 import controller.model.PModelDS;
-import prodotti.ProductModelDM;
+import controller.prodotti.Carrello;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +25,7 @@ public class ProdottoServlet extends HttpServlet {
         if (isDataSource) {
             model = new PModelDS();
         } else {
-            model = (PModel) new ProductModelDM();
+            model = (PModel) new PModelDS();
         }
     }
     @Override
@@ -54,13 +54,13 @@ public class ProdottoServlet extends HttpServlet {
                     int id = Integer.parseInt(request.getParameter("codice"));
                     model.doDelete(id);
                 } else if (action.equalsIgnoreCase("insert")) {
-                    String tipo = request.getParameter("nome");
+                    String nome = request.getParameter("nome");
                     String description = request.getParameter("description");
                     float prezzo = Integer.parseInt(request.getParameter("prezzo"));
                     int quantity = Integer.parseInt(request.getParameter("quantity"));
 
                     PBean bean = new PBean();
-                    bean.setTipo(tipo);
+                    bean.setNome(nome);
                     bean.setDescrizioneLunga(description);
                     bean.setPrezzo(prezzo);
                     model.doSave(bean);
