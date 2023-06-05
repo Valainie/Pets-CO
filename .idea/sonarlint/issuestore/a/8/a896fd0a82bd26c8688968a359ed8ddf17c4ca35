@@ -1,0 +1,12 @@
+
+
+java:S4165"dRemove this useless assignment; "novita" already holds the assigned value along all execution paths.(Çã®æ8ê¬µ†1
+‡
+java:S4165"eRemove this useless assignment; "offerta" already holds the assigned value along all execution paths.(İÃËûÿÿÿÿ8ë¬µ†1
+o	java:S116
+"SRename this field "Immagine" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰‰‘Ù8ë¬µ†1
+^	java:S107"BConstructor has 10 parameters, which is greater than 7 authorized.(ã ‘ö8ğ¬µ†1
+L
+java:S1656"/Remove or correct this useless self-assignment.(Çã®æ8ò¬µ†1
+Q
+java:S1656"/Remove or correct this useless self-assignment.(İÃËûÿÿÿÿ8ò¬µ†1

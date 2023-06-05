@@ -1,0 +1,75 @@
+
+
+AYgn4-Aca-ll9sVpxW98
+java:S2293†"YReplace the type specification in this constructor call with the diamond operator ("<>").(–íÍÁ8¸–Œ¿‚1
+w
+java:S2293¶"YReplace the type specification in this constructor call with the diamond operator ("<>").(îÙù8®Ó‹µ†1
+w
+java:S2293à"YReplace the type specification in this constructor call with the diamond operator ("<>").(îÙù8¯Ó‹µ†1
+w
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(îÙù8°Ó‹µ†1
+w
+java:S2293Å"YReplace the type specification in this constructor call with the diamond operator ("<>").(îÙù8±Ó‹µ†1
+k
+java:S1192p"NDefine a constant instead of duplicating this literal "disponibilita" 5 times.(êÜûÌ8Ò¡µ†1
+n
+java:S1192n"QDefine a constant instead of duplicating this literal "DescrizioneBreve" 6 times.(ğ†…¢8´Ó‹µ†1
+l
+java:S1192¸"ODefine a constant instead of duplicating this literal "SELECT * FROM " 4 times.(ˆ‡Æ,8µÓ‹µ†1
+l
+java:S1192k"JDefine a constant instead of duplicating this literal "Categoria" 5 times.(–‡¨¶ùÿÿÿÿ8Ó¡µ†1
+s
+java:S1192o"QDefine a constant instead of duplicating this literal "DescrizioneLunga" 6 times.(¶çóÍøÿÿÿÿ8¶Ó‹µ†1
+e
+java:S1192s"HDefine a constant instead of duplicating this literal "offerta" 5 times.(àÄÉ8Ó¡µ†1
+i
+java:S1192r"GDefine a constant instead of duplicating this literal "novita" 5 times.(ÑõÌÃøÿÿÿÿ8Ó¡µ†1
+d
+java:S1192j"GDefine a constant instead of duplicating this literal "Codice" 6 times.(ÕÔ¥ğ8·Ó‹µ†1
+c
+java:S1192q"GDefine a constant instead of duplicating this literal "Prezzo" 5 times.(´Êß88¸Ó‹µ†1
+k
+java:S1192m"IDefine a constant instead of duplicating this literal "Immagine" 6 times.(‚©¾áúÿÿÿÿ8¸Ó‹µ†1
+€
+AYgVUDMoOpxb3UapOXW6
+java:S2095("HUse try-with-resources or close this "Connection" in a "finally" clause.(Áíİßùÿÿÿÿ8Ø‰¹ª1
+€
+AYgVUDMoOpxb3UapOXW7
+java:S2095H"HUse try-with-resources or close this "Connection" in a "finally" clause.(“Á£Àúÿÿÿÿ8Ø‰¹ª1
+o
+AYgn5LmU9QSNifXNrvTq
+java:S2589R"7Remove this expression which always evaluates to "true"(ÒÌ‹ÿÿÿÿÿ8¨¿¿‚1
+i
+AYgVUDMoOpxb3UapOXW-
+java:S2589;"7Remove this expression which always evaluates to "true"(êã‡g8Ø‰¹ª1
+i
+AYgn5LmU9QSNifXNrvTp
+java:S2589O"7Remove this expression which always evaluates to "true"(êã‡g8¨¿¿‚1
+o
+AYgVUDMoOpxb3UapOXW9
+java:S2589>"7Remove this expression which always evaluates to "true"(Ì¤´¬şÿÿÿÿ8Ø‰¹ª1
+}
+AYg4hdNOXDiqwzmziQW8
+java:S2583Š"DChange this condition so that it does not always evaluate to "false"(ª¡µ´úÿÿÿÿ8€Ÿ“Äƒ1
+k
+AYgVUDMoOpxb3UapOXW_	java:S106"9Replace this use of System.out or System.err by a logger.(äìÎÆ8Ø‰¹ª1
+_
+AYgVUDMoOpxb3UapOXXA
+java:S14818"'Remove this unused "rs" local variable.(§ÿš«ûÿÿÿÿ8Ø‰¹ª1
+_
+AYgn5LmU9QSNifXNrvTr
+java:S1481L"'Remove this unused "rs" local variable.(£àßıÿÿÿÿ8¨¿¿‚1
+Y
+java:S1117¶";Rename "product" which hides the field declared at line 35.(îÙù8ºç™µ†1
+I
+java:S1172Ü"+Remove this unused method parameter "tipo".(§«Ïá8áş‹µ†1
+Y
+java:S1117à";Rename "product" which hides the field declared at line 35.(îÙù8èç™µ†1
+Y
+java:S1117";Rename "product" which hides the field declared at line 35.(îÙù8è™µ†1
+[	java:S106 "9Replace this use of System.out or System.err by a logger.(Ö§†µûÿÿÿÿ8éş‹µ†1
+X	java:S125®"<This block of commented-out lines of code should be removed.(ÉÙ»68ìş‹µ†1
+Y	java:S125±"<This block of commented-out lines of code should be removed.(Ù±™ã8íş‹µ†1
+Y
+java:S1117Å";Rename "product" which hides the field declared at line 35.(îÙù8Éè™µ†1
+[	java:S106ˆ"9Replace this use of System.out or System.err by a logger.(µâ£äşÿÿÿÿ8øş‹µ†1

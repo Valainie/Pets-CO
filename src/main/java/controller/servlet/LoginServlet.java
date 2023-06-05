@@ -22,12 +22,12 @@ public class LoginServlet extends HttpServlet {
            UserController controller = new UserController();
             UserBean bean = controller.login(mail,p);
             if (bean == null) {
-                response.sendRedirect("invalidLogin.jsp");
+                response.sendRedirect("userJSP/invalidLogin.jsp");
             }
             else{
                 request.getSession().setAttribute("name", bean.getNome());
 
-            response.sendRedirect("userLogged.jsp");
+            response.sendRedirect("userJSP/userLogged.jsp");
             }
 
         } catch (Exception exception) {

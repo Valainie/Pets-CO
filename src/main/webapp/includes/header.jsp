@@ -1,9 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
 
+<!DOCTYPE html>
 <head>
+  <script type="text/javascript" src="JS/formVal.js"></script>
+  <script type="text/javascript" src="JS/animazioni.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <meta charset="UTF-8">
+  <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 </head>
+
 <style>
   .navbar-nav .nav-item .nav-link {
     color: lightgray;
@@ -51,13 +56,28 @@
 
   .searchbox
   {
-    max-width:180px;
+    max-width:1800px;
+    margin-right: 50px;
   }
 
   #dropdownMenu1
   {
-    margin-left:50px;
+    margin-right:50px;margin-bottom: 50px;
+
   }
+  #dropdownMenu2
+  {
+    margin-right:1500px;
+    margin-bottom: 50px;
+  }
+
+  #dropdownMenu3
+  {
+    margin-left:-500px;
+    margin-bottom: 50px;
+  }
+
+
 
 </style>
 
@@ -74,7 +94,7 @@
 <c:set var="orderDone" value='${param["orderDone"]}' />
 <c:set var="editDone" value='${param["editDone"]}' />
 
-<%--
+
 
 <c:if test="${loginFail}">
   <div class="popup alert alert-warning alert-dismissible fade-in" role="alert">
@@ -134,7 +154,7 @@
     });
   }, 4000);
 </script>
---%>
+
 <!-- navbar -->
 <nav class="navbar navbar-dark navbar-expand-lg"
      style="margin-top: 0px">
@@ -144,8 +164,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+
   <a class="navbar-brand text-white-80" href="homePage.jsp"><img
-          src="Immagini/logo.jpg" class="rounded mx-auto d-block"
+          src="Immagini/Logo.png" class="rounded mx-auto d-block"
           alt="Responsive image"
           style="margin-bottom: 0; max-width: 200px; max-height: 50%"></a>
 
@@ -153,24 +174,18 @@
     <ul class="navbar-nav">
       <!-- 				ricerca mobile -->
       <li class = "msearch nav-item d-block d-lg-none mx-auto">
-        <form action="selezioneP.jsp" method="post"
+        <form action="ProductJSP/selezioneP.jsp" method="post"
               class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2">
           <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">
             <i class="fas fa-search" aria-hidden="true"></i>
           </button>
-          <input class="search-box form-control" type="text" name="searchtxt"
-                 aria-label="Search" placeholder="Cerca un prodotto"
-               style="l">
+          <input class="searchbox form-control" type="text" name="searchtxt"
+                 aria-label="Search" placeholder="Cerca un prodotto">
         </form>
 
       </li>
-      <!-- 				Pets&Ce -->
+      <!-- 				ricerca mobile -->
 
-      <li class="nav-item dropdown"><a
-              class="nav-link dropdown-toggle" href="#"
-              role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false"> Eventi </a>
-      </li>
 
       <c:if test="${accessDone}">
         <c:if test="${isAdmin == true}">
@@ -179,20 +194,28 @@
                   role="button" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false"> Area amministratore </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" style="text-align: left; " href="adminpage.jsp">Area amministratore</a>
+              <a class="dropdown-item" style="text-align: left; " href="AdminJSP/adminpage.jsp">Area amministratore</a>
+              <div class="dropdown-divider"></div>
+              <div style="text-align: center"><button class="btn btn-primary" type="submit">Logout</button></div>
             </div></li>
 
         </c:if>
         <c:if test="${isAdmin != true}">
           <li class="nav-item dropdown d-lg-none"><a
-                  class="nav-link dropdown-toggle" href="#"
+                  class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                   role="button" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false"> Area utente </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" style="text-align: left; " href="userJSP/clientpage.jsp?azione=dati">Dati Utente</a>
+              <a class="dropdown-item" style="text-align: left" href="userJSP/clientpage.jsp?azione=ordini">I miei Ordini</a>
+              <a class="dropdown-item" style="text-align: left" href="userJSP/clientpage.jsp?azione=pagamento">Metodi di Pagamento</a>
+              <div class="dropdown-divider"></div>
+
               <form action="LogoutServlet" method="get">
                 <div style="text-align: center"><button class="btn btn-primary" type="submit">Logout</button></div>
               </form>
             </div></li>
-          <a class="dropdown-item d-lg-none" style="text-align: center" href="cart.jsp">
+          <a class="dropdown-item d-lg-none" style="text-align: center" href="CartJSP/cart.jsp">
             Carrello <i class="fas fa-shopping-cart" aria-hidden="true"></i>
           </a>
         </c:if>
@@ -201,10 +224,10 @@
       <c:if test="${accessDone != true}">
         <li class="nav-item d-block d-lg-none"
             style="border-top: 1px solid #000000"><a class="nav-link"
-                                                     href="mobilelogin.jsp"  role="button">Accedi</a>
+                                                     href="/Gameporium/mobilelogin.jsp" id="navbarDropdown" role="button">Accedi</a>
         </li>
         <li class="nav-item d-block d-lg-none"><a class="nav-link"
-                                                  href="register.jsp"  role="button">Registrati</a>
+                                                  href="userJSP/register.jsp" id="navbarDropdown" role="button">Registrati</a>
         </li>
       </c:if>
 
@@ -218,7 +241,7 @@
     <!-- 			ricerca desktop -->
     <ul class="navbar-nav ml-auto d-none d-lg-block">
       <li class="nav-item mr-auto" style="margin-bottom: 5px;">
-        <form action="productselection.jsp" method="post"
+        <form action="ProductJSP/selezioneP.jsp" method="post"
               class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2">
           <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">
             <i class="fas fa-search" aria-hidden="true"></i>
@@ -234,7 +257,7 @@
     <c:set var="cartcard" value='${sessionScope["cartcardinality"]}' />
     <ul class="navbar-nav">
       <li class="nav-item mr-auto carticon d-xs-block">
-        <a href="/Gameporium/cart.jsp" style="color: #E07D00;">
+        <a href="CartJSP/cart.jsp" style="color: #E07D00;">
           <i class="fas fa-shopping-cart" aria-hidden="true"></i>
           <c:out value="${cartcard}"/>
         </a>
@@ -252,7 +275,7 @@
       <ul class="dropdown-menu dropdown-menu-right mt-2">
 
         <li class="px-3 py-2">
-          <form action="login" method="post" class="form" role="form" name="loginform">
+          <form action="LoginServlet" method="post" class="form" role="form" name="loginform">
 
 
             <div class="form-group" >
@@ -277,7 +300,7 @@
             </div>
 
             <div class="form-group text-right">
-              <small><a href="/Gameporium/register.jsp">Registrati</a></small>
+              <small><a href="userJSP/register.jsp">Registrati</a></small>
             </div>
 
           </form>
@@ -291,15 +314,15 @@
       <c:if test="${isAdmin == null}">
         <div class="navbar-nav nav-item dropdown">
 
-          <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+          <button type="button" id="dropdownMenu2" data-toggle="dropdown"
                   class="btn btn-outline-secondary dropdown-toggle">
             Benvenuto, <c:out value="${currentUser.username}"/> <span class="caret"></span>
           </button>
 
-          <form action="logout" method="get" class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" style="text-align: left; " href="/Gameporium/clientpage.jsp?azione=dati">Dati Utente</a>
-            <a class="dropdown-item" style="text-align: left" href="/Gameporium/clientpage.jsp?azione=ordini">I miei Ordini</a>
-            <a class="dropdown-item" style="text-align: left" href="/Gameporium/clientpage.jsp?azione=pagamento">Metodi di Pagamento</a>
+          <form action="LogoutServlet" method="get" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" style="text-align: left; " href="${pageContext.request.contextPath}/userJSP/userLogged.jsp?azione=dati">Dati Utente</a>
+            <a class="dropdown-item" style="text-align: left" href="${pageContext.request.contextPath}/userJSP/userLogged.jsp?azione=ordini">I miei Ordini</a>
+            <a class="dropdown-item" style="text-align: left" href="${pageContext.request.contextPath}/userJSP/userLogged.jsp?azione=pagamento">Metodi di Pagamento</a>
             <div class="dropdown-divider"></div>
             <div style="text-align: center"><button class="btn btn-primary" type="submit">Logout</button></div>
           </form>
@@ -309,13 +332,13 @@
       <c:if test="${isAdmin == true}">
         <div class="navbar-nav nav-item dropdown">
 
-          <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+          <button type="button" id="dropdownMenu3" data-toggle="dropdown"
                   class="btn btn-outline-secondary dropdown-toggle">
             Benvenuto, amministratore! <span class="caret"></span>
           </button>
 
-          <form action="logout" method="get" class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" style="text-align: left; " href="/Gameporium/adminpage.jsp">Area Amministratore</a>
+          <form action="LogoutServlet" method="get" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" style="text-align: left; " href="AdminJSP/adminpage.jsp">Area Amministratore</a>
             <div class="dropdown-divider"></div>
             <div style="text-align: center"><button class="btn btn-primary" type="submit">Logout</button></div>
           </form>

@@ -54,13 +54,13 @@ public class RegisterServlet extends HttpServlet {
             boolean result = controller.register(cf, n, p, no, c, tel, mail, fax, civ, via, cap, det);
             if (!result) {
                 System.out.println("you are registered already");
-                response.sendRedirect("userLogged.jsp");
+                response.sendRedirect("userJSP/userLogged.jsp");
 
            }
             out.close();
         }catch(NumberFormatException e){
             System.out.println("????" + e);
-            response.sendRedirect("invalidLogin.jsp");
+            response.sendRedirect("userJSP/invalidLogin.jsp");
 
 
         }
