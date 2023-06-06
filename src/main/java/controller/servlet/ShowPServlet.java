@@ -1,7 +1,7 @@
 package controller.servlet;
 
 import bean.PBean;
-import controller.model.PModelDS;
+import product.PModelDS;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

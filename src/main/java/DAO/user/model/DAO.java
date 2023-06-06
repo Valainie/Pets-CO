@@ -1,11 +1,11 @@
-package controller.model;
+package DAO.user.model;
 
 import bean.PBean;
 
 import java.sql.SQLException;
 import java.util.Collection;
 
-public interface PModel {
+public interface DAO {
     public void doSave(PBean product) throws SQLException;
 
     public boolean doDelete(int code) throws SQLException;

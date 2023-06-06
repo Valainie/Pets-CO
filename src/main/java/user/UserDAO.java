@@ -1,4 +1,4 @@
-package controller.user;
+package user;
 
 import bean.UserBean;
 

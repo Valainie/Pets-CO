@@ -1,4 +1,4 @@
-package controller.prodotti;
+package controller.acquisto;
 
 import bean.PBean;
 

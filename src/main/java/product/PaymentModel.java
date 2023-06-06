@@ -1,12 +1,13 @@
-package controller.model;
+package product;
 
+import DAO.user.model.DAO;
 import bean.PBean;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.Collection;
 
-public class PaymentModel implements PModel{
+public class PaymentModel implements DAO {
     private static DataSource ds;
 
     static {

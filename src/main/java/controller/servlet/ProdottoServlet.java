@@ -1,9 +1,9 @@
 package controller.servlet;
 
 import bean.PBean;
-import controller.model.PModel;
-import controller.model.PModelDS;
-import controller.prodotti.Carrello;
+import DAO.user.model.DAO;
+import product.PModelDS;
+import controller.acquisto.Carrello;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,13 +19,13 @@ public class ProdottoServlet extends HttpServlet {
 
     static boolean isDataSource = true;
 
-    static PModel model;
+    static DAO model;
 
     static {
         if (isDataSource) {
             model = new PModelDS();
         } else {
-            model = (PModel) new PModelDS();
+            model = (DAO) new PModelDS();
         }
     }
     @Override

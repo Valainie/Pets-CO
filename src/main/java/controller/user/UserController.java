@@ -1,5 +1,6 @@
 package controller.user;
 
+import user.UserDAO;
 import bean.UserBean;
 
 import javax.naming.Context;

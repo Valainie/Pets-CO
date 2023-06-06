@@ -1,5 +1,6 @@
-package controller.model;
+package product;
 
+import DAO.user.model.DAO;
 import bean.PBean;
 import com.mysql.cj.xdevapi.AddStatement;
 import com.mysql.cj.xdevapi.DbDoc;
@@ -16,7 +17,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class PModelDS implements PModel {
+public class PModelDS implements DAO {
     private static final String TABLE_NAME= "Prodotto";
     private static DataSource ds;
 

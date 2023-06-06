@@ -25,7 +25,7 @@ public class MetodoDiPagamentoBean implements Serializable {
         this.circuito = circuito;
     }
 
-    public BigInteger getNumCarta() {
+    public int getNumCarta() {
         return numCarta;
     }
 
@@ -57,5 +57,9 @@ public class MetodoDiPagamentoBean implements Serializable {
                 ", cvv=" + cvv +
                 ", scadenza='" + scadenza + '\'' +
                 '}';
+    }
+
+    public void setSecureCode() {
+
     }
 }
