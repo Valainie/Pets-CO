@@ -1,4 +1,4 @@
-package user;
+package DAO.user;
 
 import bean.UserBean;
 

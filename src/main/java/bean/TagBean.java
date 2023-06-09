@@ -1,6 +1,8 @@
 package bean;
 
-public class TagBean {
+import java.io.Serializable;
+
+public class TagBean extends Bean implements Serializable {
     private static final long serialVersionUID = 1L;
     String nome;
 

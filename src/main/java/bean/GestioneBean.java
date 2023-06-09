@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class GestioneBean implements Serializable {
+public class GestioneBean extends Bean implements Serializable {
 
     String userAdmin;
     int codiceProdotto;

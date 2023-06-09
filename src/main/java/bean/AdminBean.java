@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class AdminBean implements Serializable {
+public class AdminBean extends Bean implements Serializable {
     String recapito;
     String username;
     String password;
@@ -15,6 +15,10 @@ public class AdminBean implements Serializable {
         this.password = password;
         this.nome = nome;
         this.cognome = cognome;
+    }
+
+    public AdminBean() {
+
     }
 
     public String getRecapito() {

@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class UserBean implements Serializable {
+public class UserBean extends Bean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     String cf;

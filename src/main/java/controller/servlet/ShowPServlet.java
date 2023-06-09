@@ -1,7 +1,8 @@
 package controller.servlet;
 
+import bean.Bean;
 import bean.PBean;
-import product.PModelDS;
+import DAO.product.PModelDS;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,7 +44,7 @@ public class ShowPServlet extends HttpServlet {
         }
         //home
 
-        Collection<PBean> bpr;
+        Collection<Bean> bpr;
 
         String cat=request.getParameter("categoria");
         String val=request.getParameter("value");

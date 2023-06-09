@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.time.LocalDate;
 
-public class AcquistoBean implements Serializable {
+public class AcquistoBean extends Bean implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -25,6 +25,10 @@ public class AcquistoBean implements Serializable {
         this.statoProdotti = statoProdotti;
         this.metodo = metodo;
         this.codiceProdotto = codiceProdotto;
+    }
+
+    public AcquistoBean() {
+
     }
 
     public LocalDate getDataSpedizione() {
@@ -89,6 +93,11 @@ public class AcquistoBean implements Serializable {
 
     public void setCodiceProdotto(int codiceProdotto) {
         this.codiceProdotto = codiceProdotto;
+    }
+
+    @Override
+    public String toString() {
+        return null;
     }
 }
 

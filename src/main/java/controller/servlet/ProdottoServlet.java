@@ -1,9 +1,9 @@
 package controller.servlet;
 
 import bean.PBean;
-import DAO.user.model.DAO;
-import product.PModelDS;
-import controller.acquisto.Carrello;
+import DAO.DAO;
+import DAO.product.PModelDS;
+import DAO.acquisto.Carrello;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,11 +48,11 @@ public class ProdottoServlet extends HttpServlet {
                     int codice = Integer.parseInt(request.getParameter("codice"));
                 } else if (action.equalsIgnoreCase("read")) {
                     int codice = Integer.parseInt(request.getParameter("codice"));
-                    request.removeAttribute("product");
+                    request.removeAttribute("DAO/product");
                     request.setAttribute("product", model.doRetrieveByKey(codice));
                 } else if (action.equalsIgnoreCase("delete")) {
                     int id = Integer.parseInt(request.getParameter("codice"));
-                    model.doDelete(id);
+                    model.doDelete(String.valueOf(id));
                 } else if (action.equalsIgnoreCase("insert")) {
                     String nome = request.getParameter("nome");
                     String description = request.getParameter("description");

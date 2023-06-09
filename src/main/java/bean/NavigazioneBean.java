@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class NavigazioneBean implements Serializable {
+public class NavigazioneBean extends Bean implements Serializable {
     private static final long serialVersionUID = 1L;
     String tag;
     int codiceProdotto;

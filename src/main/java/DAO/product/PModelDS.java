@@ -1,6 +1,7 @@
-package product;
+package DAO.product;
 
-import DAO.user.model.DAO;
+import DAO.DAO;
+import bean.Bean;
 import bean.PBean;
 import com.mysql.cj.xdevapi.AddStatement;
 import com.mysql.cj.xdevapi.DbDoc;
@@ -15,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class PModelDS implements DAO {
@@ -34,61 +36,53 @@ public class PModelDS implements DAO {
     }
 
     private AddStatement product;
+    private Object codice;
 
     @Override
-    public void doSave(PBean product) throws SQLException {
+    public Bean doDelete (String code) throws SQLException {
 
-        PreparedStatement ps =ds.getConnection().prepareStatement(
-                "Insert into Prodotto"+
-               "(Codice,Categoria,Nome,DescrizioneBreve,DescrizioneLunga,Immagine,Prezzo,novita,offerta) VALUES (?,?,?,?,?,?,?,?,?)");
+        String codice= code;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        PBean bean = new PBean();
+
+        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE Codice = ?";
+
         try {
-            ps.setInt(1, product.getCodice());
-            ps.setInt(2,product.getCategoria());
-            ps.setString(3, product.getNome());
-            ps.setString(4, product.getDescrizioneBreve());
-            ps.setString(5, product.getDescrizioneLunga());
-            ps.setString(6, product.getImmagine());
-            ps.setFloat(7, product.getPrezzo());
-            ps.setBoolean(8, product.getNovita());
-            ps.setBoolean(9, product.getOfferta());
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+            preparedStatement.setString(1, codice);
 
+            ResultSet rs = preparedStatement.executeQuery();
 
+            while (rs.next()) {
+                bean.setCodice(rs.getInt("Codice"));
+                bean.setCategoria(rs.getInt("Categoria"));
+                bean.setNome(rs.getString("Nome"));
+                bean.setDescrizioneLunga(rs.getString("Immagine"));
+                bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
+                bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
+                bean.setDisponibilita(rs.getInt("disponibilita"));
+                bean.setPrezzo(rs.getFloat("Prezzo"));
+                bean.setNovita(rs.getBoolean("novita"));
+                bean.setOfferta(rs.getBoolean("offerta"));
+            }
 
-            int rs = ps.executeUpdate();
         } finally {
             try {
-                if (ds != null)
-                    ps.close();
+                if (preparedStatement != null)
+                    preparedStatement.close();
             } finally {
-                if (ps != null)
-                    ps.close();
+                if (connection != null)
+                    connection.close();
             }
         }
+        return bean;
     }
 
     @Override
-    public boolean doDelete(int code) throws SQLException {
-
-//SO CHE PRODOTTO NON HO PIU, QUINDI DO IL, CODICE E MI CANCELLA IL PRODOTTO DAL CATALOGO
-        PreparedStatement ps1 =ds.getConnection().prepareStatement(
-                "DELETE from Prodotto Where Codice=?");
-        try {
-            ps1.setInt(1, code);
-            int rs = ps1.executeUpdate();
-        } finally {
-            try {
-                if (ds != null)
-                    ps1.close();
-            } finally {
-                if (ps1 != null)
-                    ps1.close();
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public PBean doRetrieveByKey(int codice) throws SQLException {
+    public PBean doRetrieveByKey(Object codice) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -99,7 +93,7 @@ public class PModelDS implements DAO {
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setInt(1, codice);
+            preparedStatement.setObject(1, codice);
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -127,7 +121,14 @@ public class PModelDS implements DAO {
         }
         return bean;
     }
-    public Collection<PBean> doRetrieveAll(String codice) throws SQLException {
+
+    @Override
+    public void doSave(Bean bean) throws SQLException {
+
+    }
+
+
+    public Collection<Bean> doRetrieveAll(String codice) throws SQLException {
         String order = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -140,6 +141,7 @@ public class PModelDS implements DAO {
             selectSQL += " ORDER BY" + order;
         }
 
+        PBean bean = null;
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
@@ -147,8 +149,7 @@ public class PModelDS implements DAO {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                PBean bean = new PBean();
-
+                bean = new PBean();
                 bean.setCodice(rs.getInt("Codice"));
                 bean.setCategoria(rs.getInt("Categoria"));
                 bean.setNome(rs.getString("Nome"));
@@ -159,7 +160,7 @@ public class PModelDS implements DAO {
                 bean.setPrezzo(rs.getFloat("Prezzo"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
-                product.add((DbDoc) bean);
+                product.add(String.valueOf(bean));
             }
 
         } finally {
@@ -171,7 +172,7 @@ public class PModelDS implements DAO {
                     connection.close();
             }
         }
-        return products;
+        return Collections.singleton(bean);
     }
 
 
@@ -218,7 +219,7 @@ public class PModelDS implements DAO {
         return product;
     }
 
-    public synchronized Collection<PBean> doRetrieveByTipo(String tipo, Object value) throws SQLException {
+    public synchronized Collection<Bean> doRetrieveByTipo(String tipo, Object value) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -279,14 +280,15 @@ public class PModelDS implements DAO {
 
 
 
-    public synchronized Collection<PBean> doRetrieveByTipo(String tipo) throws SQLException {
+    public synchronized Collection<Bean> doRetrieveByTipo(String tipo) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<PBean> product = new LinkedList<PBean>();
+        Collection<Bean> product = new LinkedList<>();
 
-        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME +" as p JOIN "+ tipo +" as t on p.Codice=t.Tipo";
+        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " as p JOIN " + tipo + " as t on p.Codice=t.Tipo";
         System.out.println(selectSQL);
+        PBean bean = null;
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
@@ -294,16 +296,16 @@ public class PModelDS implements DAO {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                PBean bean = new PBean();
+                bean = new PBean();
 
                 bean.setCodice(rs.getInt("Codice"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
                 bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
-                //bean.setDisponibilita(rs.getInt("disponibilita"));
+                bean.setDisponibilita(rs.getInt("Disponibilita"));
                 bean.setImmagine(rs.getString("Immagine"));
                 bean.setPrezzo(rs.getFloat("prezzo"));
-                //bean.setOfferta(rs.getBoolean("offerta"));
+                bean.setOfferta(rs.getBoolean("Offerta"));
                 product.add(bean);
             }
 
@@ -316,14 +318,14 @@ public class PModelDS implements DAO {
                     connection.close();
             }
         }
-        return product;
+        return Collections.singleton(bean);
     }
 
-    public synchronized Collection<PBean> doRetrieveByResearch(String ric) throws SQLException {
+    public synchronized Collection<Bean> doRetrieveByResearch(String ric) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<PBean> product = new LinkedList<PBean>();
+        Collection<Bean> product = new LinkedList<Bean>();
         String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE MATCH (Nome, DescrizioneBreve) AGAINST ('"+ric+"')";
 
         try {

@@ -1,4 +1,4 @@
-package controller.acquisto;
+package DAO.acquisto;
 
 import bean.PBean;
 
@@ -30,8 +30,7 @@ public class Carrello  {
         return false;
     }
 
-    public void addProduct(PBean doRetrieveByKey) {
-    }
+
 }
 
 
