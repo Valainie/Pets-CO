@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class RecensioneBean implements Serializable {
+public class RecensioneBean extends Bean implements Serializable {
 
     String commenti;
     String username;

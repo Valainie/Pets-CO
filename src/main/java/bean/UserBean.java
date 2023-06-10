@@ -13,8 +13,11 @@ public class UserBean extends Bean implements Serializable {
     int tel;
     String email;
     String dettagli;
+    private Object cartaPred;
 
-    public UserBean(){}
+    public UserBean() {
+    }
+
     public UserBean(String cf, String username, String password, String nome, String cognome, int tel, String email, String dettagli) {
         this.cf = cf;
         this.username = username;
@@ -24,7 +27,11 @@ public class UserBean extends Bean implements Serializable {
         this.tel = tel;
         this.email = email;
         this.dettagli = dettagli;
+        cartaPred=99999;
+
     }
+
+
 
     public String getCf() {
         return cf;
@@ -112,6 +119,11 @@ public class UserBean extends Bean implements Serializable {
 
     public void setValid(boolean newValid) {
         valid = newValid;
+    }
+
+    public long getCartaPred() {
+        this.cartaPred = cartaPred;
+        return 0;
     }
 
 }

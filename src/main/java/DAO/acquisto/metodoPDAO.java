@@ -1,7 +1,6 @@
-package DAO.admin;
+package DAO.acquisto;
 
 import DAO.DAO;
-import bean.AdminBean;
 import bean.Bean;
 import bean.MetodoDiPagamentoBean;
 
@@ -13,11 +12,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class Admin implements DAO {
-
+public class metodoPDAO implements DAO {
     private static DataSource ds;
 
     static {
@@ -32,32 +31,40 @@ public class Admin implements DAO {
         }
     }
 
-    private static final String TABLE_NAME = "Admin";
-
-    @Override
-    public void doSave(Bean admin) throws SQLException {
-        AdminBean a = (AdminBean) admin;
+    private static final String TABLE_NAME = "Metodo_di_Pagamento";
+    public synchronized void customDoSave(MetodoDiPagamentoBean pagamento, String username) throws SQLException {
+        MetodoDiPagamentoBean c= (MetodoDiPagamentoBean) pagamento;
         Connection connection = null;
-        PreparedStatement preparedStatement = null;
+        PreparedStatement entStatement = null;
+        PreparedStatement relStatement = null;
 
-        String insertSQL = "INSERT INTO " + Admin.TABLE_NAME
-                + " (Recapito,Username,Password,Nome,Cognome) VALUES (?, ?, ?, ?, ?)";
+        String insertSQL = "INSERT INTO " + metodoPDAO.TABLE_NAME
+                + " (circuito,numCarta,cvv,scadenza) VALUES (?, ?, ?, ?)";
+
+        String insertRel = "INSERT INTO Possiede(User,numCarta) VALUES (?, ?)";
 
         try {
             connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setString(1, a.getRecapito());
-            preparedStatement.setString(2, a.getUsername());
-            preparedStatement.setString(3, a.getPassword());
-            preparedStatement.setString(4, a.getNome());
-            preparedStatement.setString(5, a.getCognome());
-            preparedStatement.executeUpdate();
+            entStatement = connection.prepareStatement(insertSQL);
+            entStatement.setString(1, c.getCircuito());
+            entStatement.setLong(2, c.getNumCarta());
+            entStatement.setInt(3, c.getCvv());
+            entStatement.setString(4, c.getScadenza());
+            entStatement.executeUpdate();
+
+            relStatement = connection.prepareStatement(insertRel);
+            relStatement.setString(1, username);
+            relStatement.setLong(2, c.getNumCarta());
+            relStatement.executeUpdate();
 
             connection.commit();
         } finally {
             try {
-                if (preparedStatement != null)
-                    preparedStatement.close();
+                if (entStatement != null && relStatement!= null)
+                {
+                    entStatement.close();
+                    relStatement.close();
+                }
             } finally {
                 if (connection != null)
                     connection.close();
@@ -65,22 +72,29 @@ public class Admin implements DAO {
         }
     }
 
+
     @Override
-    public boolean doDelete(Object code) throws SQLException {
-        String username=(String) code;
+    public void doSave(Bean bean) throws SQLException {
+
+    }
+
+    @Override
+    public boolean doDelete(Object codice) throws SQLException {
+        long code=(long) codice;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         int result = 0;
 
-        String deleteSQL = "DELETE FROM " + Admin.TABLE_NAME + " WHERE username = ?";
+        String deleteSQL = "DELETE FROM " + metodoPDAO.TABLE_NAME + " WHERE numCarta = ?";
 
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(deleteSQL);
-            preparedStatement.setString(1, username);
+            preparedStatement.setLong(1, code);
 
             result = preparedStatement.executeUpdate();
+            connection.commit();
 
         } finally {
             try {
@@ -95,109 +109,30 @@ public class Admin implements DAO {
     }
 
 
-
-
     @Override
-    public Bean doRetrieveByKey(Object codice) throws SQLException {
-        String username=(String) codice;
+    public Bean doRetrieveByKey(Object key) throws SQLException {
+
+        int CodiceMetodo= (int) key;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        AdminBean b = new AdminBean();
+        MetodoDiPagamentoBean bean = new MetodoDiPagamentoBean();
 
-        String selectSQL = "SELECT * FROM " + Admin.TABLE_NAME + " WHERE username = ?";
-
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, username);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while (rs.next()) {
-                b.setRecapito(rs.getString("Recapito"));
-                b.setUsername(rs.getString("Username"));
-                b.setPassword(rs.getString("Password"));
-                b.setNome(rs.getString("Nome"));
-                b.setCognome(rs.getString("Cognome"));
-            }
-
-        } finally {
-            try {
-                if (preparedStatement != null)
-                    preparedStatement.close();
-            } finally {
-                if (connection != null)
-                    connection.close();
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public Bean doRetrieveAll(String order) throws SQLException {
-         Connection connection = null;
-        PreparedStatement preparedStatement = null;
-
-        Collection<Bean> Amministratore = new LinkedList<Bean>();
-
-        String selectSQL = "SELECT * FROM " + Admin.TABLE_NAME;
-
-        if (order != null && !order.equals("")) {
-            selectSQL += " ORDER BY " + order;
-        }
+        String selectSQL = "SELECT * FROM " + metodoPDAO.TABLE_NAME + " WHERE numCarta = ?";
 
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
+            preparedStatement.setInt(1, CodiceMetodo);
 
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                AdminBean bean = new AdminBean();
-                bean.setRecapito(rs.getString("Recapito"));
-                bean.setUsername(rs.getString("Username"));
-                bean.setPassword(rs.getString("Password"));
-                bean.setCognome(rs.getString("Nome"));
-                bean.setNome(rs.getString("Cognome"));
-
-                Amministratore.add(bean);
-            }
-
-        } finally {
-            try {
-                if (preparedStatement != null)
-                    preparedStatement.close();
-            } finally {
-                if (connection != null)
-                    connection.close();
-            }
-        }
-        return (Bean) Amministratore;
-    }
-
-    public synchronized AdminBean doRetrieveByUserPass(String user, String pass) throws SQLException {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-
-        AdminBean bean = new AdminBean();
-
-        String selectSQL = "SELECT * FROM " + Admin.TABLE_NAME + " WHERE Username = ? AND `Password` = ?";
-
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, user);
-            preparedStatement.setString(2, pass);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while (rs.next()) {
-                bean.setRecapito(rs.getString("Recapito"));
-                bean.setUsername(rs.getString("Username"));
-                bean.setPassword(rs.getString("Password"));
-                bean.setCognome(rs.getString("Nome"));
-                bean.setNome(rs.getString("Cognome"));
+                bean.setNumCarta((rs.getInt("numCarta")));
+                bean.setCvv(rs.getInt("cvv"));
+                bean.setCircuito(rs.getString("circuito"));
+                bean.setScadenza(rs.getString("scadenza"));
+                bean.setPin();
             }
 
         } finally {
@@ -210,5 +145,84 @@ public class Admin implements DAO {
             }
         }
         return bean;
+    }
+
+
+    @Override
+    public Bean doRetrieveAll(String order) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        ArrayList<metodoPDAO> pagamento = new ArrayList<metodoPDAO>();
+
+        String selectSQL = "SELECT * FROM " + metodoPDAO.TABLE_NAME;
+
+        if (order != null && !order.equals("")) {
+            selectSQL += " ORDER BY " + order;
+        }
+
+        MetodoDiPagamentoBean bean = null;
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                bean = new MetodoDiPagamentoBean();
+
+                bean.setNumCarta((rs.getInt("numCarta")));
+                bean.setCvv(rs.getInt("cvv"));
+                bean.setCircuito(rs.getString("circuito"));
+                bean.setScadenza(rs.getString("scadenza"));
+                bean.setPin();
+                pagamento.add(new metodoPDAO());
+            }
+
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
+        return bean;
+    }
+    public synchronized Collection<Bean> doRetrieveByUser(String user) throws SQLException{
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        Collection<Bean> Pagamento = new LinkedList<Bean>();
+
+        String selectSQL = "SELECT * FROM " + metodoPDAO.TABLE_NAME +" as p JOIN Possiede as po on p.numCarta=po.numCarta WHERE User=?";
+
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+            preparedStatement.setString(1, user);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                MetodoDiPagamentoBean bean = new MetodoDiPagamentoBean();
+
+                bean.setCircuito(rs.getString("circuito"));
+                bean.setNumCarta(rs.getInt("numCarta"));
+                bean.setCvv(rs.getInt("cvv"));
+                bean.setScadenza(rs.getString("scadenza"));
+                bean.setPin();
+                bean.add();
+            }
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
+        return Pagamento;
     }
 }

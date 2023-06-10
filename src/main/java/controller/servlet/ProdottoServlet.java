@@ -43,7 +43,7 @@ public class ProdottoServlet extends HttpServlet {
             if (action != null) {
                 if (action.equalsIgnoreCase("addC")) {
                     int codice = Integer.parseInt(request.getParameter("codice"));
-                    cart.addProduct(model.doRetrieveByKey(codice));
+                    cart.addToCart(model.doRetrieveByKey(codice));
                 } else if (action.equalsIgnoreCase("deleteC")) {
                     int codice = Integer.parseInt(request.getParameter("codice"));
                 } else if (action.equalsIgnoreCase("read")) {

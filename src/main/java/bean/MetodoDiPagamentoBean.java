@@ -3,18 +3,24 @@ package bean;
 import java.io.Serializable;
 import java.math.BigInteger;
 
-public class MetodoDiPagamentoBean implements Serializable {
+public class MetodoDiPagamentoBean extends Bean implements Serializable {
 
     String circuito;
-    BigInteger numCarta;
+    int numCarta;
     int cvv;
     String scadenza;
+    String pin;
 
-    public MetodoDiPagamentoBean(String circuito, BigInteger numCarta, int cvv, String scadenza) {
+
+    public MetodoDiPagamentoBean(String circuito, int numCarta, int cvv, String scadenza) {
         this.circuito = circuito;
         this.numCarta = numCarta;
         this.cvv = cvv;
         this.scadenza = scadenza;
+    }
+
+    public MetodoDiPagamentoBean() {
+
     }
 
     public String getCircuito() {
@@ -29,7 +35,7 @@ public class MetodoDiPagamentoBean implements Serializable {
         return numCarta;
     }
 
-    public void setNumCarta(BigInteger numCarta) {
+    public void setNumCarta(int numCarta) {
         this.numCarta = numCarta;
     }
 
@@ -59,7 +65,18 @@ public class MetodoDiPagamentoBean implements Serializable {
                 '}';
     }
 
-    public void setSecureCode() {
 
+
+    public void add() {
+    }
+
+    public String getPin() {
+
+        return pin;
+    }
+
+    public void setPin() {
+        String pin = Long.toString(numCarta);
+        pin = pin.substring(pin.length() - 4);
     }
 }

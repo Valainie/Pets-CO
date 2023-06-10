@@ -15,7 +15,7 @@ public class UserDAO {
     static Connection currentCon = null;
     static ResultSet rs = null;
     private static DataSource ds;
-    private UserDAO(){}
+    public UserDAO(){}
 
     static {
         try {
@@ -85,5 +85,8 @@ public class UserDAO {
 
             return (bean);
         }
+
+    public void doUpdateCard(String cartaPred, String username, int numCarta) {
     }
+}
 

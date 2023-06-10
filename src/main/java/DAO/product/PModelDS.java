@@ -4,7 +4,6 @@ import DAO.DAO;
 import bean.Bean;
 import bean.PBean;
 import com.mysql.cj.xdevapi.AddStatement;
-import com.mysql.cj.xdevapi.DbDoc;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -15,9 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedList;
+import java.util.*;
 
 public class PModelDS implements DAO {
     private static final String TABLE_NAME= "Prodotto";
@@ -38,97 +35,50 @@ public class PModelDS implements DAO {
     private AddStatement product;
     private Object codice;
 
-    @Override
-    public Bean doDelete (String code) throws SQLException {
 
-        String codice= code;
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
 
-        PBean bean = new PBean();
-
-        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE Codice = ?";
-
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, codice);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while (rs.next()) {
-                bean.setCodice(rs.getInt("Codice"));
-                bean.setCategoria(rs.getInt("Categoria"));
-                bean.setNome(rs.getString("Nome"));
-                bean.setDescrizioneLunga(rs.getString("Immagine"));
-                bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
-                bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
-                bean.setDisponibilita(rs.getInt("disponibilita"));
-                bean.setPrezzo(rs.getFloat("Prezzo"));
-                bean.setNovita(rs.getBoolean("novita"));
-                bean.setOfferta(rs.getBoolean("offerta"));
-            }
-
-        } finally {
-            try {
-                if (preparedStatement != null)
-                    preparedStatement.close();
-            } finally {
-                if (connection != null)
-                    connection.close();
-            }
-        }
-        return bean;
-    }
-
-    @Override
-    public PBean doRetrieveByKey(Object codice) throws SQLException {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-
-        PBean bean = new PBean();
-
-        String selectSQL = "SELECT * FROM Prodotto WHERE Codice = ?";
-
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setObject(1, codice);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while (rs.next()) {
-                bean.setCodice(rs.getInt("Codice"));
-                bean.setCategoria(rs.getInt("Categoria"));
-                bean.setNome(rs.getString("Nome"));
-                bean.setDescrizioneLunga(rs.getString("Immagine"));
-                bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
-                bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
-                bean.setDisponibilita(rs.getInt("disponibilita"));
-                bean.setPrezzo(rs.getFloat("Prezzo"));
-                bean.setNovita(rs.getBoolean("novita"));
-                bean.setOfferta(rs.getBoolean("offerta"));
-                product.add((DbDoc) bean);
-            }
-        } finally {
-            try {
-                if (preparedStatement != null)
-                    preparedStatement.close();
-            } finally {
-                if (connection != null)
-                    connection.close();
-            }
-        }
-        return bean;
-    }
 
     @Override
     public void doSave(Bean bean) throws SQLException {
 
     }
 
+    @Override
+    public boolean doDelete(Object key) throws SQLException {
+        int code=(int) codice;
+        System.out.println(code);
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        int result = 0;
 
-    public Collection<Bean> doRetrieveAll(String codice) throws SQLException {
+        String deleteSQL = "DELETE FROM " + PModelDS.TABLE_NAME + " WHERE Codice = ?";
+
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(deleteSQL);
+            preparedStatement.setInt(1, code);
+            result = preparedStatement.executeUpdate();
+            System.out.println(deleteSQL);
+            connection.commit();
+
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
+        return (result != 0);
+    }
+
+    @Override
+    public Bean doRetrieveByKey(Object key) throws SQLException {
+        return null;
+    }
+
+    public Bean doRetrieveAll(String codice) throws SQLException {
         String order = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -172,7 +122,7 @@ public class PModelDS implements DAO {
                     connection.close();
             }
         }
-        return Collections.singleton(bean);
+        return bean;
     }
 
 
@@ -227,32 +177,33 @@ public class PModelDS implements DAO {
 
         String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE Categoria=? ";
 
+        PBean bean = null;
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
 
-            if(value instanceof String) {
+            if (value instanceof String) {
                 String val = (String) value;
-                String param="%"+val;
+                String param = "%" + val;
                 preparedStatement.setString(1, param);
             }
-            if(value instanceof Integer) {
-                int val= (Integer) value;
+            if (value instanceof Integer) {
+                int val = (Integer) value;
                 preparedStatement.setInt(1, val);
             }
-            if(value instanceof Double) {
-                double val=(Double) value;
+            if (value instanceof Double) {
+                double val = (Double) value;
                 preparedStatement.setDouble(1, val);
             }
-            if(value instanceof Boolean) {
-                Boolean val=(Boolean) value;
+            if (value instanceof Boolean) {
+                Boolean val = (Boolean) value;
                 preparedStatement.setBoolean(1, val);
             }
 
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                PBean bean = new PBean();
+                bean = new PBean();
                 bean.setCodice(rs.getInt("Codice"));
                 bean.setCategoria(rs.getInt("Categoria"));
                 bean.setNome(rs.getString("Nome"));
@@ -275,7 +226,7 @@ public class PModelDS implements DAO {
                     connection.close();
             }
         }
-        return product;
+        return (Collection<Bean>) bean;
     }
 
 
