@@ -6,6 +6,7 @@ import bean.PBean;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.RandomAccess;
 
 public class Carrello implements DAO {
     double quantita;
@@ -49,7 +50,7 @@ public class Carrello implements DAO {
     }
 
     @Override
-    public Bean doRetrieveAll(String order) throws SQLException {
+    public RandomAccess doRetrieveAll(String order) throws SQLException {
         return null;
     }
 }

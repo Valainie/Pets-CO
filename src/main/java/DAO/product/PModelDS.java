@@ -40,8 +40,43 @@ public class PModelDS implements DAO {
 
     @Override
     public void doSave(Bean bean) throws SQLException {
+        PBean p = (PBean) product;
 
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String insertSQL = "INSERT INTO " + PModelDS.TABLE_NAME
+                + " (Codice, Categoria, Immagine, Nome, disponibilita, prezzo, DescrizioneLunga, DescrizioneBreve, novita, offerta) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(insertSQL);
+            preparedStatement.setInt(1, p.getCodice());
+            preparedStatement.setInt(2, p.getCategoria());
+            preparedStatement.setString(3, p.getImmagine());
+            preparedStatement.setString(4, p.getNome());
+            preparedStatement.setInt(5, p.getDisponibilita());
+            preparedStatement.setBigDecimal(6, BigDecimal.valueOf(p.getPrezzo()));
+            preparedStatement.setString(7, p.getDescrizioneBreve());
+            preparedStatement.setString(8, p.getDescrizioneLunga());
+            preparedStatement.setBoolean(9, p.isNovita());
+            preparedStatement.setBoolean(10, p.isOfferta());
+
+
+            preparedStatement.executeUpdate();
+
+            connection.commit();
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
     }
+
 
     @Override
     public boolean doDelete(Object key) throws SQLException {
@@ -75,10 +110,46 @@ public class PModelDS implements DAO {
 
     @Override
     public Bean doRetrieveByKey(Object key) throws SQLException {
-        return null;
+        int code=(int) codice;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        PBean bean = new PBean();
+
+        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE Codice = ?";
+
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+            preparedStatement.setInt(1, code);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                bean.setCodice(rs.getInt("Codice"));
+                bean.setCategoria(rs.getInt("Categoria"));
+                bean.setImmagine(rs.getString("Immagine"));
+                bean.setNome(rs.getString("Nome"));
+                bean.setDisponibilita(rs.getInt("disponibilita"));
+                bean.setPrezzo(rs.getFloat("prezzo"));
+                bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
+                bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
+                bean.setNovita(rs.getBoolean("novita"));
+                bean.setOfferta(rs.getBoolean("offerta"));
+            }
+
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
+        return bean;
     }
 
-    public Bean doRetrieveAll(String codice) throws SQLException {
+    public RandomAccess doRetrieveAll(String codice) throws SQLException {
         String order = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -112,7 +183,6 @@ public class PModelDS implements DAO {
                 bean.setOfferta(rs.getBoolean("offerta"));
                 product.add(String.valueOf(bean));
             }
-
         } finally {
             try {
                 if (preparedStatement != null)
@@ -122,7 +192,7 @@ public class PModelDS implements DAO {
                     connection.close();
             }
         }
-        return bean;
+        return (ArrayList<Bean>) product;
     }
 
 

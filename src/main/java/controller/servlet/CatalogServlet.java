@@ -1,7 +1,7 @@
 package controller.servlet;
 
 import controller.catalogo.Catalogo;
-import controller.catalogo.ProdottoCatalogo;
+import bean.ProdottoCatalogo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,9 +38,6 @@ public class CatalogServlet extends HttpServlet {
         for(int i=0; i<catalogo.getCat().size(); i++) {
             out.println("<HR>");
             item = catalogo.getCat().get(i);
-            // Show error message if sub
-            // class lists item ID
-            // that's not in the catalog.
             if (item == null) {
                 out.println("<FONT COLOR=\"RED\">" +
                         "Unknown item ID " + catalogo.getCat().get(i).getCodice() +

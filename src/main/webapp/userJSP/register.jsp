@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css">
 </head>
 <body>
+<form action="${pageContext.request.contextPath}/LoginServlet" method="post" >
+
 <h1>How can you not be our member yet?</h1>
 
     <img alt="govno" src="https://media.tenor.com/gASV-vc37AsAAAAM/pretty-please-please.gif" style="width: 100px; height: 150px; class:right">

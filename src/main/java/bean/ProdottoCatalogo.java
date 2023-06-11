@@ -1,4 +1,4 @@
-package controller.catalogo;
+package bean;
 
 public class ProdottoCatalogo {
     private int codice;

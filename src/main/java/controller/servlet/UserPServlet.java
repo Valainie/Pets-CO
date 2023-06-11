@@ -1,11 +1,10 @@
 package controller.servlet;
 
-import DAO.acquisto.metodoPDAO;
+import DAO.acquisto.MetodoPDAO;
 import DAO.user.UserDAO;
 import bean.Bean;
 import bean.MetodoDiPagamentoBean;
 import bean.UserBean;
-import controller.user.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -18,7 +17,7 @@ import java.util.Collection;
 public class UserPServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     static UserDAO model=new UserDAO();
-    static metodoPDAO pm =new metodoPDAO();
+    static MetodoPDAO pm =new MetodoPDAO();
 
 
     @SuppressWarnings("unchecked")
@@ -91,7 +90,11 @@ public class UserPServlet extends HttpServlet {
             {
                 session.setAttribute("userFavSecureCode", ((MetodoDiPagamentoBean) b).getPin());
                 session.setAttribute("userFavCircuito", ((MetodoDiPagamentoBean) b).getCircuito());
-                model.doUpdateCard("cartaPred", username, ((MetodoDiPagamentoBean) b).getNumCarta());
+                try {
+                    model.doUpdateCard("cartaPred", username, ((MetodoDiPagamentoBean) b).getNumCarta());
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             }
         }

@@ -10,7 +10,6 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="" />
         </webroots>
-        <sourceRoots />
       </configuration>
     </facet>
   </component>
@@ -29,5 +28,14 @@
     <orderEntry type="library" exported="" name="mysql-connector-j-8.0.33" level="project" />
     <orderEntry type="library" exported="" name="Tomcat 9.0.65" level="application_server_libraries" />
     <orderEntry type="library" exported="" name="jstl-1.2" level="project" />
+    <orderEntry type="library" exported="" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="bootstrap-datepicker" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="moment.js" level="application" />
+    <orderEntry type="library" name="popper.js" level="application" />
+    <orderEntry type="library" name="sweetalert2" level="application" />
+    <orderEntry type="library" name="jquery-1.12.4" level="application" />
+    <orderEntry type="library" name="jquery-ui" level="application" />
   </component>
 </module>

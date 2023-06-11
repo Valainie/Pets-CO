@@ -1,6 +1,6 @@
 package controller.servlet;
 
-import controller.user.UserController;
+import DAO.user.UserController;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

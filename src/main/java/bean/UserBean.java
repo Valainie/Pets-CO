@@ -126,5 +126,7 @@ public class UserBean extends Bean implements Serializable {
         return 0;
     }
 
+    public void setCartaPred(String dettagli) {
+    }
 }
 

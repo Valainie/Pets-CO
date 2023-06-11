@@ -49,7 +49,6 @@ function validateRegister(registerform)
  NOME
  COGNOME
  TEL
- FAX
  CIVICO
  VIA
  CAP
@@ -289,7 +288,7 @@ function validateAddProduct(addproductform){
     }
 
 
-    if(cat=="gioco"){
+    if(cat=="cibo"){
         var e=addproductform.eta.value;
         var sc=addproductform.sceltag.value;
         if(sc==" - "){
@@ -333,18 +332,6 @@ function validateAddProduct(addproductform){
     {
         Swal.fire({
             title: '<h6>Prezzo deve essere un numero!</h6>',
-            toast: true,
-            type: 'error',
-            position: 'top',
-            timer: 2000,
-            showConfirmButton: false
-        })
-        return;
-    }
-    if(isNaN(i))
-    {
-        Swal.fire({
-            title: '<h6>L\'IVA deve essere un numero!</h6>',
             toast: true,
             type: 'error',
             position: 'top',

@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/lt.js"></script>
     <script type="text/javascript" src="JS/formVal.js"></script>
+    <script type="text/javascript" src="JS/FormProcesso.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <link rel="icon" href="#">
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -67,13 +68,13 @@
         </div>
         <div class="sign-item signs-button">
             <button type="button">Iscriviti <%--da fare responsive--%>
-                <href action="${pageContext.request.contextPath}/register.jsp" method="post" > </href>
+                <form action="${pageContext.request.contextPath}/userJSP/register.jsp" method="post" >
+                </form>
             </button>
-
         </div>
     </div>
     <div class="bx footer">
-        <p>Copyright © Pets&CO2023</p>
+        <p>Copyright© Pets&CO2022/23</p>
     </div>
 </div>
 </body>

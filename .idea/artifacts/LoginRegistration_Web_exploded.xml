@@ -16,6 +16,8 @@
           <element id="library" level="application" name="iconify" />
           <element id="library" level="application" name="moment.js" />
           <element id="library" level="application" name="bootstrap-datepicker" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../lib/tomcat-util.jar" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="LoginRegistration/web/Web" />
