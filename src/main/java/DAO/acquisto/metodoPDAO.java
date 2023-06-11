@@ -15,8 +15,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.RandomAccess;
 
-public class metodoPDAO implements DAO {
+public class MetodoPDAO implements DAO {
     private static DataSource ds;
 
     static {
@@ -24,7 +25,7 @@ public class metodoPDAO implements DAO {
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-            ds = (DataSource) envCtx.lookup("jdbc/GameporiumDB");
+            ds = (DataSource) envCtx.lookup("jdbc/PetsECo");
 
         } catch (NamingException e) {
             System.out.println("Error:" + e.getMessage());
@@ -38,7 +39,7 @@ public class metodoPDAO implements DAO {
         PreparedStatement entStatement = null;
         PreparedStatement relStatement = null;
 
-        String insertSQL = "INSERT INTO " + metodoPDAO.TABLE_NAME
+        String insertSQL = "INSERT INTO " + MetodoPDAO.TABLE_NAME
                 + " (circuito,numCarta,cvv,scadenza) VALUES (?, ?, ?, ?)";
 
         String insertRel = "INSERT INTO Possiede(User,numCarta) VALUES (?, ?)";
@@ -86,7 +87,7 @@ public class metodoPDAO implements DAO {
 
         int result = 0;
 
-        String deleteSQL = "DELETE FROM " + metodoPDAO.TABLE_NAME + " WHERE numCarta = ?";
+        String deleteSQL = "DELETE FROM " + MetodoPDAO.TABLE_NAME + " WHERE numCarta = ?";
 
         try {
             connection = ds.getConnection();
@@ -118,7 +119,7 @@ public class metodoPDAO implements DAO {
 
         MetodoDiPagamentoBean bean = new MetodoDiPagamentoBean();
 
-        String selectSQL = "SELECT * FROM " + metodoPDAO.TABLE_NAME + " WHERE numCarta = ?";
+        String selectSQL = "SELECT * FROM " + MetodoPDAO.TABLE_NAME + " WHERE numCarta = ?";
 
         try {
             connection = ds.getConnection();
@@ -149,13 +150,13 @@ public class metodoPDAO implements DAO {
 
 
     @Override
-    public Bean doRetrieveAll(String order) throws SQLException {
+    public RandomAccess doRetrieveAll(String order) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        ArrayList<metodoPDAO> pagamento = new ArrayList<metodoPDAO>();
+        ArrayList<MetodoPDAO> pagamento = new ArrayList<MetodoPDAO>();
 
-        String selectSQL = "SELECT * FROM " + metodoPDAO.TABLE_NAME;
+        String selectSQL = "SELECT * FROM " + MetodoPDAO.TABLE_NAME;
 
         if (order != null && !order.equals("")) {
             selectSQL += " ORDER BY " + order;
@@ -176,7 +177,7 @@ public class metodoPDAO implements DAO {
                 bean.setCircuito(rs.getString("circuito"));
                 bean.setScadenza(rs.getString("scadenza"));
                 bean.setPin();
-                pagamento.add(new metodoPDAO());
+                pagamento.add(new MetodoPDAO());
             }
 
         } finally {
@@ -188,7 +189,7 @@ public class metodoPDAO implements DAO {
                     connection.close();
             }
         }
-        return bean;
+        return pagamento;
     }
     public synchronized Collection<Bean> doRetrieveByUser(String user) throws SQLException{
         Connection connection = null;
@@ -196,7 +197,7 @@ public class metodoPDAO implements DAO {
 
         Collection<Bean> Pagamento = new LinkedList<Bean>();
 
-        String selectSQL = "SELECT * FROM " + metodoPDAO.TABLE_NAME +" as p JOIN Possiede as po on p.numCarta=po.numCarta WHERE User=?";
+        String selectSQL = "SELECT * FROM " + MetodoPDAO.TABLE_NAME +" as p JOIN Possiede as po on p.numCarta=po.numCarta WHERE User=?";
 
         try {
             connection = ds.getConnection();
