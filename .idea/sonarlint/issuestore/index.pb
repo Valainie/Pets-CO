@@ -1,6 +1,4 @@
 
-g
-7src/main/java/controller/catalogo/ProdottoCatalogo.java,c\8\c8a4954cd0e09df8b3c92c710ca72d8a1a117560
 R
 "src/main/webapp/css/userLogged.css,a\5\a5bd7fa9584b6721fa13dd8738c7d4b3bd523cbd
 P
@@ -35,3 +33,35 @@ Q
 !src/main/webapp/ErrorsJSP/404.jsp,e\4\e404c06f387d1e6c57a0e45874a25c374978cde7
 Z
 *src/main/webapp/includes/panelloDestra.jsp,f\d\fda7757a61f9c2b9bdd4cac3ed4f07ce6b2ba014
+R
+"src/main/java/DAO/admin/Admin.java,f\7\f700e73acbd55cb5913256d9f6e65ba44095f701
+X
+(src/main/java/DAO/acquisto/Carrello.java,5\8\58b0bbad46c4e11097d241be8d7a9c5071299a45
+O
+src/main/java/bean/TagBean.java,1\f\1f8fe744e0ddc6bed8a0e7c9d5416d6a67ddbe69
+W
+'src/main/java/bean/NavigazioneBean.java,8\8\884efc2723e6976a94ab0b7a1dd585883aa2c412
+]
+-src/main/java/bean/MetodoDiPagamentoBean.java,a\6\a63bfc0bf8c43e516f0d8ef042ff7733d65a19b9
+P
+ src/main/java/bean/UserBean.java,7\e\7e39ab0e9a95959d370edfa5f697a14774da70a7
+e
+5src/main/java/controller/servlet/ProdottoServlet.java,9\9\994b58a38bd68a7a314186665a0253c5fc42e155
+J
+src/main/java/DAO/DAO.java,9\f\9f39ec83ce0fb6186446d4cafb50dca6191a0c88
+S
+#src/main/java/DAO/user/UserDAO.java,c\7\c7a109e9e1ca540561e7c77cf67aa3d0ef22c95b
+W
+'src/main/java/DAO/product/PModelDS.java,8\b\8b3979ff0150975c450de4d57d6f4cf9539c18e2
+U
+%src/main/java/DAO/user/AddToFavs.java,5\e\5e33fce12100c391f967a0a7306382767bda9882
+Z
+*src/main/java/DAO/acquisto/MetodoPDAO.java,1\8\18f7831398143f09ad9205830e94cdafdd0cc0b6
+i
+9src/main/java/controller/admin/AdminGestioneCServlet.java,3\f\3fe974fa16cacbf7449274c998efa229d62d1e15
+d
+4src/main/java/controller/servlet/PaymentServlet.java,5\c\5ce726f374348510532be390aaca29e4b0eee6cd
+F
+webapp/WEB-INF/web.xml,1\7\17acf86fbbd0ea8e42ee5c9a7dff786e586719c8
+e
+5src/main/java/controller/servlet/RegisterServlet.java,f\a\fa739888175cb22d2b2b15bd9385a8a3274e6867

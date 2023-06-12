@@ -1,14 +1,5 @@
 package DAO.product;
 
-import DAO.DAO;
-import bean.Bean;
-import bean.PBean;
-import com.mysql.cj.xdevapi.AddStatement;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,8 +7,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import DAO.DAO;
+import bean.Bean;
+import bean.PBean;
+
 public class PModelDS implements DAO {
-    private static final String TABLE_NAME= "Prodotto";
+    private static final String TABLE_NAME = "Prodotto";
     private static DataSource ds;
 
     static {
@@ -32,14 +32,11 @@ public class PModelDS implements DAO {
         }
     }
 
-    private AddStatement product;
     private Object codice;
 
 
-
-
     @Override
-    public void doSave(Bean bean) throws SQLException {
+    public void doSave(Bean product) throws SQLException {
         PBean p = (PBean) product;
 
         Connection connection = null;
@@ -80,7 +77,7 @@ public class PModelDS implements DAO {
 
     @Override
     public boolean doDelete(Object key) throws SQLException {
-        int code=(int) codice;
+        int code = (int) codice;
         System.out.println(code);
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -110,7 +107,7 @@ public class PModelDS implements DAO {
 
     @Override
     public Bean doRetrieveByKey(Object key) throws SQLException {
-        int code=(int) codice;
+        int code = (int) codice;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -154,7 +151,7 @@ public class PModelDS implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<PBean> products = new LinkedList<PBean>();
+        ArrayList<String> product = new ArrayList<>();
 
         String selectSQL = "SELECT * FROM Prodotto";
 
@@ -192,9 +189,8 @@ public class PModelDS implements DAO {
                     connection.close();
             }
         }
-        return (ArrayList<Bean>) product;
+        return product;
     }
-
 
 
     public synchronized Collection<PBean> doRetrieveByBool(String no, boolean b) throws SQLException {
@@ -203,7 +199,7 @@ public class PModelDS implements DAO {
 
         Collection<PBean> product = new LinkedList<PBean>();
 
-        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE " + no +"= ? ORDER BY Codice";
+        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE " + no + "= ? ORDER BY Codice";
 
         try {
             connection = ds.getConnection();
@@ -225,7 +221,7 @@ public class PModelDS implements DAO {
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
                 product.add(bean);
-                }
+            }
 
         } finally {
             try {
@@ -300,7 +296,6 @@ public class PModelDS implements DAO {
     }
 
 
-
     public synchronized Collection<Bean> doRetrieveByTipo(String tipo) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -347,7 +342,7 @@ public class PModelDS implements DAO {
         PreparedStatement preparedStatement = null;
 
         Collection<Bean> product = new LinkedList<Bean>();
-        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE MATCH (Nome, DescrizioneBreve) AGAINST ('"+ric+"')";
+        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE MATCH (Nome, DescrizioneBreve) AGAINST ('" + ric + "')";
 
         try {
             connection = ds.getConnection();
@@ -382,43 +377,40 @@ public class PModelDS implements DAO {
         return product;
     }
 
-    public synchronized void doUpdate(String column, int code, Object value) throws SQLException
-    {
+    public synchronized void doUpdate(String column, int code, Object value) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String selectSQL = "UPDATE "+ PModelDS.TABLE_NAME + " as p SET "+column+"= ? WHERE p.Codice="+code;
+        String selectSQL = "UPDATE " + PModelDS.TABLE_NAME + " as p SET " + column + "= ? WHERE p.Codice=" + code;
 
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
 
-            if(value instanceof String) {
+            if (value instanceof String) {
                 String val = (String) value;
                 preparedStatement.setString(1, val);
             }
-            if(value instanceof Integer) {
-                int val= (Integer) value;
+            if (value instanceof Integer) {
+                int val = (Integer) value;
                 preparedStatement.setInt(1, val);
             }
-            if(value instanceof Double) {
-                double val=(Double) value;
+            if (value instanceof Double) {
+                double val = (Double) value;
                 preparedStatement.setDouble(1, val);
             }
-            if(value instanceof Boolean) {
-                Boolean val=(Boolean) value;
+            if (value instanceof Boolean) {
+                Boolean val = (Boolean) value;
                 preparedStatement.setBoolean(1, val);
             }
-            if(value instanceof BigDecimal) {
-                BigDecimal val=(BigDecimal) value;
+            if (value instanceof BigDecimal) {
+                BigDecimal val = (BigDecimal) value;
                 preparedStatement.setBigDecimal(1, val);
             }
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
             connection.commit();
-        }
-
-        finally {
+        } finally {
             try {
                 if (preparedStatement != null)
                     preparedStatement.close();
@@ -428,5 +420,10 @@ public class PModelDS implements DAO {
             }
         }
     }
+
+    public void Naviga (String tag, int codice){
+
+        }
+
 }
 

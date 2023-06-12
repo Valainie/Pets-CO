@@ -1,21 +1,25 @@
 package controller.servlet;
 
-import DAO.acquisto.metodoPDAO;
-import bean.Bean;
-import bean.MetodoDiPagamentoBean;
-import bean.PBean;
-
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import DAO.acquisto.MetodoPDAO;
+import bean.Bean;
+import bean.MetodoDiPagamentoBean;
+import bean.PBean;
+
 @WebServlet(name = "PaymentServlet", value = "/PaymentServlet")
 public class PaymentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    static metodoPDAO pm =new metodoPDAO();
+    static MetodoPDAO pm =new MetodoPDAO();
 
     public PaymentServlet() {
         super();

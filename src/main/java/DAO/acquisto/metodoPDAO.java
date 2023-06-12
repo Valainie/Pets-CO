@@ -1,13 +1,5 @@
 package DAO.acquisto;
 
-import DAO.DAO;
-import bean.Bean;
-import bean.MetodoDiPagamentoBean;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +8,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.RandomAccess;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import DAO.DAO;
+import bean.Bean;
+import bean.MetodoDiPagamentoBean;
 
 public class MetodoPDAO implements DAO {
     private static DataSource ds;
