@@ -593,8 +593,6 @@ Q.idea/sonarlint/securityhotspotstore/c/5/c530e39b4c579682788bd0cf4af7fb63a13435
 Q.idea/sonarlint/securityhotspotstore/9/1/917e84763e9df01a70a0935ed7a39d911ff9279a,7\0\70ef06f9d880de5de9b76973eb73d0a271768fc5
 Å
 Q.idea/sonarlint/securityhotspotstore/3/b/3b0f905a0e0400a8dd8808e7068e341b7e5dc135,c\6\c6c46789410338c3fe49f7974939a563a5d00e86
-]
--.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 w
 G.idea/sonarlint/issuestore/0/d/0daf2f5526bb14ee0de72f99fa0af2294f9e8ff2,f\a\faf978477e6d330f0808e8ba6f3b57291fc232ac
 Å
@@ -671,8 +669,6 @@ w
 G.idea/sonarlint/issuestore/a/3/a3fb7aa3d39e6aa07e9bddcc15dfda97c8cd779f,6\1\61ed74a60ba91aa886f09af98c722f2f36c7efd3
 w
 G.idea/sonarlint/issuestore/1/c/1c15cda1edf0710298b9a204fee2e55a65519b33,b\a\baddb16adc5b3c74506fd3eec29f59efc756875b
-S
-#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 w
 G.idea/sonarlint/issuestore/1/d/1dfa520735808c382026f5536b89fa62b5f86a54,d\d\dd71a9effa38019b7cfe2e9f6fff1ee90fd4b751
 w
@@ -757,8 +753,6 @@ K
 webapp/META-INF/MANIFEST.MF,8\a\8ac879dfaaf794c154cd51a5ed779688871e8273
 L
 webapp/ProductJSP/marche.jsp,4\b\4bb393c67ec42df33c1227bf954c9c8ce5e59e0b
-Z
-*src/main/java/DAO/acquisto/MetodoPDAO.java,1\8\18f7831398143f09ad9205830e94cdafdd0cc0b6
 C
 webapp/JS/ordine.js,2\a\2a43957152e47c34b752083fb19d52af49a9c33a
 G
@@ -775,25 +769,5 @@ M
 webapp/userJSP/userLogged.jsp,c\e\ce36db0370995ebc30085e51e4b6fb421fb0ca74
 F
 webapp/WEB-INF/web.xml,1\7\17acf86fbbd0ea8e42ee5c9a7dff786e586719c8
-K
-webapp/userJSP/myOrders.jsp,8\9\89e2ef428e29dbb95d31123fe7959609f049472c
-L
-webapp/userJSP/preferiti.jsp,2\b\2b34c17799d4b54eb4dc17cbd66f881766400b13
 O
 webapp/userJSP/invalidLogin.jsp,2\7\2749f833e13c0bb37b2de3fe33d33090426559ca
-S
-#webapp/includes/panelloSinistra.jsp,3\6\36ba43bc4ff2e4fcd842c7a1764915e2a2307878
-J
-webapp/includes/footer.jsp,f\a\faf3a9dc81505d37adbb52ef214eec4d3812aef3
-Q
-!webapp/includes/panelloDestra.jsp,8\1\8121661b0bb23a95251c23c29b77359ec0cde6bc
-J
-webapp/includes/header.jsp,d\b\db413a34118e95e05d6a5bafa54216befece5846
-K
-webapp/userJSP/register.jsp,d\6\d649a459d9880f54230c173d895469092c011356
-F
-webapp/mobileLogin.jsp,5\9\5997d2a9608c51bacb8122e2443726a1e8181b15
-C
-webapp/homePage.jsp,7\6\7676bd94b66356e6eaf2764c10df9b750192e0ef
-D
-webapp/css/style.css,a\9\a99d9e149b546b78e64336735cb052d825945f09
