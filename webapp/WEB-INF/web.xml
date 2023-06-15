@@ -14,4 +14,19 @@
         <res-auth>Container</res-auth>
     </resource-ref>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location> /ErrorsJSP/404.jsp </location>
+    </error-page>
+
+    <error-page>
+        <error-code>400</error-code>
+        <location> /ErrorsJSP/400.jsp </location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location> /ErrorsJSP/500.jsp </location>
+    </error-page>
+    <!--Da configurare come Well Formed. Le pagine di errore DEVONO rimanere in questo modo, non si possono unificare-->
 </web-app>

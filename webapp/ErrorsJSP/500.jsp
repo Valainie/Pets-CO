@@ -13,14 +13,14 @@
 <h1>500</h1>
 
 <div class="header">
-    <img src="${pageContext.request.contextPath}Immagini/ConfusedCat.jpg" alt="FOTO ERRORE" width="400" height="392">
+    <img src="${pageContext.request.contextPath}/Immagini/ConfusedCat.jpg" alt="FOTO ERRORE" width="400" height="392">
     <p id="el">Internal Server Error.</p>
 </div>
 
 <div class="error-searchbar">
     <span>
-        <a href="${pageContext.request.contextPath}homePage.jsp" target="_blank">
-        <img width="124" height="115" src="${pageContext.request.contextPath}Immagini/Logo.png" alt="Logo"/>
+        <a href="${pageContext.request.contextPath}/homePage.jsp" target="_blank">
+        <img width="124" height="115" src="${pageContext.request.contextPath}/Immagini/Logo.png" alt="Logo"/>
         </a>
     </span>
     <form action="/action_page.php"> <%--modificare con link a pagina risultati di ricerca--%>
