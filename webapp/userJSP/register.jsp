@@ -8,6 +8,8 @@
 
     <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@include file="/includes/header.jsp"%>
+    <%@include file="/includes/head.jsp"%>
+
 
     <link rel="stylesheet" href="../css/style.css" type="text/css">
 </head>
