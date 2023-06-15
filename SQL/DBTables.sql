@@ -1,3 +1,7 @@
+drop schema if exists PetsECo;
+create schema PetsECo;
+use PetsECo;
+
 create table if not exists Acquisto
 (
     usernameCliente     varchar(500)  null,
