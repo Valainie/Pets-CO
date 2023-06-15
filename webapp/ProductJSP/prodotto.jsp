@@ -38,92 +38,91 @@
     <script src="../../../../../../m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
 </head>
 <body>
-<body>
-<div class="ban-top">
-    <div class="container">
-        <div class="top_nav_left">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed"
-                                data-toggle="collapse"
-                                data-target="#bs-example-navbar-collapse-1"
-                                aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span> <span
-                                class="icon-bar"></span> <span class="icon-bar"></span> <span
-                                class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <jsp:include page="../includes/header.jsp"></jsp:include>
-                </div>
-            </nav>
-        </div>
-
-        <div class="top_nav_right">
-            <div class="cart box_1">
-                <a href="checkout.jsp">
-                    <%
-                        PreparedStatement resultCount =ds.getConnection().prepareStatement(
-                                "SELECT count (*) FROM Acquisto where usernameCliente=? " + session.getAttribute("codice") + "");
-                        ResultSet rs = resultCount.executeQuery();
-                        rs.next();
-                        int count = rs.getInt(1);
-                    %>
-                    <h3>
-                        <div class="total">
-                            <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-                            (
-                            <%=count%>
-                            items )
+    <div class="ban-top">
+        <div class="container">
+            <div class="top_nav_left">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#bs-example-navbar-collapse-1"
+                                    aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span> <span
+                                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                                    class="icon-bar"></span>
+                            </button>
                         </div>
+                        <jsp:include page="../includes/header.jsp"></jsp:include>
+                    </div>
+                </nav>
+            </div>
 
-                    </h3>
-                </a>
+            <div class="top_nav_right">
+                <div class="cart box_1">
+                    <a href="checkout.jsp">
+                        <%
+                            PreparedStatement resultCount =ds.getConnection().prepareStatement(
+                                    "SELECT count (*) FROM Acquisto where usernameCliente=? " + session.getAttribute("codice") + "");
+                            ResultSet rs = resultCount.executeQuery();
+                            rs.next();
+                            int count = rs.getInt(1);
+                        %>
+                        <h3>
+                            <div class="total">
+                                <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+                                (
+                                <%=count%>
+                                items )
+                            </div>
+
+                        </h3>
+                    </a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="page-head">
+        <div class="container">
+            <h3>Products</h3>
+        </div>
+    </div>
+    <br/>
+    <div class="electronics">
+        <div class="container">
+            <div class="clearfix"></div>
+            <div class="ele-bottom-grid">
+                <h3>
+                    Our Products
+                </h3>
+                <%
+                    PreparedStatement ps1 =ds.getConnection().prepareStatement(
+                            "SELECT * FROM Prodotto");
+                %>
+                <form action="addToCartServlet" method="post">
+
+                            <div class="item-info-product ">
+                                <h4>
+                                    <%=PModelDS.
+                                    %>
+                                </h4>
+                                <div class="info-product-price">
+                                    <input type="hidden" name="price" value="<%=retriveProduct.getString("price")%>">
+                                    <input type="hidden" name="mrp_price" value="<%=retriveProduct.getString("mrp_price")%>"> <span class="item_price"><%=retriveProduct.getString("price")%> Rs.</span>
+                                    <del><%=retriveProduct.getString("mrp_price")%> Rs.</del>
+                                </div>
+                                <input type="submit" value="Add to cart" class="btn btn-warning" onclick="return confirm('Are you sure Do you want to add this item in cart?');">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <%
+                    }
+                %>
             </div>
         </div>
-        <div class="clearfix"></div>
     </div>
-</div>
-<div class="page-head">
-    <div class="container">
-        <h3>Products</h3>
-    </div>
-</div>
-<br/>
-<div class="electronics">
-    <div class="container">
-        <div class="clearfix"></div>
-        <div class="ele-bottom-grid">
-            <h3>
-                Our Products
-            </h3>
-            <%
-                PreparedStatement ps1 =ds.getConnection().prepareStatement(
-                        "SELECT * FROM Prodotto");
-            %>
-            <form action="addToCartServlet" method="post">
-
-                        <div class="item-info-product ">
-                            <h4>
-                                <%=PModelDS.
-                                %>
-                            </h4>
-                            <div class="info-product-price">
-                                <input type="hidden" name="price" value="<%=retriveProduct.getString("price")%>">
-                                <input type="hidden" name="mrp_price" value="<%=retriveProduct.getString("mrp_price")%>"> <span class="item_price"><%=retriveProduct.getString("price")%> Rs.</span>
-                                <del><%=retriveProduct.getString("mrp_price")%> Rs.</del>
-                            </div>
-                            <input type="submit" value="Add to cart" class="btn btn-warning" onclick="return confirm('Are you sure Do you want to add this item in cart?');">
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <%
-                }
-            %>
-        </div>
-    </div>
-</div>
-<jsp:include page="../includes/footer.jsp"></jsp:include>
+    <jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>

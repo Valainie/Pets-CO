@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!-- Defining Footer -->
 <div class="coupons">
     <div class="container">
@@ -29,22 +28,22 @@
                 <div class="col-md-3 sign-gd-two">
                     <h4 style="text-align: left;">Contact Us:</h4>
                     <ul style="text-align: left;">
-                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address : Indore, <span>India.</span></li>
-                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email : <a href="mailto:info@data-flair.training">info@data-flair.training</a></li>
+                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address : Indore, <span>India.</span>
+                        </li>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email : <a
+                                href="mailto:info@data-flair.training">info@data-flair.training</a></li>
                         <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone : +91-84510-97879</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col">
-            <br/><br/><br/>
-            <center>
-                <div class="container">
-                    <h4>
-                        &copy;  <span id="year"></span> DataFlair - Online Shopping System |<a href="https://data-flair.training" target="_blank"> Designed by : DataFlair</a>
-                    </h4>
-                </div>
-            </center>
+            <div class="container">
+                <h4>
+                    &copy; <span id="year"></span> DataFlair - Online Shopping System |<a
+                        href="https://data-flair.training" target="_blank"> Designed by : DataFlair</a>
+                </h4>
+            </div>
         </div>
     </div>
 </section>
