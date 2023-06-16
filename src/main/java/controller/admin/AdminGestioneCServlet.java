@@ -2,7 +2,6 @@ package controller.admin;
 
 import DAO.user.UserDAO;
 import bean.Bean;
-import controller.user.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

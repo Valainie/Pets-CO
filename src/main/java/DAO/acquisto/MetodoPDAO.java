@@ -120,7 +120,7 @@ public class MetodoPDAO implements DAO {
 
         MetodoDiPagamentoBean bean = new MetodoDiPagamentoBean();
 
-        String selectSQL = "SELECT * FROM " + MetodoPDAO.TABLE_NAME + " WHERE numCarta = ?";
+        String selectSQL ="SELECT * FROM " + MetodoPDAO.TABLE_NAME + " WHERE numCarta = ?";
 
         try {
             connection = ds.getConnection();

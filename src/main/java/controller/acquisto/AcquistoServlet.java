@@ -1,4 +1,4 @@
-package controller;
+package controller.acquisto;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

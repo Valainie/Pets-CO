@@ -93,44 +93,6 @@ public class UserDAO implements DAO {
             return (bean);
         }
 
-   /* public void doUpdateCard(String cartaPred, String username, int numCarta) {
-
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-
-        String selectSQL = "UPDATE  Possiede WHERE User= ?";
-
-        try {
-            connection = ds.getConnection();
-            preparedStatement = connection.prepareStatement(selectSQL);
-
-            if(value instanceof String) {
-                String val = (String) value;
-                preparedStatement.setString(1, val);
-                preparedStatement.setString(2, username);
-            }
-            if(value instanceof Long) {
-                long val= (Long) value;
-                preparedStatement.setLong(1, val);
-                preparedStatement.setString(2, username);
-            }
-
-            preparedStatement.executeUpdate();
-            connection.commit();
-        }
-
-        finally {
-            try {
-                if (preparedStatement != null)
-                    preparedStatement.close();
-            } finally {
-                if (connection != null)
-                    connection.close();
-            }
-        }
-    }
-    */
-
     @Override
     public void doSave(Bean cliente) throws SQLException {
         UserBean c=(UserBean) cliente;
