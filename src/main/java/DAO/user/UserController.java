@@ -1,19 +1,19 @@
 package DAO.user;
 
-import DAO.user.UserDAO;
-import bean.UserBean;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
+import bean.UserBean;
 
 public class UserController {
     private static DataSource ds;
 
-    public boolean register(String cf, String username,String password,String nome,String cognome, int telefono, String email,int fax, int civico, String via, int cap, String dettagli) {
+    public boolean register(String cf, String username,String password,String nome,String cognome, int telefono, String email, String dettagli) {
 
             try {
                 Context initCtx = new InitialContext();
@@ -34,7 +34,7 @@ public class UserController {
                 return false;
             } else {
                 PreparedStatement ps1 = ds.getConnection().prepareStatement(
-                        "insert into Cliente values(?,?,?,?,?,?,?,?,?,?,?,?)");
+                        "insert into Cliente values(?,?,?,?,?,?,?,?)");
 
                 ps1.setString(1, cf);
                 ps1.setString(2, username);
@@ -43,11 +43,7 @@ public class UserController {
                 ps1.setString(5, cognome);
                 ps1.setInt(6, telefono);
                 ps1.setString(7, email);
-                ps1.setInt(8, fax);
-                ps1.setInt(9, civico);
-                ps1.setString(10, via);
-                ps1.setInt(11, cap);
-                ps1.setString(12, dettagli);
+                ps1.setString(8, dettagli);
 
                 int rs1 = ps.executeUpdate();
                 if (rs1 > 0) {

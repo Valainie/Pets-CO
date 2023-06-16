@@ -1,4 +1,4 @@
-package controller.servlet;
+package controller.user;
 
 import DAO.user.UserController;
 
@@ -44,14 +44,10 @@ public class RegisterServlet extends HttpServlet {
             String c = request.getParameter("Cognome");
             int tel = Integer.parseInt(request.getParameter("Telefono"));
             String mail = request.getParameter("Email");
-            int fax = Integer.parseInt(request.getParameter("Fax"));
-            int civ = Integer.parseInt(request.getParameter("Civico"));
-            String via = request.getParameter("Via");
-            int cap = Integer.parseInt(request.getParameter("Cap"));
             String det = request.getParameter("Dettagli");
 
             UserController controller = new UserController();
-            boolean result = controller.register(cf, n, p, no, c, tel, mail, fax, civ, via, cap, det);
+            boolean result = controller.register(cf, n, p, no, c, tel, mail, det);
             if (!result) {
                 System.out.println("you are registered already");
                 response.sendRedirect("userJSP/userLogged.jsp");
