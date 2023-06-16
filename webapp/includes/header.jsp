@@ -16,7 +16,7 @@
 <c:if test="${loginFail}">
   <div class="popup alert alert-warning alert-dismissible fade-in" role="alert">
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Attenzione,</strong> dati di login errati, riprovare!
+    <strong>Attenzione,</strong> dati di login errati, riprova!
   </div>
 </c:if>
 

@@ -26,13 +26,13 @@
         <div class="col">
             <div class="sign-grds">
                 <div class="col-md-3 sign-gd-two">
-                    <h4 style="text-align: left;">Contact Us:</h4>
+                    <h4 style="text-align: left;">Contattaci :</h4>
                     <ul style="text-align: left;">
-                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address : Indore, <span>India.</span>
+                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Indirizzo : Via Sapo Guarda, <span>Milano.</span>
                         </li>
                         <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email : <a
-                                href="mailto:info@data-flair.training">info@data-flair.training</a></li>
-                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone : +91-84510-97879</li>
+                                href="mail_reale@gmail.com">mail_reale@gmail.com</a></li>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone : +39 06 694201337</li>
                     </ul>
                 </div>
             </div>
@@ -40,8 +40,8 @@
         <div class="col">
             <div class="container">
                 <h4>
-                    &copy; <span id="year"></span> DataFlair - Online Shopping System |<a
-                        href="https://data-flair.training" target="_blank"> Designed by : DataFlair</a>
+                    &copy; <span id="year"></span> Pets&co - Online Pets Shopping  |<a
+                        href="#" target="_blank"> Designed by : Me</a>
                 </h4>
             </div>
         </div>
