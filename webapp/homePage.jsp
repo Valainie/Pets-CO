@@ -13,7 +13,8 @@
             <h1>Prenditi cura dei tuoi amici, abbiamo tutto noi!</h1>
         </div>
         <div class="hero-1 hero-image">
-            <img src="#" alt="provvisorio">
+            <img src="${pageContext.request.contextPath}/Immagini/dog_cat.jpg" alt="Cane E gatto" width="400" height="392">
+
         </div>
     </div>
 <%-- da mettere nella jsp della barra sinistra

@@ -13,7 +13,7 @@
 }
 
 .navbar-toggler {
-    background: #000000; /* pick your color */
+    background: #000000;
 }
 
 .active-cyan-2 input[type=text]:not([readonly]) {
