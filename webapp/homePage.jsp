@@ -6,8 +6,7 @@
 </head>
 <body>
     <%@include file="/includes/header.jsp"%>
-    <p>"--uno slogan--"
-    </p>
+
    <%-- qui ci devono essere il pool delle immagini, lascia sta lo slogan di merda--%>
     <div class="bx hero">
         <div class="hero-1 hero-cta">
@@ -49,7 +48,7 @@
             <p>registrati qui con la tua email</p>
         </div>
         <div class="sign-item signs-button">
-            <a class="sign-item signs-button" href="userJSP/register.jsp">
+            <a class="sign-item signs-button" href="userJSP/register.jsp"> <!-- questo devo portare alla NEWSLETTER non al registrati DA modificare asap -->
             <button type="button">Iscriviti <%--da fare responsive--%>
             </button>
             </a>
