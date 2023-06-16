@@ -20,8 +20,8 @@
                     </div>
                         <div class="content">
                     <div class="title">Cuccia per cani</div>
-                    <div class="prezzo">Prezzo:<span>120€</span></div>
-                    <div class="descrizioneBreve">Una semplice cuccia per cani, //pls continuate il resto</div>
+                    <div class="prezzo">Prezzo:<span>120&euro; </span></div>
+                    <div class="descrizioneBreve">Da prendere dal DB.</div>
                         <button class="AddToCart">add to cart need href</button>
                         <button class="dettagli">dettagli need href</button>
                     </div>
@@ -32,9 +32,9 @@
                         <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
                     </div>
                     <div class="content">
-                <div class="title">Cuccia per cani</div>
-                    <div class="prezzo">Prezzo:<span>120€</span></div>
-                    <div class="descrizioneBreve">Una semplice cuccia per cani, //pls continuate il resto</div>
+                <div class="title">Collare Scalibor</div>
+                    <div class="prezzo">Prezzo:<span>30&euro;</span></div>
+                    <div class="descrizioneBreve">Da prendere dal DB.</div>
                     <button class="AddToCart">add to cart need href</button>
                     <button class="dettagli">dettagli need href</button>
                 </div>

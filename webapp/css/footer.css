@@ -1,3 +1,20 @@
-.footer-section{
+.about-section {
+    background-color: #8067B5;
+    padding: 20px;
+}
 
+
+.about-section .sign-grds .sign-gd-two {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /*  Regolare questa larghezza in base alle esigenze */
+    margin: 0 auto; /* Per centrare il rettangolo nella sezione */
+}
+.about-section .container {
+    text-align: left;
+    font-size: 16px; /* Regola la dimensione del font in base alle tue esigenze */
+    margin-top: 90px; /* Aggiunge uno spazio superiore per separare la classe "container" dalla sezione precedente */
 }
