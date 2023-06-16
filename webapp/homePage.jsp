@@ -11,37 +11,43 @@
     <div class="bx hero">
         <div class="hero-1 hero-cta">
             <h1>Prenditi cura dei tuoi amici, abbiamo tutto noi!</h1>
-        </div>
-        <div class="hero-1 hero-image">
-            <img src="${pageContext.request.contextPath}/Immagini/dog_cat.jpg" alt="Cane E gatto" width="400" height="392">
 
-        </div>
-    </div>
-<%-- da mettere nella jsp della barra sinistra
-            LASCIA QUESTA DIV <div
-                class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block ">
-                <%@include file="includes/panelloSinistra.jsp"%>
-            </div>
-    <div class="bx content">
-        <h2>Categoria</h2>
-        <div class="content-info">
-            <div>
-                <img src="#">
-                <p>Cibo</p>
-            </div>
-            <div>
-                <img src="#">
-                <p>accessori</p>
-            </div>
-            <div>
-                <img src="#">
-                <p>cura</p>
-            </div>
-        </div>
-    </div>
-    <div class="bx quote">
-        --%>
+            <div class="container">
+                <div class="productsBeLike">
+                    <div class="products">
+                    <div class="image">
+                        <img src="${pageContext.request.contextPath}/Immagini/immagini/P2.jpg" alt="">
+                    </div>
+                        <div class="content">
+                    <div class="title">Cuccia per cani</div>
+                    <div class="prezzo">Prezzo:<span>120€</span></div>
+                    <div class="descrizioneBreve">Una semplice cuccia per cani, //pls continuate il resto</div>
+                        <button class="AddToCart">add to cart need href</button>
+                        <button class="dettagli">dettagli need href</button>
+                    </div>
+                </div>
+                    <%--FINE PRIMO PRODOTTO--%>
+                    <div class="products">
+                    <div class="image">
+                        <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
+                    </div>
+                    <div class="content">
+                <div class="title">Cuccia per cani</div>
+                    <div class="prezzo">Prezzo:<span>120€</span></div>
+                    <div class="descrizioneBreve">Una semplice cuccia per cani, //pls continuate il resto</div>
+                    <button class="AddToCart">add to cart need href</button>
+                    <button class="dettagli">dettagli need href</button>
+                </div>
+                </div>
 
+                <%-- CONTINUA A COPIARE DA PRODUCTS A ALLA FINE--%>
+                </div>
+        </div>
+
+      <%--  <div class="hero-1 hero-image">
+            <img src="${pageContext.request.contextPath}/Immagini/dog_cat.jpg" alt="Cane E gatto" width="50" height="30">
+        </div> --%>
+    </div>
     </div>
     <div class="bx sign-up">
         <div class="sign-item signs-text">
