@@ -45,12 +45,13 @@ body {
     align-items: center;
     justify-content: center;
     padding: 90px;
+    flex-direction: row;
 }
 
 .hero-cta {
     flex-basis: 400px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: left;
     margin-right: 50px;
 }
@@ -59,18 +60,19 @@ body {
     background-color: #8067b5;
     margin: auto;
     padding: 10px;
+    direction: ltr;
 }
-.container.productsBeLike{
+.productsBeLike{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
 }
-.container.products{
+.products{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
 }
-.container.productsBeLike.products{
+.products{
     width: 300px;
     height: 420px;
     background-color: #8067b5;
@@ -78,12 +80,12 @@ body {
     box-shadow: #055686;
 
 }
-.container .productsBeLike .products .image{
+ .image{
     width: 100%;
     height: 60%;
 
  }
-.container .productsBeLike .products .image img{
+.image img{
     width: 100%;
     height: 100%;
 }
@@ -96,6 +98,11 @@ body {
     margin-top: -89px;
     margin-bottom: 20px;
     margin-left: 150px;
+}
+
+.title{
+    font-size: 1.5em;
+    font-weight: bold;
 }
 .hero-cta p {
     font-family: 'Roboto', arial;

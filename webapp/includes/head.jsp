@@ -13,7 +13,7 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="css/Home.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/Home.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

@@ -61,7 +61,7 @@
 
             <div class="col-lg-8 col-md-12 ">
                 <div class="row">
-                    <div id="regcenter" class = "container col-lg-6">
+                    <div id="regcenter" class = "container ">
                         <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post" id="reg">
                             <h2>Registrati</h2>
                             <p class="hint-text">Crea un account. Ci vorrà solo un minuto!</p>
