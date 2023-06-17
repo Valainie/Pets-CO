@@ -16,9 +16,12 @@
 <body>
 <form action="${pageContext.request.contextPath}/LoginServlet" method="post" >
 
-<h1>How can you not be our member yet?</h1>
+    <h1>How can you not be our member yet?</h1>
 
-    <img alt="govno" src="https://media.tenor.com/gASV-vc37AsAAAAM/pretty-please-please.gif" style="width: 100px; height: 150px; class:right">
+    <div class="gif-container">
+        <img src="https://media.tenor.com/gASV-vc37AsAAAAM/pretty-please-please.gif" alt="gif">
+    </div>
+
 
     <!-- 	messaggi di errore nella registrazione -->
     <c:set var="notRegistered" value='${requestScope["notRegistered"]}' />
@@ -64,7 +67,7 @@
                     <div id="regcenter" class = "container ">
                         <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post" id="reg">
                             <h2>Registrati</h2>
-                            <p class="hint-text">Crea un account. Ci vorrà solo un minuto!</p>
+                            <p class="hint-text">Crea un account. Ci vorr&agrave; solo un minuto!</p>
 
                             <div class="form-group">
                                 <input type="text" class="form-control" name="name" placeholder="Nome" required>

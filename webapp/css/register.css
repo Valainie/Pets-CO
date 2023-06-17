@@ -255,3 +255,18 @@ h3 {
     color: #fff;
     font-family: 'Roboto', Arial;
 }
+h1 {
+    text-align: center;
+    font-size: 5em;
+}
+
+.gif-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gif-container img {
+    width: 300px;
+    height: auto;
+}
