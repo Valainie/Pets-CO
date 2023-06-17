@@ -24,7 +24,9 @@
 -->
 </div>
 </div>
+
 <section class="about-section">
+
     <div class="row">
         <div class="col">
             <div class="sign-grds">
@@ -48,6 +50,9 @@
                 </h4>
             </div>
         </div>
+    </div>
+    <div class="bx footer">
+        <p>Copyright &copy; Pets&amp;CO 2022-2023. Tutti i diritti riservati.</p>
     </div>
 </section>
 <script>

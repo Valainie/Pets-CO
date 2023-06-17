@@ -11,7 +11,7 @@
     <%@include file="/includes/head.jsp"%>
 
 
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/register.css" type="text/css">
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/LoginServlet" method="post" >
@@ -101,5 +101,6 @@
             <!-- fine sistema di colonne -->
         </div>
     </div>
+    <%@include file="/includes/footer.jsp"%>
 </body>
 </html>
