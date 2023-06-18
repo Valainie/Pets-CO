@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
 </head>
 <body>
 <div class="left-panel">
@@ -15,22 +15,29 @@
 					<h2>Categoria</h2>
 					<div class="content-info">
 						<div>
-							<img src="#">
+							<a class="Zorro" href="http://tiktok.com/@diana_zorro">
+								<img
+										src="${pageContext.request.contextPath}/Immagini/immagini/Food.jpg" class="rounded mx-auto d-block"
+										alt="Responsive image">
+							</a>
 							<p>Cibo</p>
 						</div>
 						<div>
-							<img src="#">
+							<a class="Zorro" href="http://tiktok.com/@diana_zorro">
+								<img
+										src="${pageContext.request.contextPath}/Immagini/immagini/Acc.jpeg" class="rounded mx-auto d-block"
+										alt="Responsive image">
+							</a>
 							<p>accessori</p>
 						</div>
 						<div>
-							<img src="#">
+							<a class="Zorro" href="http://tiktok.com/@diana_zorro">
+								<img
+										src="${pageContext.request.contextPath}/Immagini/immagini/msd-animalhealth.png" class="rounded mx-auto d-block"
+										alt="Responsive image">
+							</a>
 							<p>cura</p>
 						</div>
-					</div>
-				</div>
-				<div class="bx quote">
-					<div class="form-group">
-						<textarea id="prezzo" class="form-control" name="prezzo"></textarea>
 					</div>
 				</div>
 			</form>

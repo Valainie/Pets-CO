@@ -96,8 +96,9 @@
           <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">
             <i class="fas fa-search" aria-hidden="true"></i>
           </button>
-          <input class="searchbox form-control" type="text" name="searchtxt"
-                 aria-label="Search" placeholder="Cerca un prodotto">
+          <form action="/action_page.php"> <%--modificare con link a pagina risultati di ricerca--%>
+            <button type="submit"><span class="iconify" data-icon="material-symbols:search-rounded">Cerca</span></button>
+          </form>
         </form>
 
       </li>
@@ -187,6 +188,7 @@
         <form action="productselection.jsp" method="post"
               class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2">
           <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">
+            <span class="iconify" data-icon="material-symbols:search-rounded">Cerca</span>
             <i class="fas fa-search" aria-hidden="true"></i>
           </button>
           <input class="searchbox form-control" type="text" name="searchtxt"

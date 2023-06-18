@@ -96,6 +96,9 @@
             </div>
             <!-- fine colonna centrale -->
             <!-- colonna destra -->
+            <div class="col-lg-2" style="margin-left: 500px">
+                <%@include file="../includes/panelloDestra.jsp"%>
+            </div>
             <!-- fine sistema di colonne -->
         </div>
     </div>

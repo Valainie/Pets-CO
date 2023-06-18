@@ -131,7 +131,7 @@ h1 {
     text-align: center;
     width: 110px;
     border: none;
-    background: #3882f6;
+    background: #055686;
     padding: 10px;
     border-radius: 8px;
     color: #fff;
@@ -145,55 +145,11 @@ h1 {
     height: 350px;
 }
 
-/* Content Part */
 
-.content {
-    align-items: center;
-}
-
-.content-info {
-    display: flex;
-    /* border: 1px solid gold; */
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.content-info img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 4px solid #3882F6;
-    border-radius: 15px;
-    margin: 5px 20px 0px 20px;
-}
-
-/* Quotation Part */
-
-.quote {
-    display: flex;
-    flex-direction: column;
-    background-color: #E5E7EB;
-    padding: 0 200px;
-}
-
-.quote p {
-    font-size: 36px;
-    color: #8067b5;
-    font-style: italic;
-    font-weight: lighter;
-    font-family: 'Roboto', arial;
-}
-
-.quote b {
-    padding-bottom: 20px;
-    padding-right: 10px;
-    font-family: 'Roboto', arial;
-    text-align: right;
-}
 
 /* Sign Up Part */
 .sign-up {
-    background-color: #03588c ;
+    background-color: #055686 ;
     margin: 50px 200px;
     padding: 10px 80px;
     display: flex;
@@ -232,13 +188,7 @@ h3 {
     font-size: 15px;
 }
 
-/* Footer */
 
-.footer {
-    background-color: #8067b5;
-    color: #fff;
-    font-family: 'Roboto', arial;
-}
 
 
 
