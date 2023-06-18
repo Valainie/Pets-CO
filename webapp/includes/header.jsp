@@ -83,7 +83,7 @@
 
 
   <a class="ui-icon-image" href="${pageContext.request.contextPath}/homePage.jsp"><img
-          src="Immagini/Logo.png" class="rounded mx-auto d-block"
+          src="${pageContext.request.contextPath}/Immagini/Logo.png" class="rounded mx-auto d-block"
           alt="Responsive image"
           style="margin-bottom: 0; max-width: 200px; max-height: 50%"></a>
 

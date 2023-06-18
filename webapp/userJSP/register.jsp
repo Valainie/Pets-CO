@@ -18,11 +18,6 @@
 
     <h1>How can you not be our member yet?</h1>
 
-    <div class="gif-container">
-        <img src="https://media.tenor.com/gASV-vc37AsAAAAM/pretty-please-please.gif" alt="gif">
-    </div>
-
-
     <!-- 	messaggi di errore nella registrazione -->
     <c:set var="notRegistered" value='${requestScope["notRegistered"]}' />
     <c:set var="mailPresent" value='${requestScope["mailPresent"]}' />
@@ -62,7 +57,7 @@
 
             <!-- colonna centrale -->
 
-            <div class="col-lg-8 col-md-12 ">
+            <div class="col ">
                 <div class="row">
                     <div id="regcenter" class = "container ">
                         <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post" id="reg">

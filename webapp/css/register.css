@@ -1,4 +1,3 @@
-/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -28,6 +27,7 @@ body {
     margin-bottom: 150px;
     margin-left: 150px;
 }
+
 
 .fixedtable {
     table-layout: fixed;
@@ -70,19 +70,8 @@ div#mlcenter {
     font-family: Arial;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    background-color: #8067b5;
-    border: 2px solid #03588c;
-
-
-
-
-}
 
 /* Navbar Part */
-
 .navbar {
     display: flex;
     color: #f9faf8;
@@ -90,7 +79,14 @@ div#mlcenter {
     padding: 20px 0px 20px 100px;
     align-items: center;
 }
+.container1{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    margin-right: 50px;
+    margin-left: 50px;
 
+}
 .header-logo img {
     width: 84px;
     height: 84px;
@@ -110,6 +106,11 @@ div#mlcenter {
     padding: 10px;
     font-family: 'Roboto', Arial;
 }
+.p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
 
 /* Hero Part */
 
@@ -125,7 +126,7 @@ div#mlcenter {
 .hero-cta {
     flex-basis: 400px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: left;
     margin-right: 50px;
 }
@@ -230,6 +231,27 @@ h1 {
     opacity: 0.7;
     margin: 5px 30px 30px 50px;
 }
+/*parte centrale del register*/
+a {
+    color: #fffefe;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-inline-size: 400px;
+    margin-block-end: 400px;
+    margin-left: 450px;
+}
+h2{
+    text-align: center;
+}
+h1{text-align: center}
+p{text-align: center}
+
+/*fine parte centrale del register*/
 
 h3 {
     color: #fff;
@@ -248,25 +270,3 @@ h3 {
     font-size: 15px;
 }
 
-/* Footer */
-
-.footer {
-    background-color: #8067b5;
-    color: #fff;
-    font-family: 'Roboto', Arial;
-}
-h1 {
-    text-align: center;
-    font-size: 5em;
-}
-
-.gif-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.gif-container img {
-    width: 300px;
-    height: auto;
-}
