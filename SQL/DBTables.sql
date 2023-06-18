@@ -4,20 +4,20 @@ use PetsECo;
 
 create table if not exists Acquisto
 (
-    usernameCliente     varchar(500)  null,
+    usernameCliente     varchar(500)  not null,
     codiceAcquisto      int           not null
         primary key,
-    indirizzoSpedizione varchar(500)  null,
-    dataOrdine          date          null,
-    dataSpedizione      date          null,
-    importo             float(5, 2)   null,
-    statoProdotti       varchar(1000) null,
-    metodo              bigint        null
+    indirizzoSpedizione varchar(500)  not null,
+    dataOrdine          date          not null,
+    dataSpedizione      date          not null,
+    importo             float(5, 2)   not null,
+    statoProdotti       varchar(1000) not null,
+    metodo              bigint        not null
 );
 
 create table if not exists Admin
 (
-    Recapito varchar(20)  not null,
+    Recapito varchar(50)  not null,
     Username varchar(255) not null
         primary key,
     Password varchar(255) not null,
@@ -35,19 +35,16 @@ create table if not exists Cliente
     Password varchar(255) not null,
     Nome     varchar(255) not null,
     Cognome  varchar(255) not null,
-    Telefono int          null,
+    Telefono varchar(16)  not null,
     Email    varchar(255) not null,
-    Dettagli varchar(255) null,
     constraint Email
-        unique (Email),
-    constraint Username
-        unique (Username)
+        unique (Email)
 );
 
 create table if not exists Effettua
 (
-    username       varchar(16) null,
-    codiceAcquisto int         null,
+    username       varchar(16) not null,
+    codiceAcquisto int         not null,
     constraint Effettua_ibfk_1
         foreign key (username) references Cliente (Username)
             on update cascade on delete cascade,
@@ -66,33 +63,41 @@ create table if not exists Indirizzo
 (
     codiceIndirizzo int         not null
         primary key,
-    citta           varchar(20) null,
-    via             varchar(30) null,
-    civico          int         null,
-    cap             int         null
+    citta           varchar(20) not null,
+    via             varchar(30) not null,
+    civico          int         not null,
+    cap             int         not null,
+    usernameCliente varchar(255) not null,
+    constraint Indirizzo_ibfk_1
+        foreign key (usernameCliente) references Cliente (Username)
+            on update cascade on delete cascade
 );
 
 create table if not exists Metodo_di_Pagamento
 (
-    circuito char(20)   null,
+    circuito char(20)   not null,
     numCarta bigint     not null
         primary key,
-    cvv      int        null,
-    scadenza varchar(7) null
+    cvv      int        not null,
+    scadenza varchar(7) not null,
+    usernameCliente varchar(255) not null,
+    constraint Metodo_di_Pagamento_ibfk_1
+        foreign key (usernameCliente) references Cliente (Username)
+            on update cascade on delete cascade
 );
 
 create table if not exists Prodotto
 (
     Codice           int           not null,
-    Categoria        int           not null,
-    Immagine         varchar(100)  null,
-    Nome             varchar(100)  null,
-    Disponibilita    int           null,
-    prezzo           float(5, 2)   null,
-    DescrizioneBreve varchar(1000) null,
-    DescrizioneLunga varchar(1000) null,
-    novita           tinyint(1)    null,
-    offerta          tinyint(1)    null,
+    Categoria        varchar(30)   not null,
+    Immagine         varchar(1000)  not null,
+    Nome             varchar(100)  not null,
+    Disponibilita    int           not null,
+    prezzo           float(5, 2)   not null,
+    DescrizioneBreve varchar(1000) not null,
+    DescrizioneLunga longtext not null,
+    novita           tinyint(1)    not null,
+    offerta          tinyint(1)    not null,
     primary key (Codice, Categoria)
 );
 
