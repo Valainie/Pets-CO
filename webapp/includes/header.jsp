@@ -1,5 +1,6 @@
 
 
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
 <c:set var="loginFail" value='${param["loginFail"]}' />
 <c:set var="registered" value='${requestScope["registered"]}' />
@@ -73,11 +74,7 @@
 </script>
 
 <!-- navbar -->
-
-
-
-
-<nav class="navbar navbar-dark navbar-expand-lg"
+<nav class="navbar navbar-dark navbar-expand-lg upperBar"
      style="margin-top: 0px">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -96,14 +93,14 @@
 
     <ul style="list-style: none; padding: 0; text-align: center;margin-top: 20 ">
       <li style="display: inline-block; margin-right: 10px;">
-        <a href="pagina-di-ricerca?query=cura" style="display: inline-block; padding: 10px 20px; background-color: #03588c; color: white; text-decoration: none; border-radius: 20px;">Cura</a>
+        <a href="pagina-di-ricerca?query=cura" class="categories">Cura</a>
       </li>
 
       <li style="display: inline-block; margin-right: 10px;">
-        <a href="pagina-di-ricerca?query=cibo" style="display: inline-block; padding: 10px 20px; background-color: #03588c; color: white; text-decoration: none; border-radius: 20px;">Cibo</a>
+        <a href="pagina-di-ricerca?query=cibo" class="categories">Cibo</a>
       </li>
       <li style="display: inline-block; margin-right: 10px;">
-        <a href="pagina-di-ricerca?query=accessori" style="display: inline-block; padding: 10px 20px; background-color: #03588c; color: white; text-decoration: none; border-radius: 20px;">Accessori</a>
+        <a href="pagina-di-ricerca?query=accessori" class="categories">Accessori</a>
       </li>
     </ul>
 
@@ -205,16 +202,11 @@
        id="collapsibleNavbarRight">
 
     <!-- 			ricerca desktop -->
-    <ul class="navbar-nav ml-auto d-none d-lg-block">
+    <ul class="navbar-nav ml-auto d-none d-lg-block searchbar">
       <li class="nav-item mr-auto" style="margin-bottom: 5px;">
-        <form action="productselection.jsp" method="post"
-              class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2">
-          <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">
-            <span class="iconify" data-icon="material-symbols:search-rounded">Cerca</span>
-            <i class="fas fa-search" aria-hidden="true"></i>
-          </button>
-          <input class="searchbox form-control" type="text" name="searchtxt"
-                 aria-label="Search" placeholder="Cerca un prodotto">
+        <form action="productselection.jsp">
+          <input type="text" placeholder="Search.." name="search2">
+          <button type="submit"><span class="iconify" data-icon="material-symbols:search-rounded">Cerca</span></button>
         </form>
       </li>
     </ul>
@@ -237,7 +229,7 @@
     <!-- 			login popup -->
     <c:if test="${accessDone == null}">
       <button type="button" id="dropdownMenu1" data-toggle="dropdown"
-              class="btn btn-outline-secondary dropdown-toggle" onclick="validateLogin(document.loginform.pw, document.loginform.un)">
+              class="btn btn-outline-secondary dropdown-toggle categories" onclick="validateLogin(document.loginform.pw, document.loginform.un)">
         Accedi o registrati <span class="caret"></span>
       </button>
       <ul class="dropdown-menu dropdown-menu-right mt-2">
