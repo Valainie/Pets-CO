@@ -6,7 +6,7 @@
         <div class="col">
             <div class="sign-grds">
                 <div class="container1">
-                    <h4 style="text-align: center;">Università degli Studi di Salerno</h4>
+                    <h4 style="text-align: center;">Universit&agrave; degli Studi di Salerno</h4>
                     <ul style="text-align: center;">
                         <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Team:
 
