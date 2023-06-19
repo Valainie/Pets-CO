@@ -73,6 +73,10 @@
 </script>
 
 <!-- navbar -->
+
+
+
+
 <nav class="navbar navbar-dark navbar-expand-lg"
      style="margin-top: 0px">
 
@@ -86,6 +90,24 @@
           src="${pageContext.request.contextPath}/Immagini/Logo.png" class="rounded mx-auto d-block"
           alt="Responsive image"
           style="margin-bottom: 0; max-width: 200px; max-height: 50%"></a>
+
+
+
+
+    <ul style="list-style: none; padding: 0; text-align: center;margin-top: 20 ">
+      <li style="display: inline-block; margin-right: 10px;">
+        <a href="pagina-di-ricerca?query=cura" style="display: inline-block; padding: 10px 20px; background-color: #03588c; color: white; text-decoration: none; border-radius: 20px;">Cura</a>
+      </li>
+
+      <li style="display: inline-block; margin-right: 10px;">
+        <a href="pagina-di-ricerca?query=cibo" style="display: inline-block; padding: 10px 20px; background-color: #03588c; color: white; text-decoration: none; border-radius: 20px;">Cibo</a>
+      </li>
+      <li style="display: inline-block; margin-right: 10px;">
+        <a href="pagina-di-ricerca?query=accessori" style="display: inline-block; padding: 10px 20px; background-color: #03588c; color: white; text-decoration: none; border-radius: 20px;">Accessori</a>
+      </li>
+    </ul>
+
+
 
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
@@ -179,7 +201,7 @@
   </div>
 
 
-  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 d-none d-lg-block"
+  <div class="navbar-collapse collapse  order-3 dual-collapse2 d-none d-lg-block"
        id="collapsibleNavbarRight">
 
     <!-- 			ricerca desktop -->
@@ -209,6 +231,7 @@
       </li>
     </ul>
     <!-- 			carrello -->
+
 
 
     <!-- 			login popup -->
