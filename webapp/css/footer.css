@@ -1,0 +1,9 @@
+.lowerBar {
+    background-color: #8067b5;
+    color: white;
+}
+
+.lowerBar:link
+{
+    color: orange;
+}

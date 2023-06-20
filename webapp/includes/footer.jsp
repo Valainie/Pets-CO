@@ -2,7 +2,7 @@
 <section class="about-section">
     <link href="css/footer.css" rel="stylesheet" type="text/css" media="all"/>
 
-    <div class="row">
+    <div class="row lowerBar">
         <div class="col">
             <div class="sign-grds">
                 <div class="container1">

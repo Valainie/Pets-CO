@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pannelli.css" type="text/css">
 </head>
 <body>
 <div class="right-panel">
     <!-- pannello di ricerca -->
-    <div class="panelcard card" style="margin-top: 30px">
+    <div class="panelcard card pan" style="margin-top: 30px">
         <div class="card-body">
                 <div class="bx content">
                     <h2>I nostri collaboratori a 4 zampe</h2>

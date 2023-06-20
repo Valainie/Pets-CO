@@ -228,44 +228,46 @@
 
     <!-- 			login popup -->
     <c:if test="${accessDone == null}">
-      <button type="button" id="dropdownMenu1" data-toggle="dropdown"
-              class="btn btn-outline-secondary dropdown-toggle categories" onclick="validateLogin(document.loginform.pw, document.loginform.un)">
-        Accedi o registrati <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-right mt-2">
+      <div>
+        <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+                class="btn btn-outline-secondary dropdown-toggle categories" onclick="validateLogin(document.loginform.pw, document.loginform.un)">
+          Accedi o registrati <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right mt-2">
 
-        <li class="px-3 py-2">
-          <form action="${pageContext.request.contextPath}/LoginServlet" method="post" class="form" role="form" name="loginform">
-
-
-            <div class="form-group" >
-              <input id="emailInput" placeholder="Username" oninput="validateLogin(document.loginform.pw, document.loginform.un)"
-                     class="form-control form-control-sm" type="text" name="un"
-                     required autocomplete="off" value="${cookie.saveUser.value}">
-            </div>
+          <li class="px-3 py-2">
+            <form action="${pageContext.request.contextPath}/LoginServlet" method="post" class="form" role="form" name="loginform">
 
 
-            <div class="form-group">
-              <input id="passwordInput" placeholder="Password" oninput="validateLogin(document.loginform.pw, document.loginform.un)" required
-                     class="form-control form-control-sm" type="password" name="pw" autocomplete="off" value="${cookie.savePass.value}">
-            </div>
+              <div class="form-group" >
+                <input id="emailInput" placeholder="Username" oninput="validateLogin(document.loginform.pw, document.loginform.un)"
+                       class="form-control form-control-sm" type="text" name="un"
+                       required autocomplete="off" value="${cookie.saveUser.value}">
+              </div>
 
-            <div class="form-group">
-              <button type="submit" class="loginbtn btn btn-primary btn-block" disabled>Login</button>
-            </div>
 
-            <div class="form-check text-right">
-              <input type="checkbox" class="form-check-input active unchecked" id="exampleCheck1" name="remember">
-              <label class="form-check-label" for="exampleCheck1">Ricordami</label>
-            </div>
+              <div class="form-group">
+                <input id="passwordInput" placeholder="Password" oninput="validateLogin(document.loginform.pw, document.loginform.un)" required
+                       class="form-control form-control-sm" type="password" name="pw" autocomplete="off" value="${cookie.savePass.value}">
+              </div>
 
-            <div class="form-group text-right">
-              <small><a href="userJSP/register.jsp">Registrati</a></small>
-            </div>
+              <div class="form-group">
+                <button type="submit" class="loginbtn btn btn-primary btn-block" disabled>Login</button>
+              </div>
 
-          </form>
-        </li>
-      </ul>
+              <div class="form-check text-right">
+                <input type="checkbox" class="form-check-input active unchecked" id="exampleCheck1" name="remember">
+                <label class="form-check-label" for="exampleCheck1">Ricordami</label>
+              </div>
+
+              <div class="form-group text-right">
+                <small><a href="userJSP/register.jsp">Registrati</a></small>
+              </div>
+
+            </form>
+          </li>
+        </ul>
+      </div>
     </c:if>
     <!-- 			login popup -->
 
