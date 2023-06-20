@@ -16,7 +16,7 @@
 <body>
 <form action="${pageContext.request.contextPath}/LoginServlet" method="post" >
 
-    <h1>How can you not be our member yet?</h1>
+    <h1 class="Slogan">How can you not be our member yet?</h1>
 
     <!-- 	messaggi di errore nella registrazione -->
     <c:set var="notRegistered" value='${requestScope["notRegistered"]}' />
@@ -51,12 +51,12 @@
             <!-- colonna sinistra -->
             <div
                     class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block ">
-                <%@include file="../includes/panelloSinistra.jsp"%>
+
             </div>
             <!-- fine colonna sinistra -->
 
             <!-- colonna centrale -->
-
+            <div class="registrati">
             <div class="col ">
                 <div class="row">
                     <div id="regcenter" class = "container ">
@@ -94,10 +94,11 @@
                     </div>
                 </div>
             </div>
+            </div>
             <!-- fine colonna centrale -->
             <!-- colonna destra -->
             <div class="col-lg-2" style="margin-left: 500px">
-                <%@include file="../includes/panelloDestra.jsp"%>
+
             </div>
             <!-- fine sistema di colonne -->
         </div>
