@@ -1,15 +1,21 @@
-//da prendere come spunto e modificare
-function validateLogin(password, username)
-
+function validateLogin(password, username, button)
 {
     var p = password.value;
     var u = username.value;
 
-    password.value = htmlEscape(password.value);
-    username.value = htmlEscape(username.value);
-
     var pass = /^.{7,}$/;
 
+    if((p.match(pass)) && (u.length > 0))
+    {
+        button.removeAttribute('disabled');
+    }
+    else
+    {
+        button.setAttribute('disabled', '');
+    }
+    /*
+    password.value = htmlEscape(password.value);
+    username.value = htmlEscape(username.value);
 
     if (!p.match(pass))
     {
@@ -20,28 +26,7 @@ function validateLogin(password, username)
     {
         $(".loginbtn").button({ disabled: false });
     }
-}
-
-function validateMLogin (password,username)
-{
-    var p = password.value;
-    var u = username.value;
-
-    password.value = htmlEscape(password.value);
-    username.value = htmlEscape(username.value);
-
-    var pass = /^.{7,}$/;
-
-
-    if (!p.match(pass))
-    {
-        document.getElementById("prova").disabled = true;
-        return;
-    }
-    else if (u.length > 0)
-    {
-        document.getElementById("prova").disabled = false;
-    }
+    */
 }
 
 function validateRegister(registerform)

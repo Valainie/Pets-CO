@@ -230,7 +230,7 @@
     <c:if test="${accessDone == null}">
       <div>
         <button type="button" id="dropdownMenu1" data-toggle="dropdown"
-                class="btn btn-outline-secondary dropdown-toggle categories" onclick="validateLogin(document.loginform.pw, document.loginform.un)">
+                class="btn btn-outline-secondary dropdown-toggle categories">
           Accedi o registrati <span class="caret"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right mt-2">
@@ -240,19 +240,19 @@
 
 
               <div class="form-group" >
-                <input id="emailInput" placeholder="Username" oninput="validateLogin(document.loginform.pw, document.loginform.un)"
+                <input id="emailInput" placeholder="Username" oninput="validateLogin(document.loginform.pw, document.loginform.un, document.loginform.btn)"
                        class="form-control form-control-sm" type="text" name="un"
                        required autocomplete="off" value="${cookie.saveUser.value}">
               </div>
 
 
               <div class="form-group">
-                <input id="passwordInput" placeholder="Password" oninput="validateLogin(document.loginform.pw, document.loginform.un)" required
+                <input id="passwordInput" placeholder="Password" oninput="validateLogin(document.loginform.pw, document.loginform.un, document.loginform.btn)" required
                        class="form-control form-control-sm" type="password" name="pw" autocomplete="off" value="${cookie.savePass.value}">
               </div>
 
               <div class="form-group">
-                <button type="submit" class="loginbtn btn btn-primary btn-block" disabled>Login</button>
+                <button type="submit" class="loginbtn btn btn-primary btn-block" name="btn" disabled>Login</button>
               </div>
 
               <div class="form-check text-right">

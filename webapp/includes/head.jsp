@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/lt.js"></script>
 <script type="text/javascript" src="JS/formVal.js"></script>
 <script type="text/javascript" src="JS/FormProcesso.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="icon" href="#">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css" media="all"/>
