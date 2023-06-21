@@ -15,6 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 1% 5%;
 }
 
 .upperBar .searchbar form {
@@ -43,4 +44,38 @@
 .upperBar .container {
     display: flex;
     flex-direction: column;
+}
+
+.categories  {
+    margin: 5% 0%;
+    padding: 10px 10px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.categories:hover {
+    background-color: #3e8e41}
+
+
+
+
+.categories:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.offerte_novita{
+    margin: 5%;
+    color: white;
+    font-family: 'Roboto', arial;
+    border: #03588c;
+
 }

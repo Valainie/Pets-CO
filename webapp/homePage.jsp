@@ -13,6 +13,11 @@
         <h1 class="Slogan">Prenditi cura dei tuoi amici, abbiamo tutto noi!</h1>
 
         <div class="vetrina">
+
+            <div class="offerte_novita" >
+                <h2>NOVITA'!!! </h2>
+            </div>
+
             <table>
                 <tr>
                     <td>
@@ -43,8 +48,75 @@
                     </div>
                 </span>
                     </td>
+                    <td>
+                        <div class="products">
+
+                            <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
+
+                            <div class="content">
+                                <div class="title">Collare Scalibor</div>
+                                <div class="prezzo">Prezzo:<span>30&euro;</span></div>
+                                <div class="descrizioneBreve">Da prendere dal DB.</div>
+                                <button class="AddToCart">add to cart need href</button>
+                                <button class="dettagli">dettagli need href</button>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </table>
+
+            <div class="offerte_novita" >
+                <h2>OFFERTE!!! </h2>
+            </div>
+
+
+            <table>
+                <tr>
+                    <td>
+                        <div class="products">
+
+                            <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
+
+                            <div class="content">
+                                <div class="title">Collare Scalibor</div>
+                                <div class="prezzo">Prezzo:<span>30&euro;</span></div>
+                                <div class="descrizioneBreve">Da prendere dal DB.</div>
+                                <button class="AddToCart">add to cart need href</button>
+                                <button class="dettagli">dettagli need href</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                   <span class="products">
+
+                        <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
+
+                    <div class="content">
+                        <div class="title">Collare Scalibor</div>
+                        <div class="prezzo">Prezzo:<span>30&euro;</span></div>
+                        <div class="descrizioneBreve">Da prendere dal DB.</div>
+                        <button class="AddToCart">add to cart need href</button>
+                        <button class="dettagli">dettagli need href</button>
+                    </div>
+                </span>
+                    </td>
+                    <td>
+                        <div class="products">
+
+                            <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
+
+                            <div class="content">
+                                <div class="title">Collare Scalibor</div>
+                                <div class="prezzo">Prezzo:<span>30&euro;</span></div>
+                                <div class="descrizioneBreve">Da prendere dal DB.</div>
+                                <button class="AddToCart">add to cart need href</button>
+                                <button class="dettagli">dettagli need href</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
 
 
             <%-- CONTINUA A COPIARE DA PRODUCTS A ALLA FINE--%>
