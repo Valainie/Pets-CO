@@ -64,7 +64,7 @@
                             <h2>Registrati</h2>
                             <p class="hint-text">Crea un account. Ci vorr&agrave; solo un minuto!</p>
 
-                            <div class="form-group">
+                            <div class="form-group" >
                                 <input type="text" class="form-control" name="name" placeholder="Nome" required>
                                 <input type="text" class="form-control" name="surname" placeholder="Cognome" required>
                             </div>

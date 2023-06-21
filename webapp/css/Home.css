@@ -1,0 +1,132 @@
+body {
+    background-color: #9e8dc4;
+}
+
+img {
+    border-radius: 8px;
+    width: 300px;;
+}
+
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.Slogan {
+    text-align: center;
+    color: #FFFFFF;
+    font-family: Roboto;
+}
+
+.vetrina {
+
+
+    left: 50px;
+    width: calc(100% - 500px);
+
+}
+
+table {
+    text-align: left;
+    position: relative;
+    border-collapse: collapse;
+    background-color: #f6f6f6;
+}
+
+td, th {
+    border: 1px solid #999;
+    padding: 20px;
+}
+
+th {
+    background: #FFFFFF;
+    color: black;
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+}
+
+.bx-sign-up{
+
+    border-radius: 25px;
+    background: #03588c;
+    padding: 20px;
+    width: 50%;
+    height: 10%;
+    margin:  5% 25%;
+
+}
+
+.button-Iscriviti {
+    border-radius: 4px;
+    background-color: darkslateblue;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button-Iscriviti span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button-Iscriviti span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button-Iscriviti:hover span {
+    padding-right: 25px;
+}
+
+.button-Iscriviti:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+
+.AddToCart, .dettagli {
+    margin: 5% 0%;
+    padding: 10px 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+ .dettagli:hover {
+    background-color: #3e8e41}
+
+.AddToCart:hover{
+    background-color: #3e8e41}
+
+
+.dettagli:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.AddToCart:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
