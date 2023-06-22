@@ -38,6 +38,20 @@
                         </div>
                     </td>
                     <td>
+                        <div class="products">
+
+                            <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
+
+                            <div class="content">
+                                <div class="title">Collare Scalibor</div>
+                                <div class="prezzo">Prezzo:<span>30&euro;</span></div>
+                                <div class="descrizioneBreve">Da prendere dal DB.</div>
+                                <button class="AddToCart">add to cart need href</button>
+                                <button class="dettagli">dettagli need href</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
                    <span class="products">
 
                         <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
@@ -117,6 +131,20 @@
                             </div>
                         </div>
                     </td>
+                    <td>
+                        <div class="products">
+
+                            <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
+
+                            <div class="content">
+                                <div class="title">Collare Scalibor</div>
+                                <div class="prezzo">Prezzo:<span>30&euro;</span></div>
+                                <div class="descrizioneBreve">Da prendere dal DB.</div>
+                                <button class="AddToCart">add to cart need href</button>
+                                <button class="dettagli">dettagli need href</button>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </table>
 
@@ -133,7 +161,7 @@
 </div>
 <div class="bx-sign-up">
     <div class="sign-text">
-        <h3>rimani sul pezzo con le ultime offerte!</h3>
+        <h3> rimani sul pezzo con le ultime offerte!</h3>
         <p>registrati qui con la tua email</p>
 
     <div class="sign-item signs-button">
