@@ -7,26 +7,33 @@
 <body>
 <div class="right-panel">
     <!-- pannello di ricerca -->
-    <div class="panelcard card pan" style="margin-top: 30px">
+    <div class="panelcard card pan">
         <div class="card-body">
                 <div class="bx content">
                     <h2>I nostri collaboratori a 4 zampe</h2>
                     <div class="content-info">
-                        <div>
+                        <div class="polaroid">
                             <a class="Zorro" href="http://tiktok.com/@diana_zorro">
                                 <img
-                                    src="${pageContext.request.contextPath}/Immagini/Zorro.jpg" class="rounded mx-auto d-block"
+                                    src="${pageContext.request.contextPath}/Immagini/Zorro.jpg"
                                     alt="Responsive image">
                             </a>
-                             <p>Zorro</p>
+
+                            <div class="container">
+                                <p>Zorro</p>
+                            </div>
                         </div>
-                        <div>
+                        <div class="polaroid">
                             <img src="${pageContext.request.contextPath}/Immagini/Luna.jpg">
-                            <p>Luna</p>
+                            <div class="container">
+                                <p>Luna</p>
+                            </div>
                         </div>
-                        <div>
+                        <div class="polaroid">
                             <img src="${pageContext.request.contextPath}/Immagini/Tyson.jpg">
-                            <p>Tyson</p>
+                            <div class="container">
+                                <p>Tyson</p>
+                            </div>
                         </div>
                     </div>
                 </div>

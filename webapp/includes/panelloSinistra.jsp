@@ -8,7 +8,7 @@
 <body>
 <div class="left-panel">
 	<!-- pannello di ricerca -->
-	<div class="panelcard card pan" style="margin-top: 30px">
+	<div class="panelcard card pan" >
 		<div class="card-body">
 			<form action="/ricercaAvanzata">
 				<div class="bx content">
