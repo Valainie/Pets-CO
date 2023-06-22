@@ -6,11 +6,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/lt.js"></script>
-<script type="text/javascript" src="JS/formVal.js"></script>
-<script type="text/javascript" src="JS/FormProcesso.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/JS/formVal.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/JS/FormProcesso.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="icon" href="#">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css" media="all"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Home.css">
