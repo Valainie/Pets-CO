@@ -7,6 +7,9 @@
 <body>
 <%@include file="/includes/header.jsp" %>
 
+
+
+
 <%-- qui ci devono essere il pool delle immagini, lascia sta lo slogan di merda--%>
 <div class="bx hero">
     <div class="container">
@@ -15,7 +18,7 @@
         <div class="vetrina">
 
             <div class="offerte_novita" >
-                <h2>NOVITA'!!! </h2>
+                <h2> <span class="highlight"> NOVIT&Agrave;</span>        </h2>
             </div>
 
             <table>
@@ -66,7 +69,7 @@
             </table>
 
             <div class="offerte_novita" >
-                <h2>OFFERTE!!! </h2>
+                <h2> <span class="highlight"> OFFERTE</span>       </h2>
             </div>
 
 
@@ -132,7 +135,7 @@
     <div class="sign-text">
         <h3>rimani sul pezzo con le ultime offerte!</h3>
         <p>registrati qui con la tua email</p>
-    </div>
+
     <div class="sign-item signs-button">
         <a class="sign-item signs-button" href="userJSP/register.jsp">
             <!-- questo devo portare alla NEWSLETTER non al registrati DA modificare asap -->
@@ -140,6 +143,7 @@
             </button>
         </a>
     </div>
+</div>
 </div>
 
 </div>

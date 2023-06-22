@@ -57,7 +57,13 @@ th {
 
 }
 
+.sign-text{
+text-align: center;
+    color: white;
+}
+
 .button-Iscriviti {
+
     border-radius: 4px;
     background-color: darkslateblue;
     border: none;
@@ -130,3 +136,25 @@ th {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+
+
+.highlight{
+    position:relative;
+    margin:0 0.5em;
+    padding:0 0.2em;
+}
+
+.highlight:before{
+    content:"";
+    z-index:-1;
+    left: -1em;
+    top:0em;
+    border-width:0.75em;
+    border-style:solid;
+    border-color:orange;
+    position:absolute;
+    width:calc(200% - 0.5em);
+    border-left-color:transparent;
+}
+

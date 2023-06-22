@@ -3,6 +3,9 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
+  <component name="ProjectResources">
+    <resource url="http://www.w3.org/2001/XMLSchema-instance" location="$USER_HOME$/AppData/Local/JetBrains/IntelliJIdea2023.1/extResources/631eabe6_XMLSchema-instance.xml" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
   </component>
