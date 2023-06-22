@@ -5,12 +5,10 @@
     <title>Registrati a Pets&CO!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
     <%@include file="/includes/header.jsp"%>
     <%@include file="/includes/head.jsp"%>
-
-
     <link rel="stylesheet" href="../css/register.css" type="text/css">
 </head>
 <body>
@@ -60,7 +58,7 @@
             <div class="col ">
                 <div class="row">
                     <div id="regcenter" class = "container ">
-                        <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post" id="reg">
+                        <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post">
                             <h2>Registrati</h2>
                             <p class="hint-text">Crea un account. Ci vorr&agrave; solo un minuto!</p>
 

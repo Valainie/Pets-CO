@@ -261,7 +261,7 @@
               </div>
 
               <div class="form-group text-right">
-                <small><a href="userJSP/register.jsp">Registrati</a></small>
+                <small><a href="${pageContext.request.contextPath}\userJSP\register.jsp">Registrati</a></small>
               </div>
 
             </form>
