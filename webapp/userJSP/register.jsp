@@ -57,13 +57,13 @@
 
             <div class="col-lg-8 col-md-12 ">
                 <div class="row">
-<<<<<<< HEAD
+
                     <div id="regcenter" class = "container ">
                         <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post">
-=======
+
                     <div id="regcenter" class = "container col-lg-6">
                         <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post" id="reg">
->>>>>>> 461057c (pt1 del fix delle colonne in register.css)
+
                             <h2>Registrati</h2>
                             <p class="hint-text">Crea un account. Ci vorrà solo un minuto!</p>
 
