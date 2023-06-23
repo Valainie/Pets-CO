@@ -17,23 +17,12 @@ function validateLogin(password, username, button)
 
 function validateRegister(registerform)
 {
-    Swal.fire({
-        title: '<h6>STO PROVANDO!</h6>',
-        toast: true,
-        type: 'error',
-        position: 'top',
-        timer: 2000,
-        showConfirmButton: true
-    });
-    /*
     var n = registerform.elements.length;
     var mailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var pass = /^.{7,}$/;
 
-    for (var i = 0; i < n - 1; i++)
-    {
-        if (registerform.elements[i].value.length == 0)
-        {
+    for (var i = 0; i < n - 1; i++) {
+        if (registerform.elements[i].value.length == 0) {
             Swal.fire({
                 title: '<h6>Completare tutti i campi!</h6>',
                 toast: true,
@@ -43,8 +32,7 @@ function validateRegister(registerform)
                 showConfirmButton: false
             })
             return;
-        }
-        else
+        } else
             registerform.elements[i].value = htmlEscape(registerform.elements[i].value);
     }
 
@@ -106,7 +94,6 @@ function validateRegister(registerform)
     }
 
     registerform.submit();
-    */
 }
 
 function validateCreditCard(form)
