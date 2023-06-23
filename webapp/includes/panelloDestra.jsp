@@ -5,10 +5,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pannelli.css" type="text/css">
 </head>
 <body>
-<div class="right-panel">
+<div id="right-panel" class="col" style="max-height: 70%">
     <!-- pannello di ricerca -->
-    <div class="panelcard card pan">
-        <div class="card-body">
+    <div class="panelcard card pan" style="max-width: 400%">
+        <div class="card-body" style="max-width: 100%">
                 <div class="bx content">
                     <h2>I nostri collaboratori a 4 zampe</h2>
                     <div class="content-info">
@@ -18,7 +18,6 @@
                                     src="${pageContext.request.contextPath}/Immagini/Zorro.jpg"
                                     alt="Responsive image">
                             </a>
-
                             <div class="container">
                                 <p>Zorro</p>
                             </div>

@@ -16,6 +16,10 @@ img:hover {
     color: #FFFFFF;
     font-family: Roboto;
 }
+.vetrina{
+    display: flex;
+    max-width: 70%;
+}
 
 
 

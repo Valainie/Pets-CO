@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <%@include file="/includes/head.jsp" %>
     <title>PETS&CO</title>
 </head>
 <body>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Home.css">
+
 <%@include file="/includes/header.jsp" %>
 
 
 <h1 class="Slogan">Prenditi cura dei tuoi amici, abbiamo tutto noi!</h1>
 
-<div class="contenitore">
 
-
-<div class="pannelloSx">
+<div class="row" style="margin-left: 1%">
+<div
+        id="PanelloSx"
+        class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block ">
     <%@include file="/includes/panelloSinistra.jsp" %>
 </div>
 
 <%-- qui ci devono essere il pool delle immagini, lascia sta lo slogan di merda--%>
 
-
-
-    <div class="vetrina">
+    <div id="vetrina" class="col" style="max-width: 65%">
 
         <div class="offerte_novita" >
             <h2> <span class="highlight"> NOVIT&Agrave;</span>        </h2>
@@ -157,23 +158,13 @@
             </table>
         </div>
 
-
-
-        <%-- CONTINUA A COPIARE DA PRODUCTS A ALLA FINE--%>
-
+    </div>
+    <div
+            id="pannelloDx"
+            class= "col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block">
+        <%@include file="/includes/panelloDestra.jsp" %>
     </div>
 
-</div>
-<div class="pannelloDx">
-    <%@include file="/includes/panelloDestra.jsp" %>
-</div>
-</div>
-
-
-
-
-
-</div>
 <div class="bx-sign-up">
     <div class="sign-text">
         <h3> rimani sul pezzo con le ultime offerte!</h3>
@@ -189,7 +180,7 @@
     </div>
 </div>
 
-</div>
+
 <%@include file="includes/footer.jsp" %>
 </body>
 </html>

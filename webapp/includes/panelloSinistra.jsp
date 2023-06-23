@@ -10,7 +10,6 @@
 	<!-- pannello di ricerca -->
 	<div class="panelcard card pan" >
 		<div class="card-body">
-			<form action="/ricercaAvanzata">
 				<div class="bx content">
 					<h2>Categoria</h2>
 					<div class="content-info">
@@ -40,7 +39,6 @@
 						</div>
 					</div>
 				</div>
-			</form>
 		</div>
 	</div>
 	<!-- fine pannello di ricerca -->

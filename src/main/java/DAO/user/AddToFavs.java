@@ -8,7 +8,7 @@ import java.util.RandomAccess;
 
 public class AddToFavs implements DAO {
     @Override
-    public void doSave(Bean bean) throws SQLException {
+    public void doSave(Bean preferiti) throws SQLException {
 
     }
 

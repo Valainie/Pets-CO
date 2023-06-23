@@ -25,7 +25,7 @@ public class Admin implements DAO {
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-            ds = (DataSource) envCtx.lookup("jdbc/GameporiumDB");
+            ds = (DataSource) envCtx.lookup("jdbc/storage");
 
         } catch (NamingException e) {
             System.out.println("Error:" + e.getMessage());
@@ -93,8 +93,6 @@ public class Admin implements DAO {
         }
         return (result != 0);
     }
-
-
 
 
     @Override

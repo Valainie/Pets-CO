@@ -130,9 +130,9 @@ public class MetodoPDAO implements DAO {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
+                bean.setCircuito(rs.getString("circuito"));
                 bean.setNumCarta((rs.getInt("numCarta")));
                 bean.setCvv(rs.getInt("cvv"));
-                bean.setCircuito(rs.getString("circuito"));
                 bean.setScadenza(rs.getString("scadenza"));
                 bean.setPin();
             }

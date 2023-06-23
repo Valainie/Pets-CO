@@ -9,29 +9,31 @@
 
     <%@include file="/includes/header.jsp"%>
     <%@include file="/includes/head.jsp"%>
-    <link rel="stylesheet" href="../css/register.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css" type="text/css">
 </head>
 <body>
+
 <form action="${pageContext.request.contextPath}/LoginServlet" method="post" >
 
     <h1 class="Slogan">How can you not be our member yet?</h1>
 
-    <!-- 	messaggi di errore nella registrazione -->
     <c:set var="notRegistered" value='${requestScope["notRegistered"]}' />
     <c:set var="mailPresent" value='${requestScope["mailPresent"]}' />
     <c:set var="userPresent" value='${requestScope["userPresent"]}' />
 
     <div class="allpagecontainer container-fluid ">
         <c:if test="${notRegistered}">
-            <div>
+            <div class="alert alert-warning alert-dismissible fade-in" role="alert">
                 <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Attenzione,</strong> la registrazione non è andata a buon fine, riprovare!
             </div>
         </c:if>
 
         <c:if test="${mailPresent}">
+            <div class="alert alert-warning alert-dismissible fade-in" role="alert">
                 <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Attenzione,</strong> l'indirizzo email inserito è già in uso!
+            </div>
         </c:if>
 
         <c:if test="${userPresent}">
@@ -49,7 +51,7 @@
             <!-- colonna sinistra -->
             <div
                     class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block ">
-                <%@include file="../includes/panelloSinistra.jsp"%>
+                <%@include file="/includes/panelloSinistra.jsp"%>
             </div>
             <!-- fine colonna sinistra -->
 
@@ -57,14 +59,13 @@
 
             <div class="col-lg-8 col-md-12 ">
                 <div class="row">
-
-                    <div id="regcenter" class = "container ">
-                        <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post">
-
                     <div id="regcenter" class = "container col-lg-6">
+                        <div class="container1">
                         <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post" id="reg">
-
+                            <div class="col1" >
+                                <div class="h2">
                             <h2>Registrati</h2>
+                                </div>
                             <p class="hint-text">Crea un account. Ci vorrà solo un minuto!</p>
 
                             <div class="form-group">
@@ -93,7 +94,9 @@
                             <div id="regbutton" class="center-block form-group">
                                 <button type="button" onclick="validateRegister(document.registerform)" class="btn btn-success btn-lg btn-block" >Registrati adesso!</button>
                             </div>
+                            </div>
                         </form>
+                        </div>
                     </div>
                 </div>
             </div>

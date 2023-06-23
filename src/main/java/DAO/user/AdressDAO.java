@@ -23,7 +23,7 @@ public class AdressDAO implements DAO {
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-            ds = (DataSource) envCtx.lookup("jdbc/GameporiumDB");
+            ds = (DataSource) envCtx.lookup("jdbc/storage");
 
         } catch (NamingException e) {
             System.out.println("Error:" + e.getMessage());
@@ -135,7 +135,7 @@ public class AdressDAO implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        ArrayList<Bean> Indirizzo = new ArrayList<>();
+        ArrayList<Bean> indirizzo = new ArrayList<>();
 
         String selectSQL = "SELECT * FROM " + AdressDAO.TABLE_NAME;
 
@@ -157,7 +157,7 @@ public class AdressDAO implements DAO {
                 bean.setCivico(rs.getInt("civico"));
                 bean.setCittà(rs.getString("citta"));
                 bean.setCap(rs.getInt("cap"));
-                Indirizzo.add(bean);
+                indirizzo.add(bean);
             }
 
         } finally {
@@ -169,6 +169,6 @@ public class AdressDAO implements DAO {
                     connection.close();
             }
         }
-        return Indirizzo;
+        return indirizzo;
     }
 }

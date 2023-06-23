@@ -10,3 +10,25 @@ body
 }
 
 /*necessita versione per mobile*/
+.container1{
+    display: -ms-flexbox;
+    background-color: #8067b5;
+    child-align: middle;
+
+}
+
+/*non fa allineare tutte le div insieme*/
+.col1{
+    margin-left: 5%;
+    max-width: 90%;
+}
+#regbutton{
+    margin-left: 25%;
+}
+.h2{
+    margin-left: 30%;
+}
+.hint-text{
+    margin-left: 15%;
+
+}
