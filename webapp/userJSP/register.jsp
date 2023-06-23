@@ -49,20 +49,25 @@
             <!-- colonna sinistra -->
             <div
                     class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block ">
-
+                <%@include file="../includes/panelloSinistra.jsp"%>
             </div>
             <!-- fine colonna sinistra -->
 
             <!-- colonna centrale -->
-            <div class="registrati">
-            <div class="col ">
+
+            <div class="col-lg-8 col-md-12 ">
                 <div class="row">
+<<<<<<< HEAD
                     <div id="regcenter" class = "container ">
                         <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post">
+=======
+                    <div id="regcenter" class = "container col-lg-6">
+                        <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post" id="reg">
+>>>>>>> 461057c (pt1 del fix delle colonne in register.css)
                             <h2>Registrati</h2>
-                            <p class="hint-text">Crea un account. Ci vorr&agrave; solo un minuto!</p>
+                            <p class="hint-text">Crea un account. Ci vorrà solo un minuto!</p>
 
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <input type="text" class="form-control" name="name" placeholder="Nome" required>
                                 <input type="text" class="form-control" name="surname" placeholder="Cognome" required>
                             </div>
@@ -92,15 +97,18 @@
                     </div>
                 </div>
             </div>
-            </div>
             <!-- fine colonna centrale -->
             <!-- colonna destra -->
-            <div class="col-lg-2" style="margin-left: 500px">
-
+            <div
+                    class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block ">
+                <%@include file="../includes/panelloDestra.jsp"%>
             </div>
+
             <!-- fine sistema di colonne -->
         </div>
     </div>
     <%@include file="/includes/footer.jsp"%>
 </body>
 </html>
+
+
