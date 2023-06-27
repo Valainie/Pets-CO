@@ -23,16 +23,18 @@
  <div class="col"> <!-- Questa è la colonna centrale - Questa è quella per mettere effettivamente la roba-->
      <div class="row">
      <div class="col">
-         <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="Immagine prodotto">
+         <img class="imgprod" src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="Immagine prodotto">
      </div>
          <div class="col">
              <div class="title"><h3>Collare Scalibor</h3></div>
-             <div class="barravoti">
+             <div>
+                 <span class ="barravoti">
                  <iconify-icon icon="ion:paw"></iconify-icon>
                  <iconify-icon icon="ion:paw"></iconify-icon>
                  <iconify-icon icon="ion:paw"></iconify-icon>
                  <iconify-icon icon="ion:paw"></iconify-icon>
                  <iconify-icon icon="ion:paw-outline"></iconify-icon>
+                 </span>
              </div>
              <div class="descrizioneLunga">Da prendere dal DB. Far un rettangolo intorno.
                  Lorem ipsum dolor sit amet, eum aeque oblique ad, case tritani cu vel, id dicta nullam appareat pri.
@@ -42,13 +44,13 @@
              <div class="prezzo">Prezzo: <span>30&euro;</span></div>
          </div>
      </div>
-     <div class="Spacer">SPAZIO (PROMEMORIA)</div>
+
      <div class="row">
          <div class="col">
-             <h4>Recensione</h4>
+             <h4 class="recTitle">Recensione</h4>
              <div class="recensione">
                  <div class="commento">
-                     <span>NOME UTENTE</span>
+                     <span class="username">NOME UTENTE</span>
                      <span class="barravoti">
                          <iconify-icon icon="ion:paw"></iconify-icon>
                          <iconify-icon icon="ion:paw"></iconify-icon>
@@ -56,29 +58,16 @@
                          <iconify-icon icon="ion:paw"></iconify-icon>
                          <iconify-icon icon="ion:paw-outline"></iconify-icon>
                      </span>
-                     <div class="commento-testo>">
-                         LOREM IPSUM
-                     </div>
-                 </div>
-                 <div class="commento">
-                     <span>NOME UTENTE</span>
-                     <span class="barravoti">
-                         <iconify-icon icon="ion:paw"></iconify-icon>
-                         <iconify-icon icon="ion:paw"></iconify-icon>
-                         <iconify-icon icon="ion:paw"></iconify-icon>
-                         <iconify-icon icon="ion:paw"></iconify-icon>
-                         <iconify-icon icon="ion:paw-outline"></iconify-icon>
-                     </span>
-                     <div class="commento-testo>">
-                         LOREM IPSUM
+                     <div class="comtesto>">
+                         <p>LOREM IPSUM</p>
                      </div>
                  </div>
              </div>
          </div>
          <div class="col">
              <button class="AddCart">Aggiungi al <iconify-icon icon="raphael:cart"></iconify-icon></button>
-             <div>Dai un occhiata a questo consigliato:</div>
              <div class="consiglio">
+                 <div>Dai un occhiata a questo consigliato:</div>
                  <a href="http://tiktok.com/@diana_zorro"><img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="Immagine prodotto"></a>
              </div>
          </div>

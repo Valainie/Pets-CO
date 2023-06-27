@@ -2,10 +2,16 @@ body {
     background-color: #9e8dc4;
 }
 
+.imgprod {
+    border-radius: 8px;
+
+    max-width: 100%;
+}
+
 img {
     border-radius: 8px;
 
-    max-width: 25%;
+    max-width: 50%;
 }
 
 img:hover {
@@ -15,4 +21,102 @@ img:hover {
 .descrizioneLunga {
     border-color: #03588c;
     border-width: 10px;
+}
+
+.Slogan {
+    text-align: center;
+    color: #FFFFFF;
+    font-family: Roboto;
+}
+
+.title{
+    color: #FFFFFF;
+    font-family: Roboto;
+}
+
+.barravoti{
+    background-color: #f3f3f3;
+    color: #03588CFF;
+    border-radius: 4px;
+    border-width: 5px;
+    box-shadow: 0 0 2px 1px black;
+    padding: 1%;
+}
+
+.descrizioneLunga{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #f3f3f3;
+    border-radius: 4px;
+    border-width: 5px;
+    box-shadow: 0 0 2px 1px black;
+    padding: 1%;
+}
+
+.prezzo{
+    text-align: right;
+    font-family: Roboto;
+    color: #FFFFFF;
+    font-size: 250%;
+}
+
+.prezzo span{
+    color: green;
+}
+
+.recTitle{
+    margin-top: 10%;
+    color: #FFFFFF;
+}
+
+.recensione{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #8067b5;
+    border-radius: 4px;
+    border-width: 5px;
+    box-shadow: 0 0 2px 1px black;
+    padding: 2%;
+}
+
+.commento{
+    margin-bottom: 2%;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    border-width: 5px;
+    padding: 1%;
+}
+
+.username{
+
+}
+
+.AddCart{
+    margin: 5% 0%;
+    padding: 10px 10px;
+    font-size: 150%;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #03588c;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.AddCart:hover {
+    background-color: #3e8e41
+}
+
+.consiglio{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #03588c;
+    border-radius: 4px;
+    padding: 2%;
+    font-family: Roboto;
+    color: #FFFFFF;
+    font-size: 120%;
+    text-align: center;
 }
