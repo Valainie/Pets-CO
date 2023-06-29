@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Login Registration">
+    <output-path>$PROJECT_DIR$/classes/artifacts/Login_Registration</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="LoginRegistration" />
+          <element id="library" level="application" name="jquery-1.12.4" />
+          <element id="library" level="application" name="popper.js" />
+          <element id="library" level="application" name="bootstrap" />
+          <element id="library" level="application" name="jquery" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-j-8.0.33" />
+          <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="LoginRegistration/web/Web" />
+      <element id="javaee-facet-resources" facet="LoginRegistration/web/Web2" />
+    </root>
+  </artifact>
+</component>

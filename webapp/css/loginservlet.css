@@ -1,0 +1,40 @@
+body
+{
+    background-color: #9e8dc4;
+}
+
+.Slogan{
+    text-align: center ;
+    color: #FFFFFF;
+    font-family: Roboto;
+}
+
+/*necessita versione per mobile*/
+.container1{
+    display: -ms-flexbox;
+    background-color: #8067b5;
+    child-align: middle;
+
+}
+
+/*non fa allineare tutte le div insieme*/
+.col1{
+    margin-left: 5%;
+    max-width: 90%;
+}
+#button{
+    margin-left: 40%;
+}
+.h2{
+    margin-left: 30%;
+}
+.hint-text{
+    margin-left: 15%;
+}
+
+.catpic{
+    margin-top: 1rem;
+    border-radius: 10%;
+    max-width: 100%;
+    text-align: center;
+}

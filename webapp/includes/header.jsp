@@ -245,7 +245,6 @@
                        required autocomplete="off" value="${cookie.saveUser.value}">
               </div>
 
-
               <div class="form-group">
                 <input id="passwordInput" placeholder="Password" oninput="validateLogin(document.loginform.pw, document.loginform.un, document.loginform.btn)" required
                        class="form-control form-control-sm" type="password" name="pw" autocomplete="off" value="${cookie.savePass.value}">
