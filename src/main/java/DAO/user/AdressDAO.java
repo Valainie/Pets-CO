@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.RandomAccess;
+import java.util.Collection;
 
 public class AdressDAO implements DAO {
     private static DataSource ds;
@@ -131,7 +131,7 @@ public class AdressDAO implements DAO {
 
 
     @Override
-    public RandomAccess doRetrieveAll(String order) throws SQLException {
+    public Collection<Bean> doRetrieveAll(String order) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 

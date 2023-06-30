@@ -1,20 +1,20 @@
 package DAO.admin;
 
-import DAO.DAO;
-import bean.AdminBean;
-import bean.Bean;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.RandomAccess;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import DAO.DAO;
+import bean.AdminBean;
+import bean.Bean;
 
 public class Admin implements DAO {
 
@@ -133,7 +133,7 @@ public class Admin implements DAO {
     }
 
     @Override
-    public RandomAccess doRetrieveAll(String order) throws SQLException {
+    public Collection<Bean> doRetrieveAll(String order) throws SQLException {
          Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -171,7 +171,7 @@ public class Admin implements DAO {
                     connection.close();
             }
         }
-        return (RandomAccess) Amministratore;
+        return Amministratore;
     }
 
     public synchronized AdminBean doRetrieveByUserPass(String user, String pass) throws SQLException {

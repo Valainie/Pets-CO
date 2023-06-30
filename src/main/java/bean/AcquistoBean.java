@@ -7,8 +7,8 @@ import java.time.LocalDate;
 public class AcquistoBean extends Bean implements Serializable {
     private static final long serialVersionUID = 1L;
 
-
     LocalDate dataSpedizione, dataOrdine;
+    String username;
     int codiceAcquisto;
     String indirizzoSpedizione;
     float importo;
@@ -25,6 +25,8 @@ public class AcquistoBean extends Bean implements Serializable {
         this.statoProdotti = statoProdotti;
         this.metodo = metodo;
         this.codiceProdotto = codiceProdotto;
+         username = "";
+
     }
 
     public AcquistoBean() {
@@ -95,6 +97,13 @@ public class AcquistoBean extends Bean implements Serializable {
         this.codiceProdotto = codiceProdotto;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String newUsername) {
+        this.username=newUsername;
+    }
     @Override
     public String toString() {
         return null;

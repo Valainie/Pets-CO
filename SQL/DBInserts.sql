@@ -1,4 +1,5 @@
 /*PRODOTTI*/
+use PetsECo;
 insert into Prodotto (Codice, Categoria, Immagine, Nome, Disponibilita, prezzo, DescrizioneBreve, DescrizioneLunga, novita, offerta)
 values (1,'Cibo', 'https://www.farmae.it/media/catalog/product/9/7/971621115.jpg?optimize=medium&fit=bounds&height=700&width=700&canvas=700:700',
         'Cibo per Cani', 1000, 20.00, 'Cibo secco per cani',
@@ -82,7 +83,7 @@ INSERT INTO Admin (Recapito, Username, Password, Nome, Cognome)
 values ('emaildiSapo@sapo.it', 'Sapo', 'Sapo', 'Francesco', 'Saporito');
 
 INSERT INTO Admin (Recapito, Username, Password, Nome, Cognome)
-values ('emaildiDiana@diana.ro', 'Diana', 'Zorro', 'Diana Lavinia', 'Cojoc');
+values ('emailiDiana@diana.boss', 'Diana', 'Zorro', 'Diana Lavinia', 'Cojoc');
 
 INSERT INTO Admin (Recapito, Username, Password, Nome, Cognome)
 values ('emaildiFede@fede.it', 'Fede', 'Loona', 'Federica', 'Basciano');
@@ -96,5 +97,8 @@ insert into Indirizzo (codiceIndirizzo, citta, via, civico, cap, usernameCliente
 values (1, 'Milano', 'via Padova', 13, 20019, 'superMario');
 
 /*Metodo di Pagamento*/
-insert into Metodo_di_Pagamento (circuito, numCarta, cvv, scadenza, usernameCliente)
-values ('MasterCard', 4444444444444444, 123, '12-2050', 'superMario');
+insert into Metodo_di_Pagamento (circuito, numCarta, cvv, scadenza)
+values ('MasterCard', 4444444444444444, 123, '12/50');
+
+/*possiede*/
+insert into Possiede(numCarta, User) values (4444444444444444,'superMario');

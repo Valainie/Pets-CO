@@ -1,28 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DdlMappings">
-    <mapping uuid="d5d41df5-c554-49a2-917f-701bf643bdbf" name="DDL Mapping">
-      <data-sources db="0450f043-c4f4-4919-b4f4-b27e09a76bfe" ddl="d60bd339-acc3-47f0-8355-613bfa4c0ac1" />
+    <mapping uuid="d5d41df5-c554-49a2-917f-701bf643bdbf" name="PetsECo">
+      <data-sources db="052de4dd-aba0-4e45-a604-2c29b9a0e478" ddl="d60bd339-acc3-47f0-8355-613bfa4c0ac1" />
       <scope>
-        <node kind="database" negative="1" />
+        <node kind="database" negative="1">
+          <node kind="schema" negative="1" />
+        </node>
       </scope>
     </mapping>
-  </component>
-  <component name="SqlDataSourceStorage">
-    <option name="dataSources">
-      <list>
-        <State>
-          <option name="id" value="d60bd339-acc3-47f0-8355-613bfa4c0ac1" />
-          <option name="name" value="Pets&amp;Co DDL" />
-          <option name="dbmsName" value="MYSQL" />
-          <option name="urls">
-            <array>
-              <option value="file://$PROJECT_DIR$/SQL/DBTables.sql" />
-            </array>
-          </option>
-          <option name="outLayout" value="File per object by schema.groovy" />
-        </State>
-      </list>
-    </option>
   </component>
 </project>

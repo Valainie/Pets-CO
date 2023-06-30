@@ -5,7 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -146,12 +149,12 @@ public class PModelDS implements DAO {
         return bean;
     }
 
-    public RandomAccess doRetrieveAll(String codice) throws SQLException {
+    public Collection<Bean> doRetrieveAll(String codice) throws SQLException {
         String order = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        ArrayList<String> product = new ArrayList<>();
+        ArrayList<Bean> product = new ArrayList<>();
 
         String selectSQL = "SELECT * FROM Prodotto";
 
@@ -178,7 +181,7 @@ public class PModelDS implements DAO {
                 bean.setPrezzo(rs.getFloat("Prezzo"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
-                product.add(String.valueOf(bean));
+                product.add(bean);
             }
         } finally {
             try {

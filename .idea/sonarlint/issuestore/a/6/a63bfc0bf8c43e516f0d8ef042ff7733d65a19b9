@@ -8,3 +8,6 @@ java:S1854P"7Remove this useless assignment to local variable "pin".(ÿĞÓöüÿÿÿÿ
 j
 AYimfOPr6EdZMb2-tIjr
 java:S1117O"7Rename "pin" which hides the field declared at line 12.(İ”¡ø8¯ï³Š1
+d
+AYimfOPr6EdZMb2-tIjs
+java:S1128"1Remove this unused import 'java.math.BigInteger'.(»Çâ€8¯ï³Š1

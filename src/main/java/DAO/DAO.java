@@ -3,7 +3,7 @@ package DAO;
 import bean.Bean;
 
 import java.sql.SQLException;
-import java.util.RandomAccess;
+import java.util.Collection;
 
 public interface DAO {
     public void doSave(Bean bean) throws SQLException;
@@ -12,7 +12,7 @@ public interface DAO {
 
     public Bean doRetrieveByKey(Object key) throws SQLException;
 
-    public RandomAccess doRetrieveAll(String order) throws SQLException;
+    public Collection<Bean> doRetrieveAll(String order) throws SQLException;
 }
 
 
