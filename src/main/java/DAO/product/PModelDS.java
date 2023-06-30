@@ -146,7 +146,7 @@ public class PModelDS implements DAO {
         return bean;
     }
 
-    public RandomAccess doRetrieveAll(String codice) throws SQLException {
+    public Collection<Bean> doRetrieveAll(String codice) throws SQLException {
         String order = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;

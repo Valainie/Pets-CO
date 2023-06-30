@@ -13,12 +13,16 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
 
+
+/*SERVLET CHE SERVE A METTERE IL METODO DI PAGAMENTO DEL CLIENTE*/
+
 @WebServlet(name = "UserPServlet", value = "/UserPServlet")
 public class UserPServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     static UserDAO model=new UserDAO();
     static MetodoPDAO pm =new MetodoPDAO();
 
+    /*SERVLET CHE SERVE A METTERE IL METODO DI PAGAMENTO DEL CLIENTE*/
 
     @SuppressWarnings("unchecked")
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -9,7 +9,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+/*aDMIN GESTISCE I CLIENTI*/
 @WebServlet(name = "AdminGestioneCServlet", value = "/AdminGestioneCServlet")
 public class AdminGestioneCServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;

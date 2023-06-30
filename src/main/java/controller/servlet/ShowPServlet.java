@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
+/*THIS SERVLET HELPS ON SHOWING A PRODUCT */
 
 @WebServlet(name = "ShowPServlet", value = "/ShowPServlet")
 public class ShowPServlet extends HttpServlet {
@@ -22,7 +23,7 @@ public class ShowPServlet extends HttpServlet {
     public ShowPServlet() {
         super();
     }
-
+/*THIS SERVLET HELPS ON SHOWING A PRODUCT */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

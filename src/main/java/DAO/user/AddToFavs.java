@@ -4,7 +4,7 @@ import DAO.DAO;
 import bean.Bean;
 
 import java.sql.SQLException;
-import java.util.RandomAccess;
+import java.util.Collection;
 
 public class AddToFavs implements DAO {
     @Override
@@ -23,7 +23,7 @@ public class AddToFavs implements DAO {
     }
 
     @Override
-    public RandomAccess doRetrieveAll(String order) throws SQLException {
+    public Collection<Bean> doRetrieveAll(String order) throws SQLException {
         return null;
     }
 

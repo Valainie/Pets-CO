@@ -12,10 +12,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 
-public class AdressDAO implements DAO {
+public class IndirizzoDAO implements DAO {
     private static DataSource ds;
 
     static {
@@ -29,8 +29,8 @@ public class AdressDAO implements DAO {
             System.out.println("Error:" + e.getMessage());
         }
     }
+    private static final String TABLE_NAME = "indirizzo";
 
-    private static final String TABLE_NAME = "Indirizzo";
 
     @Override
     public void doSave(Bean indirizzo) throws SQLException {
@@ -38,16 +38,16 @@ public class AdressDAO implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String insertSQL = "INSERT INTO " + AdressDAO.TABLE_NAME
-                + " (codiceIndirizzo,citta,`via`,civico,cap) VALUES (?, ?, ?, ?, ?)";
+        String insertSQL = "INSERT INTO " + IndirizzoDAO.TABLE_NAME
+                + " (codiceInridizzo,via,civico,citta,cap) VALUES (?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
             preparedStatement.setInt(1, c.getCodiceIndirizzo());
-            preparedStatement.setString(4, c.getCittà());
             preparedStatement.setString(2, c.getVia());
             preparedStatement.setInt(3, c.getCivico());
+            preparedStatement.setString(4, c.getCittà());
             preparedStatement.setInt(5, c.getCap());
             preparedStatement.executeUpdate();
         } finally {
@@ -61,7 +61,6 @@ public class AdressDAO implements DAO {
         }
     }
 
-
     @Override
     public boolean doDelete(Object codice) throws SQLException {
         int code=(int) codice;
@@ -70,7 +69,7 @@ public class AdressDAO implements DAO {
 
         int result = 0;
 
-        String deleteSQL = "DELETE FROM " + AdressDAO.TABLE_NAME + " WHERE codiceIndirizzo = ?";
+        String deleteSQL = "DELETE FROM " + IndirizzoDAO.TABLE_NAME + " WHERE codiceIndirizzo = ?";
 
         try {
             connection = ds.getConnection();
@@ -91,16 +90,16 @@ public class AdressDAO implements DAO {
         return (result != 0);
     }
 
-
     @Override
     public Bean doRetrieveByKey(Object key) throws SQLException {
+
         int codiceIndirizzo= (int) key;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         IndirizzoBean bean = new IndirizzoBean();
 
-        String selectSQL = "SELECT * FROM " + AdressDAO.TABLE_NAME + " WHERE codiceIndirizzo = ?";
+        String selectSQL = "SELECT * FROM " + IndirizzoDAO.TABLE_NAME + " WHERE codiceIndirizzo = ?";
 
         try {
             connection = ds.getConnection();
@@ -111,9 +110,9 @@ public class AdressDAO implements DAO {
 
             while (rs.next()) {
                 bean.setCodiceIndirizzo(rs.getInt("codiceIndirizzo"));
+                bean.setCittà(rs.getString("citta"));
                 bean.setVia((rs.getString("via")));
                 bean.setCivico(rs.getInt("civico"));
-                bean.setCittà(rs.getString("citta"));
                 bean.setCap(rs.getInt("cap"));
             }
 
@@ -128,16 +127,15 @@ public class AdressDAO implements DAO {
         }
         return bean;
     }
-
-
+    
     @Override
     public Collection<Bean> doRetrieveAll(String order) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        ArrayList<Bean> indirizzo = new ArrayList<>();
+        Collection<Bean> Indirizzo = new LinkedList<Bean>();
 
-        String selectSQL = "SELECT * FROM " + AdressDAO.TABLE_NAME;
+        String selectSQL = "SELECT * FROM " + IndirizzoDAO.TABLE_NAME;
 
         if (order != null && !order.equals("")) {
             selectSQL += " ORDER BY " + order;
@@ -157,7 +155,7 @@ public class AdressDAO implements DAO {
                 bean.setCivico(rs.getInt("civico"));
                 bean.setCittà(rs.getString("citta"));
                 bean.setCap(rs.getInt("cap"));
-                indirizzo.add(bean);
+                Indirizzo.add(bean);
             }
 
         } finally {
@@ -169,6 +167,7 @@ public class AdressDAO implements DAO {
                     connection.close();
             }
         }
-        return indirizzo;
+        return Indirizzo;
     }
 }
+

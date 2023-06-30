@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.RandomAccess;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -151,11 +150,11 @@ public class MetodoPDAO implements DAO {
 
 
     @Override
-    public RandomAccess doRetrieveAll(String order) throws SQLException {
+    public Collection<Bean> doRetrieveAll(String order) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        ArrayList<MetodoPDAO> pagamento = new ArrayList<MetodoPDAO>();
+        Collection<Bean> pagamento = new LinkedList<Bean>();
 
         String selectSQL = "SELECT * FROM " + MetodoPDAO.TABLE_NAME;
 
@@ -178,7 +177,7 @@ public class MetodoPDAO implements DAO {
                 bean.setCircuito(rs.getString("circuito"));
                 bean.setScadenza(rs.getString("scadenza"));
                 bean.setPin();
-                pagamento.add(new MetodoPDAO());
+                pagamento.add(bean);
             }
 
         } finally {

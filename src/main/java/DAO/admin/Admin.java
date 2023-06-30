@@ -133,7 +133,7 @@ public class Admin implements DAO {
     }
 
     @Override
-    public RandomAccess doRetrieveAll(String order) throws SQLException {
+    public Collection<Bean> doRetrieveAll(String order) throws SQLException {
          Connection connection = null;
         PreparedStatement preparedStatement = null;
 
