@@ -1,1 +1,55 @@
 @CHARSET "UTF-8";
+body{
+    background-color: #9e8dc4;
+}
+
+.Slogan{
+    text-align: center ;
+    color: #FFFFFF;
+    font-family: Roboto;
+}
+
+.anagrafica{
+    background-color: #8067b5;
+    color: #FFFFFF;
+    padding: 5%;
+    border-radius: 10%;
+}
+
+.anagrafica :link{
+    color: #0e8800;
+}
+
+.anagrafica :visited{
+    color: #E07D00;
+}
+
+.indirizzi{
+    margin-left: 5%;
+    background-color: #8067b5;
+    padding: 3%;
+    border-radius: 10%;
+}
+
+.indirizzo{
+    color: #FFFFFF;
+    padding: 2%;
+    border-color: #FFFFFF;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+
+.metodi{
+    margin-left: 5%;
+    background-color: #8067b5;
+    padding: 3%;
+    border-radius: 10%;
+}
+
+.metodo{
+    color: #FFFFFF;
+    padding: 2%;
+    border-color: #FFFFFF;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}

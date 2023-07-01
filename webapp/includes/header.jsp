@@ -121,34 +121,6 @@
         </form>
 
       </li>
-      <!-- 				ricerca mobile -->
-
-    <%--  <li class="nav-item dropdown"><a
-              class="nav-link dropdown-toggle text-center" href="#"
-              id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false"> Giochi </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <form action="product">
-            <a class="dropdown-item" href="/Gameporium/productselection.jsp?categoria=gioco&attribute=descrizioneCategoria&value=tavolo">Giochi da tavolo</a>
-            <a class="dropdown-item" href="/Gameporium/productselection.jsp?categoria=gioco&attribute=descrizioneCategoria&value=ruolo">Giochi di ruolo</a>
-            <a class="dropdown-item" href="/Gameporium/productselection.jsp?categoria=gioco&attribute=descrizioneCategoria&value=carte">Giochi di carte</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/Gameporium/productselection.jsp?categoria=gioco">Mostra tutti</a>
-          </form>
-        </div></li>
-
-      <li class="nav-item dropdown"><a
-              class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-              role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false"> Accessori </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Gameporium/productselection.jsp?categoria=accessorio&attribute=descrizioneCategoria&value=tavolo">Accessori per GdT</a> <a
-                class="dropdown-item" href="/Gameporium/productselection.jsp?categoria=accessorio&attribute=descrizioneCategoria&value=ruolo">Accessori per GdR</a> <a
-                class="dropdown-item" href="/Gameporium/productselection.jsp?categoria=accessorio&attribute=descrizioneCategoria&value=carte">Accessori per GdC</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/Gameporium/productselection.jsp?categoria=accessorio">Mostra tutti</a>
-        </div></li>
---%>
 
       <c:if test="${accessDone}">
         <c:if test="${isAdmin == true}">
@@ -228,45 +200,81 @@
 
     <!-- 			login popup -->
     <c:if test="${accessDone == null}">
-      <div>
-        <button type="button" id="dropdownMenu1" data-toggle="dropdown"
-                class="btn btn-outline-secondary dropdown-toggle categories">
-          Accedi o registrati <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-right mt-2">
+      <ul style="list-style: none; padding: 0; text-align: center;margin-top: 20 ">
+        <li style="display: inline-block; margin-right: 10px;">
+          <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+                  class="btn btn-outline-secondary dropdown-toggle categories">
+            Accedi o registrati <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right mt-2">
 
-          <li class="px-3 py-2">
-            <form action="${pageContext.request.contextPath}/LoginServlet" method="post" class="form" role="form" name="loginform">
+            <li class="px-3 py-2">
+              <form action="${pageContext.request.contextPath}/LoginServlet" method="post" class="form" role="form" name="loginform">
 
 
-              <div class="form-group" >
-                <input id="emailInput" placeholder="Username" oninput="validateLogin(document.loginform.pw, document.loginform.un, document.loginform.btn)"
-                       class="form-control form-control-sm" type="text" name="un"
-                       required autocomplete="off" value="${cookie.saveUser.value}">
-              </div>
+                <div class="form-group" >
+                  <input id="emailInput" placeholder="Username" oninput="validateLogin(document.loginform.pw, document.loginform.un, document.loginform.btn)"
+                         class="form-control form-control-sm" type="text" name="un"
+                         required autocomplete="off" value="${cookie.saveUser.value}">
+                </div>
 
-              <div class="form-group">
-                <input id="passwordInput" placeholder="Password" oninput="validateLogin(document.loginform.pw, document.loginform.un, document.loginform.btn)" required
-                       class="form-control form-control-sm" type="password" name="pw" autocomplete="off" value="${cookie.savePass.value}">
-              </div>
+                <div class="form-group">
+                  <input id="passwordInput" placeholder="Password" oninput="validateLogin(document.loginform.pw, document.loginform.un, document.loginform.btn)" required
+                         class="form-control form-control-sm" type="password" name="pw" autocomplete="off" value="${cookie.savePass.value}">
+                </div>
 
-              <div class="form-group">
-                <button type="submit" class="loginbtn btn btn-primary btn-block" name="btn" disabled>Login</button>
-              </div>
+                <div class="form-group">
+                  <button type="submit" class="loginbtn btn btn-primary btn-block" name="btn" disabled>Login</button>
+                </div>
 
-              <div class="form-check text-right">
-                <input type="checkbox" class="form-check-input active unchecked" id="exampleCheck1" name="remember">
-                <label class="form-check-label" for="exampleCheck1">Ricordami</label>
-              </div>
+                <div class="form-check text-right">
+                  <input type="checkbox" class="form-check-input active unchecked" id="exampleCheck1" name="remember">
+                  <label class="form-check-label" for="exampleCheck1">Ricordami</label>
+                </div>
 
-              <div class="form-group text-right">
-                <small><a href="${pageContext.request.contextPath}\userJSP\register.jsp">Registrati</a></small>
-              </div>
+                <div class="form-group text-right">
+                  <small><a href="${pageContext.request.contextPath}\userJSP\register.jsp">Registrati</a></small>
+                </div>
 
-            </form>
-          </li>
-        </ul>
-      </div>
+              </form>
+            </li>
+          </ul>
+        </li>
+        <li style="display: inline-block; margin-right: 10px;">
+          <button type="button" id="dropdownMenu2" data-toggle="dropdown"
+                  class="btn btn-outline-secondary dropdown-toggle categories">
+            Accedi Admin <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right mt-2">
+            <li class="px-3 py-2">
+              <form action="${pageContext.request.contextPath}/LoginServlet" method="post" class="form" role="form" name="loginadmin">
+
+
+                <div class="form-group" >
+                  <input id="emailInput" placeholder="Username" oninput="validateLogin(document.loginadmin.pws, document.loginadmin.uns, document.loginadmin.btns)"
+                         class="form-control form-control-sm" type="text" name="uns"
+                         required autocomplete="off" value="${cookie.saveUser.value}">
+                </div>
+
+                <div class="form-group">
+                  <input id="passwordInput" placeholder="Password" oninput="validateLogin(document.loginadmin.pws, document.loginadmin.uns, document.loginadmin.btns)" required
+                         class="form-control form-control-sm" type="password" name="pws" autocomplete="off" value="${cookie.savePass.value}">
+                </div>
+
+                <div class="form-group">
+                  <button type="submit" class="loginbtn btn btn-primary btn-block" name="btns" disabled>Login</button>
+                </div>
+
+                <div class="form-check text-right">
+                  <input type="checkbox" class="form-check-input active unchecked" id="exampleCheck1" name="remember">
+                  <label class="form-check-label" for="exampleCheck1">Ricordami</label>
+                </div>
+
+              </form>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </c:if>
     <!-- 			login popup -->
 

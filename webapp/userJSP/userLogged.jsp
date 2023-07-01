@@ -1,30 +1,58 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Diana
-  Date: 04/05/2023
-  Time: 14:29
-  To change this template use File | Settings | File Templates.
---%>
 <!DOCTYPE html>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    if (session.getAttribute("name") == null) {
-        response.sendRedirect(request.getContextPath() + "/userJSP/invalidLogin.jsp");
-        return;
-    }
-    String name = session.getAttribute("name").toString();
-%>
-<html lang="en">
+<html>
 <head>
-    <title>Pets&CO</title>
+    <title>Pagina Cliente Pets&Co</title>
+    <%@include file="/includes/head.jsp"%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userLogged.css" type="text/css">
 </head>
 <body>
+<%@include file="/includes/header.jsp" %>
 
-    current session info: <%= name %> <br> <br>
-    <a href="${pageContext.request.contextPath}/LogoutServlet">logout</a>
+<h1 class="Slogan">Username's Page</h1>
 
-    <img alt="govno" src="https://static.wikia.nocookie.net/cutekittycats/images/a/ad/Caty.jpeg" style="width: 400px; height: 300px; class: center">
-
-
+<div class="row" style="margin-left: 1%">
+    <div id="PanelloSx" class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block ">
+        <%@include file="/includes/panelloSinistra.jsp" %>
+    </div>
+    <div class="col" style="max-width: 65%">
+        <div class="anagrafica">
+            <p><b>Username</b>: Username</p>
+            <p><b>Nome</b>: Nome Cognome</p>
+            <p><b>Codice Fiscale</b>: CFahdiem0m013905</p>
+            <p><b>Telefono</b>: +39 123-4567890</p>
+            <p><b>Email</b>: indirizzo.mail@email.ml</p>
+            <p><a href="${pageContext.request.contextPath}/userJSP/preferiti.jsp">Visualizza Preferiti</a> o
+                <a href="${pageContext.request.contextPath}/userJSP/myOrders.jsp">Visualizza Ordini Passati</a></p>
+        </div>
+    </div>
+    <div class="col">
+        <div class="indirizzi">
+            <div class = "indirizzo">
+                <p><b>Città</b>: Città (CAP: )</p>
+                <p><b>Indirizzo</b>: Via Strada N. Civico</p>
+            </div>
+            <div class = "indirizzo">
+                <p><b>Città</b>: Città (CAP: )</p>
+                <p><b>Indirizzo</b>: Via Strada N. Civico</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="metodi">
+            <div class="metodo">
+                <p><b>Carta</b>: Circuito *********NNN </p>
+                <p><b>Scadenza</b>: Data-di-scadenza</p>
+            </div>
+            <div class="metodo">
+                <p><b>Carta</b>: Circuito *********NNN </p>
+                <p><b>Scadenza</b>: Data-di-scadenza</p>
+            </div>
+        </div>
+    </div>
+    <div id="pannelloDx" class= "col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block">
+        <%@include file="/includes/panelloDestra.jsp" %>
+    </div>
+</div>
+<%@include file="/includes/footer.jsp" %>
 </body>
 </html>
