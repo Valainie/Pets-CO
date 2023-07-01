@@ -7,6 +7,7 @@ import bean.UserBean;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.persistence.JoinTable;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -100,7 +101,7 @@ public class UserDAO implements DAO {
         PreparedStatement preparedStatement = null;
 
         String insertSQL = "INSERT INTO " + UserDAO.TABLE_NAME
-                + " (Cf,Username,Cliente.Password,Nome,Cognome,Telefono,Email,Dettagli,CartaPred) VALUES (?, ?, ?, ?, ?, ?,?,?,?)";
+                + " (Cf,Username,Cliente.Password,Nome,Cognome,Telefono,Email) VALUES (?, ?, ?, ?, ?, ?,?)";
 
         try {
             connection = ds.getConnection();
@@ -330,7 +331,7 @@ public class UserDAO implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String selectSQL ="UPDATE "+UserDAO.TABLE_NAME+" SET Cf=?, Username=?, 'Password'=?, Nome=?, Cognome=?, Telefono=?, Email=?,Dettagli=?,CartaPred=? WHERE Username='"+username+"'";
+        String selectSQL ="UPDATE "+UserDAO.TABLE_NAME+" SET Cf=?, Username=?, 'Password'=?, Nome=?, Cognome=?, Telefono=?, Email=? WHERE Username='"+username+"'";
 
 
         try {
@@ -343,8 +344,7 @@ public class UserDAO implements DAO {
             preparedStatement.setString(5, column5);
             preparedStatement.setString(6, column6);
             preparedStatement.setString(7, column7);
-            preparedStatement.setString(8, column8);
-            preparedStatement.setString(9, column9);
+
 
 
             preparedStatement.executeUpdate();
@@ -361,12 +361,14 @@ public class UserDAO implements DAO {
             }
         }
     }
+    /* questo metodo deve permettere l'update della carta che lìutente possiede
+    *
 
     public void doUpdateCard(String cartaPred, String username, int numCarta) throws SQLException {
         Connection connection = null;
     PreparedStatement preparedStatement = null;
 
-        String selectSQL = "UPDATE "+ UserDAO.TABLE_NAME + " as c SET CartaPred= ? WHERE c.username= ?";
+        String selectSQL = "UPDATE "+ UserDAO.TABLE_NAME + JoinTable Possiede as c + " SET c.numCarta= ? WHERE c.username= ?";
 
 		try {
         connection = ds.getConnection();
@@ -397,5 +399,5 @@ public class UserDAO implements DAO {
                 connection.close();
         }
     }
-}
+}*/
 }

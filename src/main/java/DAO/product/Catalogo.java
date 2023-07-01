@@ -1,4 +1,4 @@
-package controller.catalogo;
+package DAO.product;
 
 import bean.ProdottoCatalogo;
 

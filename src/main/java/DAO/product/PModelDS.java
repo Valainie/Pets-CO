@@ -49,7 +49,7 @@ public class PModelDS implements DAO {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
             preparedStatement.setInt(1, p.getCodice());
-            preparedStatement.setInt(2, p.getCategoria());
+            preparedStatement.setString(2, p.getCategoria());
             preparedStatement.setString(3, p.getImmagine());
             preparedStatement.setString(4, p.getNome());
             preparedStatement.setInt(5, p.getDisponibilita());
@@ -123,7 +123,7 @@ public class PModelDS implements DAO {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 bean.setCodice(rs.getInt("Codice"));
-                bean.setCategoria(rs.getInt("Categoria"));
+                bean.setCategoria(rs.getString("Categoria"));
                 bean.setImmagine(rs.getString("Immagine"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDisponibilita(rs.getInt("disponibilita"));
@@ -151,7 +151,7 @@ public class PModelDS implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        ArrayList<String> product = new ArrayList<>();
+        Collection<Bean> product = new LinkedList<Bean>();
 
         String selectSQL = "SELECT * FROM Prodotto";
 
@@ -169,7 +169,7 @@ public class PModelDS implements DAO {
             while (rs.next()) {
                 bean = new PBean();
                 bean.setCodice(rs.getInt("Codice"));
-                bean.setCategoria(rs.getInt("Categoria"));
+                bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneLunga(rs.getString("Immagine"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
@@ -178,7 +178,7 @@ public class PModelDS implements DAO {
                 bean.setPrezzo(rs.getFloat("Prezzo"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
-                product.add(String.valueOf(bean));
+                product.add(bean);
             }
         } finally {
             try {
@@ -211,7 +211,7 @@ public class PModelDS implements DAO {
             while (rs.next()) {
                 PBean bean = new PBean();
                 bean.setCodice(rs.getInt("Codice"));
-                bean.setCategoria(rs.getInt("Categoria"));
+                bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneLunga(rs.getString("Immagine"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
@@ -271,7 +271,7 @@ public class PModelDS implements DAO {
             while (rs.next()) {
                 bean = new PBean();
                 bean.setCodice(rs.getInt("Codice"));
-                bean.setCategoria(rs.getInt("Categoria"));
+                bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneLunga(rs.getString("Immagine"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
@@ -315,6 +315,7 @@ public class PModelDS implements DAO {
                 bean = new PBean();
 
                 bean.setCodice(rs.getInt("Codice"));
+                bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
                 bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
@@ -353,7 +354,7 @@ public class PModelDS implements DAO {
             while (rs.next()) {
                 PBean bean = new PBean();
                 bean.setCodice(rs.getInt("Codice"));
-                bean.setCategoria(rs.getInt("Categoria"));
+                bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneLunga(rs.getString("Immagine"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));

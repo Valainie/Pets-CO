@@ -171,7 +171,7 @@ public class Admin implements DAO {
                     connection.close();
             }
         }
-        return (RandomAccess) Amministratore;
+        return  Amministratore;
     }
 
     public synchronized AdminBean doRetrieveByUserPass(String user, String pass) throws SQLException {

@@ -94,12 +94,12 @@ public class UserPServlet extends HttpServlet {
             {
                 session.setAttribute("userFavSecureCode", ((MetodoDiPagamentoBean) b).getPin());
                 session.setAttribute("userFavCircuito", ((MetodoDiPagamentoBean) b).getCircuito());
-                try {
+             /* try {
                     model.doUpdateCard("cartaPred", username, ((MetodoDiPagamentoBean) b).getNumCarta());
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-                break;
+                break;*/
             }
         }
 

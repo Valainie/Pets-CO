@@ -1,4 +1,4 @@
-package controller.servlet;
+package controller.acquisto;
 
 import java.io.IOException;
 import java.sql.SQLException;

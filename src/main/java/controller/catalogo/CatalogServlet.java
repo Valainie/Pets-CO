@@ -1,6 +1,6 @@
-package controller.servlet;
+package controller.catalogo;
 
-import controller.catalogo.Catalogo;
+import DAO.product.Catalogo;
 import bean.ProdottoCatalogo;
 
 import javax.servlet.ServletException;

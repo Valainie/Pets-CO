@@ -2,11 +2,11 @@ package bean;
 
 import java.io.Serializable;
 
-public class PBean  extends Bean implements Serializable {
+public class CiboBean extends Bean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     int codice;
-    String categoria;
+    String categoria="Cibo";
     String Immagine;
     String nome;
     int disponibilita;
@@ -15,38 +15,22 @@ public class PBean  extends Bean implements Serializable {
     String descrizioneLunga;
     boolean novita;
     boolean offerta;
-    
-    public PBean(int codice,String categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, int novita, int offerta) {
+
+    public CiboBean(int codice, String categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, boolean novita, boolean offerta) {
         this.codice = codice;
-        this.categoria=categoria;
+        this.categoria = categoria;
         Immagine = immagine;
         this.nome = nome;
         this.disponibilita = disponibilita;
         this.prezzo = prezzo;
         this.descrizioneBreve = descrizioneBreve;
         this.descrizioneLunga = descrizioneLunga;
-        novita = novita;
-        offerta = offerta;
+        this.novita = novita;
+        this.offerta = offerta;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public boolean isNovita() {
-        return novita;
-    }
-
-    public boolean isOfferta() {
-        return offerta;
-    }
-
-    public PBean() {
-
+    public CiboBean() {
+        super();
     }
 
     public int getCodice() {
@@ -55,6 +39,14 @@ public class PBean  extends Bean implements Serializable {
 
     public void setCodice(int codice) {
         this.codice = codice;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getImmagine() {
@@ -105,7 +97,7 @@ public class PBean  extends Bean implements Serializable {
         this.descrizioneLunga = descrizioneLunga;
     }
 
-    public boolean getNovita() {
+    public boolean isNovita() {
         return novita;
     }
 
@@ -113,7 +105,7 @@ public class PBean  extends Bean implements Serializable {
         this.novita = novita;
     }
 
-    public boolean getOfferta() {
+    public boolean isOfferta() {
         return offerta;
     }
 
@@ -123,8 +115,9 @@ public class PBean  extends Bean implements Serializable {
 
     @Override
     public String toString() {
-        return "PBean{" +
+        return "CiboBean{" +
                 "codice=" + codice +
+                ", categoria='" + categoria + '\'' +
                 ", Immagine='" + Immagine + '\'' +
                 ", nome='" + nome + '\'' +
                 ", disponibilita=" + disponibilita +
@@ -135,5 +128,4 @@ public class PBean  extends Bean implements Serializable {
                 ", offerta=" + offerta +
                 '}';
     }
-
 }
