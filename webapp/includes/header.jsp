@@ -266,8 +266,8 @@
                 </div>
 
                 <div class="form-check text-right">
-                  <input type="checkbox" class="form-check-input active unchecked" id="exampleCheck1" name="remember">
-                  <label class="form-check-label" for="exampleCheck1">Ricordami</label>
+                  <input type="checkbox" class="form-check-input active unchecked" id="exampleCheck2" name="remember">
+                  <label class="form-check-label" for="exampleCheck2">Ricordami</label>
                 </div>
 
               </form>

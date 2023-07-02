@@ -61,7 +61,7 @@
                 <div class="row">
                     <div id="regcenter" class = "container col-lg-6">
                         <div class="container1">
-                        <form id="reg" action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post" id="reg">
+                        <form action="${pageContext.request.contextPath}/RegisterServlet" name="registerform" method="post" id="reg">
                             <div class="col1" >
                                 <div class="h2">
                             <h2>Registrati</h2>
