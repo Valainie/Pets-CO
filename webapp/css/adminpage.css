@@ -1,0 +1,47 @@
+body{
+    background-color: #9e8dc4;
+}
+
+.Slogan{
+    text-align: center ;
+    color: #FFFFFF;
+    font-family: Roboto;
+}
+
+.users{
+    background-color: #8067b5;
+    color: #FFFFFF;
+    padding: 5%;
+}
+
+.product{
+    background-color: #8067b5;
+    color: #FFFFFF;
+    padding: 5%;
+}
+
+.col1{
+    margin-top: 5%;
+    margin-left: 5%;
+    max-width: 80%;
+    background-color: #8067b5;
+}
+
+.admin-but{
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+}
+
+.admin-but:hover {
+    background-color: #3e8e41
+}
+
+h3{
+    color: #FFFFFF;
+}
