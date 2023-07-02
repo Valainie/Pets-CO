@@ -40,8 +40,9 @@ public class AdminGestioneCServlet extends HttpServlet {
 
             request.setAttribute("elencoClienti", bc);
 
-            return;
+
         }
+        return;
     }
 
     @Override

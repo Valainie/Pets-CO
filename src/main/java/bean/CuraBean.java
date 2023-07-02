@@ -15,6 +15,8 @@ public class CuraBean extends Bean implements Serializable {
     String descrizioneLunga;
     boolean novita;
     boolean offerta;
+    String descrizioneCategoria;
+
 
     public CuraBean(int codice, String categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, boolean novita, boolean offerta) {
         this.codice = codice;
@@ -27,10 +29,19 @@ public class CuraBean extends Bean implements Serializable {
         this.descrizioneLunga = descrizioneLunga;
         this.novita = novita;
         this.offerta = offerta;
+        descrizioneCategoria="";
     }
 
     public CuraBean() {
 
+    }
+
+    public String getDescrizioneCategoria() {
+        return descrizioneCategoria;
+    }
+
+    public void setDescrizioneCategoria(String descrizioneCategoria) {
+        this.descrizioneCategoria = descrizioneCategoria;
     }
 
     public int getCodice() {

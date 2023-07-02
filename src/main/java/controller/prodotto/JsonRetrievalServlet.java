@@ -1,4 +1,4 @@
-package controller.servlet;
+package controller.prodotto;
 
 import DAO.product.AccessorioDAO;
 import DAO.product.CiboDAO;
@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 @WebServlet(name = " JsonRetrievalServlet", value = "/ JsonRetrievalServlet")
-public class JsonRetrievalServlet extends HttpServlet {
+public class                                                                                                                                                                     JsonRetrievalServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     static PModelDS model=new PModelDS();
     static CiboDAO cd=new CiboDAO();
@@ -63,7 +63,6 @@ public class JsonRetrievalServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         doGet(request, response);
 
     }

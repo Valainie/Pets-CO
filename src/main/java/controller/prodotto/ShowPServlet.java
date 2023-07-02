@@ -1,4 +1,4 @@
-package controller.servlet;
+package controller.prodotto;
 
 import bean.Bean;
 import bean.PBean;

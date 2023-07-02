@@ -84,4 +84,47 @@ public class AccessorioDAO implements DAO {
     public Collection<Bean> doRetrieveAll(String order) throws SQLException {
         return null;
     }
+
+    public synchronized void doUpdate(String column, int code, Object value) throws SQLException
+    {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String selectSQL = "UPDATE "+ AccessorioDAO.TABLE_NAME + " as p SET "+column+"=? WHERE p.Codice="+code;
+
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+
+            if(value instanceof String) {
+                String val = (String) value;
+                preparedStatement.setString(1, val);
+            }
+            if(value instanceof Integer) {
+                int val= (Integer) value;
+                preparedStatement.setInt(1, val);
+            }
+            if(value instanceof Double) {
+                double val=(Double) value;
+                preparedStatement.setDouble(1, val);
+            }
+            if(value instanceof Boolean) {
+                boolean val=(Boolean) value;
+                preparedStatement.setBoolean(1, val);
+            }
+
+            preparedStatement.executeUpdate();
+            connection.commit();
+        }
+
+        finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
+    }
 }

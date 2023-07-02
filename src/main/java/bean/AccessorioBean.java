@@ -16,6 +16,7 @@ public class AccessorioBean extends Bean implements Serializable {
     String descrizioneLunga;
     boolean novita;
     boolean offerta;
+    String descrizioneCategoria;
 
     public AccessorioBean(int codice, String categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, boolean novita, boolean offerta) {
         this.codice = codice;
@@ -28,6 +29,7 @@ public class AccessorioBean extends Bean implements Serializable {
         this.descrizioneLunga = descrizioneLunga;
         this.novita = novita;
         this.offerta = offerta;
+        descrizioneCategoria="";
     }
 
     public AccessorioBean() {
@@ -48,6 +50,14 @@ public class AccessorioBean extends Bean implements Serializable {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public String getDescrizioneCategoria() {
+        return descrizioneCategoria;
+    }
+
+    public void setDescrizioneCategoria(String descrizioneCategoria) {
+        this.descrizioneCategoria = descrizioneCategoria;
     }
 
     public String getImmagine() {

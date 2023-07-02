@@ -1,4 +1,4 @@
-package controller.user;
+package controller.loginLogout;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

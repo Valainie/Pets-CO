@@ -1,4 +1,4 @@
-package controller.user;
+package controller.loginLogout;
 
 import bean.UserBean;
 import DAO.user.UserController;

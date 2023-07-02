@@ -6,11 +6,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
-public class Carrello  {
+public class Cart {
     private ArrayList<bean.Carrello> products;
     BigDecimal totale;
     BigDecimal ivaTotale;
-    public Carrello() {
+    public Cart() {
         products = new ArrayList<bean.Carrello>();
         totale=new BigDecimal("0");
         ivaTotale=new BigDecimal("0");

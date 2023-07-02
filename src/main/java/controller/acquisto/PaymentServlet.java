@@ -31,7 +31,7 @@ public class PaymentServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String username=request.getParameter("Username");
         String securecode=request.getParameter("pin");
-        Collection<Bean> bo=null;
+        Collection<Bean> bo;
 
         if(username!=null && request.getParameter("retrieve") != null) {
             try {

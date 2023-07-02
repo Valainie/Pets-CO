@@ -1,9 +1,9 @@
-package controller.servlet;
+package controller.prodotto;
 
 import bean.PBean;
 import DAO.DAO;
 import DAO.product.PModelDS;
-import DAO.acquisto.Carrello;
+import DAO.acquisto.Cart;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,9 +31,9 @@ public class ProdottoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Carrello cart = (Carrello) request.getSession().getAttribute("cart");
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
         if(cart == null) {
-            cart = new Carrello();
+            cart = new Cart();
             request.getSession().setAttribute("cart", cart);
         }
 

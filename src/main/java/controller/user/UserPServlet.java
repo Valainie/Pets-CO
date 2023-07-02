@@ -1,4 +1,4 @@
-package controller.servlet;
+package controller.user;
 
 import DAO.acquisto.MetodoPDAO;
 import DAO.user.UserDAO;
