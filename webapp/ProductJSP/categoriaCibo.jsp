@@ -17,12 +17,15 @@
 <%@include file="/includes/header.jsp" %>
 <h1 class="Slogan">Cibo</h1> <!-- Sto coso mi serve per tenere separati le barre e l'header che sennò sono appiccicati -->
 <div class="row" style="margin-left: 1%">
-    <div id="PanelloSx" class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block "> <!-- PANNELLO SINISTRA! -->
-        <%@include file="/includes/panelloSinistra.jsp" %>
-    </div>
+
     <div class="col" > <!-- Questa è la colonna centrale - Questa è quella per mettere effettivamente la roba-->
+
+
         <div class="row">
-            <div class="col" style="max-width: 80%">
+            <div id="PanelloSx" class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block "> <!-- PANNELLO SINISTRA! -->
+                <%@include file="/includes/panelloSinistra.jsp" %>
+            </div>
+            <div class="col" style="max-width: 65%">
                 <table>
                     <tr>
 
@@ -154,7 +157,7 @@
             <div id="pannelloDx" class= "col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block"> <!-- PANNELLO DESTRA! -->
                 <%@include file="/includes/panelloDestra.jsp" %>
             </div>
-
+        </div>
             <div class="row" >
     <%@include file="/includes/footer.jsp"%>
             </div>
