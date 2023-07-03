@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/pannelli.css" type="text/css">
 </head>
 <body>
-<div class="left-panel">
+<div class="left-panel panel">
 	<!-- pannello di ricerca -->
 	<div class="panelcard card pan" >
 		<div class="card-body">

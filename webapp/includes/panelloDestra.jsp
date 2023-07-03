@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pannelli.css" type="text/css">
 </head>
 <body>
-<div id="right-panel" class="col" style="max-height: 70%">
+<div id="right-panel" class="col panel" style="max-height: 70%">
     <!-- pannello di ricerca -->
     <div class="panelcard card pan" style="max-width: 400%">
         <div class="card-body" style="max-width: 100%">
