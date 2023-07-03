@@ -151,16 +151,16 @@
 
 
 
-        </div>
+            </div>
 
 
             <div id="pannelloDx" class= "col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block"> <!-- PANNELLO DESTRA! -->
                 <%@include file="/includes/panelloDestra.jsp" %>
             </div>
         </div>
-            <div class="row" >
-    <%@include file="/includes/footer.jsp"%>
-            </div>
+        <div class="row" >
+            <%@include file="/includes/footer.jsp"%>
+        </div>
 
 </body>
 </html>
