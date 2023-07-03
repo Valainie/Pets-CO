@@ -1,0 +1,155 @@
+body {
+    background-color: #9e8dc4;
+}
+
+img {
+    border-radius: 8px;
+    width: 100%;
+}
+
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.Slogan {
+    text-align: center;
+    color: #FFFFFF;
+    font-family: Roboto;
+}
+.vetrina{
+    display: flex;
+    max-width: 70%;
+}
+
+
+
+table {
+    text-align: left;
+    position: relative;
+    border-collapse: collapse;
+    background-color: #f6f6f6;
+    width: 100%;
+    box-shadow: 0 3px #666;
+}
+
+td, th {
+    border: 1px solid #999;
+    padding: 10px;
+}
+
+th {
+    background: #FFFFFF;
+    color: black;
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+}
+
+.bx-sign-up{
+    border-radius: 25px;
+    background: #03588c;
+    padding: 10px;
+    width: 80%;
+    margin:  5% auto;
+    box-sizing: border-box;
+}
+
+.sign-text{
+    text-align: center;
+    color: white;
+}
+
+.button-Iscriviti {
+    border-radius: 4px;
+    background-color: darkslateblue;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button-Iscriviti span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button-Iscriviti span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+}
+
+.button-Iscriviti:hover span {
+    padding-right: 20px;
+}
+
+.button-Iscriviti:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.AddToCart, .dettagli {
+    margin: 5% 10%;
+    padding: 8px 12px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #8067b5;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 6px #999;
+    width: 80%;
+}
+
+.dettagli:hover {
+    background-color: #9e8dc4;
+}
+
+.AddToCart:hover {
+    background-color: #9e8dc4;
+}
+
+.dettagli:active {
+    background-color: #8067b5;
+    box-shadow: 0 3px #666;
+    transform: translateY(2px);
+}
+
+.AddToCart:active {
+    background-color: #8067b5;
+    box-shadow: 0 3px #666;
+    transform: translateY(2px);
+}
+
+.highlight {
+    position: relative;
+    margin: 0 0.5em;
+    padding: 0 0.2em;
+}
+
+.highlight:before {
+    content: "";
+    z-index: -1;
+    left: -1em;
+    top: 0em;
+    border-width: 0.75em;
+    border-style: solid;
+    border-color: #03588c;
+    position: absolute;
+    width: calc(200% - 0.5em);
+    border-left-color: transparent;
+}
+

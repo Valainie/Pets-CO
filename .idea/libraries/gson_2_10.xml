@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="gson-2.10">
     <CLASSES>
-      <root url="file://$USER_HOME$/Scrivania/ProgettoTSW/gson-2.10.1" />
+      <root url="file://$PROJECT_DIR$/../gson-2.10.1" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
