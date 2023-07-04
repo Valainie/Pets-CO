@@ -15,7 +15,7 @@
 <body>
 
 <%@include file="/includes/header.jsp" %>
-<h1 class="Slogan">Cura</h1> <!-- Sto coso mi serve per tenere separati le barre e l'header che sennò sono appiccicati -->
+<h1 class="Slogan">Cura</h1> <!-- Questo mi serve per tenere separati le barre e l'header che sennò sono appiccicati -->
 <div class="row" style="margin-left: 1%">
 
   <div class="col" > <!-- Questa è la colonna centrale - Questa è quella per mettere effettivamente la roba-->
