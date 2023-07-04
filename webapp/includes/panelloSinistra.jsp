@@ -11,7 +11,7 @@
 	<div class="panelcard card pan" >
 		<div class="card-body">
 				<div class="bx content">
-					<h2>Categoria</h2>
+					<h2>Novit&agrave;</h2>
 					<div class="content-info">
 						<div>
 							<a class="Zorro" href="http://tiktok.com/@diana_zorro">
@@ -19,7 +19,7 @@
 										src="${pageContext.request.contextPath}/Immagini/immagini/Food.jpg" class="rounded mx-auto d-block"
 										alt="Responsive image">
 							</a>
-							<p>Cibo</p>
+							<h2>Offerte</h2>
 						</div>
 						<div>
 							<a class="Zorro" href="http://tiktok.com/@diana_zorro">
@@ -27,16 +27,9 @@
 										src="${pageContext.request.contextPath}/Immagini/immagini/Acc.jpeg" class="rounded mx-auto d-block"
 										alt="Responsive image">
 							</a>
-							<p>accessori</p>
+
 						</div>
-						<div>
-							<a class="Zorro" href="http://tiktok.com/@diana_zorro">
-								<img
-										src="${pageContext.request.contextPath}/Immagini/immagini/msd-animalhealth.png" class="rounded mx-auto d-block"
-										alt="Responsive image">
-							</a>
-							<p>cura</p>
-						</div>
+
 					</div>
 				</div>
 		</div>
