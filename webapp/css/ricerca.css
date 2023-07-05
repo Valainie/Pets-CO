@@ -2,20 +2,16 @@ body {
     background-color: #9e8dc4;
 }
 
-
 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 8px;
-
-    max-width: 50%;
+    width: 65%;
 }
 
 img:hover {
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
-
-.descrizioneBreve {
-    border-color: #03588c;
-    border-width: 10px;
 }
 
 .Slogan {
@@ -23,98 +19,12 @@ img:hover {
     color: #FFFFFF;
     font-family: Roboto;
 }
-
-.title{
-    color: #FFFFFF;
-    font-family: Roboto;
+.vetrina{
+    display: flex;
+    max-width: 70%;
 }
 
-.barravoti{
-    background-color: #f3f3f3;
-    color: #03588CFF;
-    border-radius: 4px;
-    border-width: 5px;
-    box-shadow: 0 0 2px 1px black;
-    padding: 1%;
-}
 
-.descrizioneLunga{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    background-color: #f3f3f3;
-    border-radius: 4px;
-    border-width: 5px;
-    box-shadow: 0 0 2px 1px black;
-    padding: 1%;
-}
-
-.prezzo{
-    text-align: right;
-    font-family: Roboto;
-    color: #FFFFFF;
-    font-size: 250%;
-}
-
-.prezzo span{
-    color: green;
-}
-
-.recTitle{
-    margin-top: 10%;
-    color: #FFFFFF;
-}
-
-.recensione{
-    margin-top: 2%;
-    margin-bottom: 2%;
-    background-color: #8067b5;
-    border-radius: 4px;
-    border-width: 5px;
-    box-shadow: 0 0 2px 1px black;
-    padding: 2%;
-}
-
-.commento{
-    margin-bottom: 2%;
-    background-color: #FFFFFF;
-    border-radius: 4px;
-    border-width: 5px;
-    padding: 1%;
-}
-
-.username{
-
-}
-
-.AddCart{
-    margin: 5% 0%;
-    padding: 10px 10px;
-    font-size: 150%;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #03588c;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
-.AddCart:hover {
-    background-color: #3e8e41
-}
-
-.consiglio{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    background-color: #03588c;
-    border-radius: 4px;
-    padding: 2%;
-    font-family: Roboto;
-    color: #FFFFFF;
-    font-size: 120%;
-    text-align: center;
-}
 
 table {
     text-align: left;
@@ -123,11 +33,6 @@ table {
     background-color: #f6f6f6;
     width: 100%;
     box-shadow: 0 3px #666;
-}
-tr{
-    margin-bottom: 10px;
-    margin-top: 10px;
-
 }
 
 td, th {
@@ -143,3 +48,111 @@ th {
     top: 0;
     padding: 10px;
 }
+
+.bx-sign-up{
+    border-radius: 25px;
+    background: #03588c;
+    padding: 10px;
+    width: 80%;
+    margin:  5% auto;
+    box-sizing: border-box;
+}
+
+.sign-text{
+    text-align: center;
+    color: white;
+}
+
+.button-Iscriviti {
+    border-radius: 4px;
+    background-color: darkslateblue;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button-Iscriviti span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button-Iscriviti span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+}
+
+.button-Iscriviti:hover span {
+    padding-right: 20px;
+}
+
+.button-Iscriviti:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.AddToCart, .dettagli {
+    margin: 5% 10%;
+    padding: 8px 12px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #8067b5;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 6px #999;
+    width: 80%;
+}
+
+.dettagli:hover {
+    background-color: #9e8dc4;
+}
+
+.AddToCart:hover {
+    background-color: #9e8dc4;
+}
+
+.dettagli:active {
+    background-color: #8067b5;
+    box-shadow: 0 3px #666;
+    transform: translateY(2px);
+}
+
+.AddToCart:active {
+    background-color: #8067b5;
+    box-shadow: 0 3px #666;
+    transform: translateY(2px);
+}
+
+.highlight {
+    position: relative;
+    margin: 0 0.5em;
+    padding: 0 0.2em;
+}
+
+.highlight:before {
+    content: "";
+    z-index: -1;
+    left: -1em;
+    top: 0em;
+    border-width: 0.75em;
+    border-style: solid;
+    border-color: #03588c;
+    position: absolute;
+    width: calc(200% - 0.5em);
+    border-left-color: transparent;
+}
+

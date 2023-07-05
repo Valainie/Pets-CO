@@ -27,69 +27,58 @@
 
 
       <div class="col" style="max-width: 65%">
-        <div style="overflow-x:auto;">
         <table>
           <tr>
 
-            <div class="row">
-              <div class="col">
-                <img class="imgprod" src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="Immagine prodotto">
-              </div>
-              <div class="col">
-                <div class="title"><h3>Collare Scalibor</h3></div>
-                <div>
+            <td>
+              <div class="products">
 
+                <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
+
+                <div class="content">
+                  <div class="title"></div>
+                  <div class="prezzo">Prezzo:<span>&euro;</span></div>
+                  <div class="descrizioneBreve">.</div>
+                  <button class="AddToCart">add to cart need href</button>
+                  <button class="dettagli">dettagli need href</button>
                 </div>
-                <div class="descrizioneBreve">Da prendere dal DB. Far un rettangolo intorno.
-                  Lorem ipsum dolor sit amet, eum aeque oblique ad, case tritani cu vel, id dicta nullam appareat pri.
-                  Odio iracundia per ea. Nonumy prompta qui ne, an dicat appareat facilisi ius.
-                  Cu everti adipisci cotidieque sea, ut iuvaret pertinacia argumentum vis.
-                  Vel nonumes ancillae mediocritatem et, movet postea sensibus vim eu, an has ullum labore nominavi.</div>
-                <div class="prezzo">Prezzo: <span>30&euro;</span></div>
               </div>
-            </div>
-          </tr>
+            </td>
 
+            <td>
+              <div class="products">
+
+                <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
+
+                <div class="content">
+                  <div class="title"></div>
+                  <div class="prezzo">Prezzo:<span>&euro;</span></div>
+                  <div class="descrizioneBreve">.</div>
+                  <button class="AddToCart">add to cart need href</button>
+                  <button class="dettagli">dettagli need href</button>
+                </div>
+              </div>
+            </td>
           <tr>
-            <div class="row">
-              <div class="col">
-                <img class="imgprod" src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="Immagine prodotto">
-              </div>
-              <div class="col">
-                <div class="title"><h3>Collare Scalibor</h3></div>
-                <div>
-
-                </div>
-                <div class="descrizioneBreve">Da prendere dal DB. Far un rettangolo intorno.
-                  Lorem ipsum dolor sit amet, eum aeque oblique ad, case tritani cu vel, id dicta nullam appareat pri.
-                  Odio iracundia per ea. Nonumy prompta qui ne, an dicat appareat facilisi ius.
-                  Cu everti adipisci cotidieque sea, ut iuvaret pertinacia argumentum vis.
-                  Vel nonumes ancillae mediocritatem et, movet postea sensibus vim eu, an has ullum labore nominavi.</div>
-                <div class="prezzo">Prezzo: <span>30&euro;</span></div>
-              </div>
-            </div>
-            </tr>
 
         </table>
 
 
-        </div>
-
-      </div>
-
-
-      <div id="pannelloDx" class= "col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block"> <!-- PANNELLO DESTRA! -->
-        <%@include file="/includes/panelloDestra.jsp" %>
-      </div>
-    </div>
 
 
 
 
 
     </div>
+
+
+  <div id="pannelloDx" class= "col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block"> <!-- PANNELLO DESTRA! -->
+    <%@include file="/includes/panelloDestra.jsp" %>
+  </div>
+</div>
+  <div class="row" >
     <%@include file="/includes/footer.jsp"%>
-
+  </div>
 
 </body>
 </html>
