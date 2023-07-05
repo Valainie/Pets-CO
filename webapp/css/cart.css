@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+body{
+    background-color: #9e8dc4;
+}
+
+img{
+    width: 100%;
+}
+
+.Slogan{
+    text-align: center ;
+    color: #FFFFFF;
+    font-family: Roboto;
+}
+
+.carrello{
+    margin-left: 5%;
+    background-color: #8067b5;
+    padding: 3%
+}
+
+.prodottocart{
+    color: #FFFFFF;
+    padding-bottom: 3%;
+    border-color: #FFFFFF;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    margin-bottom: 5%;
+}
+
+.removeCart{
+    font-size: small;
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #960000;
+    border: none;
+    border-radius: 15px;
+}
+
+.removeCart:hover{
+    background-color: #bb0000;
+}
+
+.resocontocart{
+    background-color: #8067b5;
+    padding: 3%;
+    color: white;
+    border-color: #FFFFFF;
+    border-style: solid;
+    border-width: 2px;
+    margin: 5%;
+}
+
+.confirm{
+    font-size: larger;
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+}
+
+.confirm:hover {
+    background-color: #3e8e41
+}
