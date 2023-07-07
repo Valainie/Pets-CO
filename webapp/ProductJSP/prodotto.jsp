@@ -3,13 +3,17 @@
 <head>
  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
  <%@include file="/includes/head.jsp" %>
-   <title>Spendi su Pets&co!</title>
+    <title>Spendi su Pets&co!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/prodotto.css" type="text/css">
-
-
+    <script src='${pageContext.request.contextPath}/JS/jqueryzoom/jquery.zoom.js'></script>
+    <script>
+        $(document).ready(function(){
+            $('#productimage').zoom();
+        });
+    </script>
 </head>
 <body>
 <%@include file="/includes/header.jsp" %>
@@ -23,7 +27,9 @@
  <div class="col"> <!-- Questa è la colonna centrale - Questa è quella per mettere effettivamente la roba-->
      <div class="row">
      <div class="col">
-         <img class="imgprod" src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="Immagine prodotto">
+         <span class="zoom" id="productimage">
+             <img class="imgprod" src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="Immagine prodotto">
+         </span>
      </div>
          <div class="col">
              <div class="title"><h3>Collare Scalibor</h3></div>
