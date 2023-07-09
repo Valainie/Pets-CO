@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<form action="${pageContext.request.contextPath}/LoginServlet" method="post" >
+<form action="${pageContext.request.contextPath}/RegisterServlet" method="post" >
 
     <h1 class="Slogan">How can you not be our member yet?</h1>
 

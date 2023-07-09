@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
+
 <html>
 <head>
     <title>Pagina Cliente Pets&Co</title>
@@ -25,7 +26,7 @@
 <body>
 <%@include file="/includes/header.jsp" %>
 
-<h1 class="Slogan">Username's Page</h1>
+<h1 class="Slogan">Users's Page</h1>
 
 <div class="row" style="margin-left: 1%">
     <div id="PanelloSx" class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block ">
@@ -41,7 +42,7 @@
                     <p><b>Telefono</b>: +39 123-4567890</p>
                     <p><b>Email</b>: indirizzo.mail@email.ml</p>
 
-                    <ul style="list-style: none; padding: 0; text-align: center; margin-top: 20">
+                    <ul style="list-style: none; padding: 0; text-align: center; margin-top: 20%">
                         <li style="display: inline-block; margin-right: 10px;">
                             <a href="${pageContext.request.contextPath}/userJSP/myOrders.jsp" class="client-but">Preferiti</a>
                         </li>

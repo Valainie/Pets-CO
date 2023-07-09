@@ -1,6 +1,6 @@
 package controller.loginLogout;
 
-import DAO.user.UserController;
+import DAO.user.UserDAO;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -45,8 +45,8 @@ public class RegisterServlet extends HttpServlet {
             String c = request.getParameter("Cognome");
             int tel = Integer.parseInt(request.getParameter("Telefono"));
             String mail = request.getParameter("Email");
-            UserController controller = new UserController();
-            boolean result = controller.register(cf, n, p, no, c, tel, mail);
+            UserDAO controller = new UserDAO();
+            boolean result = UserDAO.register(cf, n, p, no, c, tel, mail);
             if (!result) {
                 System.out.println("you are registered already");
                 response.sendRedirect("userJSP/userLogged.jsp");
@@ -57,9 +57,6 @@ public class RegisterServlet extends HttpServlet {
             System.out.println("????" + e);
             response.sendRedirect("userJSP/invalidLogin.jsp");
 
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 }

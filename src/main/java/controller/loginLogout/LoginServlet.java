@@ -1,7 +1,7 @@
 package controller.loginLogout;
 
-import bean.UserBean;
-import DAO.user.UserController;
+import DAO.user.UserDAO;
+import  bean.UserBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,9 +19,10 @@ public class LoginServlet extends HttpServlet {
         try {
             String mail = request.getParameter("Email");
             String p=request.getParameter("Password");
-           UserController controller = new UserController();
-            UserBean bean = controller.login(mail,p);
+           UserDAO controller = new UserDAO();
+            UserBean bean = UserDAO.login(mail,p);
             if (bean == null) {
+                System.out.println("puttana eva");
                 response.sendRedirect("userJSP/invalidLogin.jsp");
             }
             else{

@@ -38,6 +38,42 @@ public class UserDAO implements DAO {
 
 
 
+    public static boolean register(String cf, String username, String password, String nome, String cognome, int telefono, String email){
+        UserBean bean = new UserBean();
+        PreparedStatement stmt=null;
+        try {
+            PreparedStatement ps = ds.getConnection().prepareStatement(
+                    "Select Email from Cliente Where Email=?");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return false;
+            } else {
+                PreparedStatement ps1 = ds.getConnection().prepareStatement(
+                        "insert into Cliente values(?,?,?,?,?,?,?)");
+
+                ps1.setString(1, cf);
+                ps1.setString(2, username);
+                ps1.setString(3, password);
+                ps1.setString(4, nome);
+                ps1.setString(5, cognome);
+                ps1.setInt(6, telefono);
+                ps1.setString(7, email);
+
+                int rs1 = ps.executeUpdate();
+                if (rs1 > 0) {
+                    rs.close();
+                    return true;
+                }
+            }
+
+            return false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+
+        }
+    }
+
     public static UserBean login(String email, String password) {
         UserBean bean = new UserBean();
         PreparedStatement stmt = null;

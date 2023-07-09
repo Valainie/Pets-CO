@@ -150,15 +150,15 @@ public class PModelDS implements DAO {
         }
         return Bean;
     }
-
-    public Collection<Bean> doRetrieveAll(String codice) throws SQLException {
+/*LA JSON JsonRevtrieveForHomeServlet PRENDE DA QUI GLI ATRIBUTI DELLA TABELLA PRODOTTO NECESSARI PER IL CATALOGO/HOME PAGE*/
+    public synchronized Collection<Bean> doRetrieveHome(String codice) throws SQLException{
         String order = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         Collection<Bean> product = new LinkedList<Bean>();
 
-        String selectSQL = "SELECT * FROM Prodotto";
+        String selectSQL = "SELECT (Immagine,Nome,Disponibilita,prezzo,DescrizioneBreve ) FROM Prodotto WHERE Codice=?";
 
         if (order != null && !order.equals("")) {
             selectSQL += " ORDER BY" + order;
@@ -173,10 +173,49 @@ public class PModelDS implements DAO {
 
             while (rs.next()) {
                 bean = new PBean();
+                bean.setDescrizioneLunga(rs.getString("Immagine"));
+                bean.setCodice(rs.getInt("Codice"));
+                bean.setNome(rs.getString("Nome"));
+                bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
+                bean.setDisponibilita(rs.getInt("disponibilita"));
+                bean.setPrezzo(rs.getFloat("Prezzo"));
+
+                product.add(bean);
+            }
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
+        return product;
+    }
+
+    public synchronized Collection<Bean> doRetrieveAll(String codice) throws SQLException {
+        String order = null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        Collection<Bean> product = new LinkedList<Bean>();
+
+        String selectSQL = "SELECT * FROM Prodotto";
+
+        PBean bean = null;
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                bean = new PBean();
                 bean.setCodice(rs.getInt("Codice"));
                 bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
-                bean.setDescrizioneLunga(rs.getString("Immagine"));
+                bean.setImmagine(rs.getString("Immagine"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
                 bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
                 bean.setDisponibilita(rs.getInt("disponibilita"));
@@ -220,7 +259,7 @@ public class PModelDS implements DAO {
                 bean.setCodice(rs.getInt("Codice"));
                 bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
-                bean.setDescrizioneLunga(rs.getString("Immagine"));
+                bean.setImmagine(rs.getString("Immagine"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
                 bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
                 bean.setDisponibilita(rs.getInt("disponibilita"));
@@ -282,7 +321,7 @@ public class PModelDS implements DAO {
                 bean.setCodice(rs.getInt("Codice"));
                 bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
-                bean.setDescrizioneLunga(rs.getString("Immagine"));
+                bean.setImmagine(rs.getString("Immagine"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
                 bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
                 bean.setDisponibilita(rs.getInt("disponibilita"));

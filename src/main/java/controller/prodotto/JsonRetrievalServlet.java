@@ -17,8 +17,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
 
-@WebServlet(name = " JsonRetrievalServlet", value = "/ JsonRetrievalServlet")
-public class                                                                                                                                                                     JsonRetrievalServlet extends HttpServlet {
+@WebServlet(name = " JsonRetrievalServlet", value = "/JsonRetrievalServlet")
+public class JsonRetrievalServlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
     static PModelDS model=new PModelDS();
     static CiboDAO cd=new CiboDAO();
@@ -26,6 +27,9 @@ public class                                                                    
     static CuraDAO cu=new CuraDAO();
     static AccessorioDAO ad=new AccessorioDAO();
 
+    public JsonRetrievalServlet(){
+        super();
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,7 +52,7 @@ public class                                                                    
             }
             else{
                 ab =(AccessorioBean) ad.doRetrieveByKey(Integer.parseInt(codProd));
-                jsonBean                                = new Gson().toJson(ab);
+                jsonBean = new Gson().toJson(ab);
             }
 
         } catch (SQLException e) {
@@ -64,6 +68,5 @@ public class                                                                    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
-
     }
 }
