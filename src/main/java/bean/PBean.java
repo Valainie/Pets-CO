@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class PBean  extends Bean implements Serializable {
+public class    PBean  extends Bean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     int codice;
@@ -15,8 +15,9 @@ public class PBean  extends Bean implements Serializable {
     String descrizioneLunga;
     boolean novita;
     boolean offerta;
+    int IVA;
     
-    public PBean(int codice,String categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, int novita, int offerta) {
+    public PBean(int codice,String categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, boolean novita, boolean offerta, int IVA) {
         this.codice = codice;
         this.categoria=categoria;
         Immagine = immagine;
@@ -25,8 +26,9 @@ public class PBean  extends Bean implements Serializable {
         this.prezzo = prezzo;
         this.descrizioneBreve = descrizioneBreve;
         this.descrizioneLunga = descrizioneLunga;
-        novita = novita;
-        offerta = offerta;
+        this.novita=novita;
+        this.offerta=offerta;
+        this.IVA=22;
     }
 
     public String getCategoria() {
@@ -47,6 +49,14 @@ public class PBean  extends Bean implements Serializable {
 
     public PBean() {
 
+    }
+
+    public int getIVA() {
+        return IVA;
+    }
+
+    public void setIVA(int IVA) {
+        this.IVA = IVA;
     }
 
     public int getCodice() {
@@ -125,6 +135,7 @@ public class PBean  extends Bean implements Serializable {
     public String toString() {
         return "PBean{" +
                 "codice=" + codice +
+                ", categoria='" + categoria + '\'' +
                 ", Immagine='" + Immagine + '\'' +
                 ", nome='" + nome + '\'' +
                 ", disponibilita=" + disponibilita +
@@ -133,7 +144,7 @@ public class PBean  extends Bean implements Serializable {
                 ", descrizioneLunga='" + descrizioneLunga + '\'' +
                 ", novita=" + novita +
                 ", offerta=" + offerta +
+                ", IVA=" + IVA +
                 '}';
     }
-
 }

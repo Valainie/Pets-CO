@@ -1,7 +1,6 @@
 package controller.acquisto;
 
 import DAO.acquisto.AcquistoDAO;
-import DAO.acquisto.MetodoPDAO;
 import DAO.user.UserDAO;
 import bean.Bean;
 
@@ -14,16 +13,12 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-@WebServlet(name = "AcquistoServlet", value = "/AcquistoServlet")
-public class AcquistoServlet extends HttpServlet {
+@WebServlet(name = "AcquistoViewServlet", value = "/AcquistoViewServlet")
+public class AcquistoViewServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     static AcquistoDAO ad = new AcquistoDAO();
     static UserDAO ud=new UserDAO();
 
-    public AcquistoServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -41,7 +36,7 @@ public class AcquistoServlet extends HttpServlet {
                 try {
                     ba = ad.doRetrieveByDateFrom(LocalDate.parse(dataDa));
                     System.out.println("retrieve by DateFrom:" + ba);
-                    session.setAttribute("listaAcquistiEffettuati", ba);
+                    session.setAttribute("listaOrdini", ba);
                     response.setStatus(200);
                     return;
                 } catch (SQLException e) {
@@ -111,14 +106,15 @@ public class AcquistoServlet extends HttpServlet {
                 response.setStatus(200);
             }
         }
-		else {
+
+		else{
 			try {
 				ba=ud.doRetrieveByKey(ordine);
 				session.setAttribute("cliente",ba);
 
 				System.out.println(ordine);
 
-				RequestDispatcher rd=request.getRequestDispatcher("acquisto.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("order.jsp");
 				rd.forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -129,6 +125,7 @@ public class AcquistoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         doGet(request, response);
 
     }

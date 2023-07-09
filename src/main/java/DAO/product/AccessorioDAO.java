@@ -3,7 +3,6 @@ package DAO.product;
 import DAO.DAO;
 import bean.AccessorioBean;
 import bean.Bean;
-import bean.CiboBean;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -14,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class AccessorioDAO implements DAO {
     private static final String TABLE_NAME = "Prodotto";
@@ -41,12 +41,13 @@ public class AccessorioDAO implements DAO {
     }
 
     @Override
-    public Bean doRetrieveByKey(Object categoria) throws SQLException {
+    public Collection<Bean> doRetrieveByKey(Object categoria) throws SQLException {
         String code = (String) categoria;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         AccessorioBean bean = new AccessorioBean();
+        Collection<Bean> Bean= new LinkedList<>();
 
         String selectSQL = "SELECT * FROM " + AccessorioDAO.TABLE_NAME + " WHERE Categoria = ? ";
 
@@ -67,6 +68,7 @@ public class AccessorioDAO implements DAO {
                 bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
+                Bean.add(bean);
             }
 
         } finally {
@@ -78,7 +80,7 @@ public class AccessorioDAO implements DAO {
                     connection.close();
             }
         }
-        return bean;
+        return Bean;
     }
     @Override
     public Collection<Bean> doRetrieveAll(String order) throws SQLException {

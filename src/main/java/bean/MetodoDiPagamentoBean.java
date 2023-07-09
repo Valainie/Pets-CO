@@ -1,18 +1,18 @@
 package bean;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.sql.Date;
 
 public class MetodoDiPagamentoBean extends Bean implements Serializable {
 
     String circuito;
-    int numCarta;
+    long numCarta;
     int cvv;
-    String scadenza;
+    Date scadenza;
     String pin;
 
 
-    public MetodoDiPagamentoBean(String circuito, int numCarta, int cvv, String scadenza) {
+    public MetodoDiPagamentoBean(String circuito, long numCarta, int cvv, Date scadenza) {
         this.circuito = circuito;
         this.numCarta = numCarta;
         this.cvv = cvv;
@@ -31,7 +31,7 @@ public class MetodoDiPagamentoBean extends Bean implements Serializable {
         this.circuito = circuito;
     }
 
-    public int getNumCarta() {
+    public Long getNumCarta() {
         return numCarta;
     }
 
@@ -47,11 +47,11 @@ public class MetodoDiPagamentoBean extends Bean implements Serializable {
         this.cvv = cvv;
     }
 
-    public String getScadenza() {
+    public Date getScadenza() {
         return scadenza;
     }
 
-    public void setScadenza(String scadenza) {
+    public void setScadenza(Date scadenza) {
         this.scadenza = scadenza;
     }
 
@@ -78,5 +78,9 @@ public class MetodoDiPagamentoBean extends Bean implements Serializable {
     public void setPin() {
         String pin = Long.toString(numCarta);
         pin = pin.substring(pin.length() - 4);
+    }
+
+    public Object getSecureCode() {
+        return null;
     }
 }

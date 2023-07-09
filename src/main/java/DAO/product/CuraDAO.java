@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class CuraDAO implements DAO {
     private static final String TABLE_NAME = "Prodotto";
@@ -40,13 +41,13 @@ public class CuraDAO implements DAO {
     }
 
     @Override
-    public Bean doRetrieveByKey(Object categoria) throws SQLException {
+    public synchronized Collection<Bean> doRetrieveByKey(Object categoria) throws SQLException {
         String code = (String) categoria;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         CiboBean bean = new CiboBean();
-
+        Collection<Bean> Bean = new LinkedList<>();
         String selectSQL = "SELECT * FROM " + CuraDAO.TABLE_NAME + " WHERE Categoria = ? ";
 
         try {
@@ -66,6 +67,7 @@ public class CuraDAO implements DAO {
                 bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
+                Bean.add(bean);
             }
 
         } finally {
@@ -77,7 +79,7 @@ public class CuraDAO implements DAO {
                     connection.close();
             }
         }
-        return bean;
+        return Bean;
     }
 
     @Override

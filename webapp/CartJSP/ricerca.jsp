@@ -1,7 +1,8 @@
 <%--
 
 --%>
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Spendi i soldi dai</title>
   <%@include file="/includes/head.jsp" %>

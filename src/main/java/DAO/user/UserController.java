@@ -1,7 +1,9 @@
 package DAO.user;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -13,7 +15,9 @@ import bean.UserBean;
 public class UserController {
     private static DataSource ds;
 
-    public boolean register(String cf, String username,String password,String nome,String cognome, int telefono, String email, String dettagli) {
+    public boolean register(String cf, String username,String password,String nome,String cognome, int telefono, String email) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
 
             try {
                 Context initCtx = new InitialContext();
@@ -34,7 +38,7 @@ public class UserController {
                 return false;
             } else {
                 PreparedStatement ps1 = ds.getConnection().prepareStatement(
-                        "insert into Cliente values(?,?,?,?,?,?,?,?)");
+                        "insert into Cliente values(?,?,?,?,?,?,?)");
 
                 ps1.setString(1, cf);
                 ps1.setString(2, username);
@@ -43,19 +47,22 @@ public class UserController {
                 ps1.setString(5, cognome);
                 ps1.setInt(6, telefono);
                 ps1.setString(7, email);
-                ps1.setString(8, dettagli);
 
                 int rs1 = ps.executeUpdate();
                 if (rs1 > 0) {
                     rs.close();
                     return true;
                 }
-                ps.close();
-                ps1.close();
             }
 
-        } catch (Exception e) {
-            System.err.println(e);
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } finally {
+            }
         }
 
         return false;

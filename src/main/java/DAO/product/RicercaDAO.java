@@ -18,7 +18,7 @@ public class RicercaDAO implements DAO {
     }
 
     @Override
-    public Bean doRetrieveByKey(Object key) throws SQLException {
+    public Collection<Bean> doRetrieveByKey(Object key) throws SQLException {
         return null;
     }
 

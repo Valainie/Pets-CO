@@ -7,7 +7,6 @@ import bean.UserBean;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.JoinTable;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class UserDAO implements DAO {
 
@@ -112,7 +112,6 @@ public class UserDAO implements DAO {
             preparedStatement.setString(1, c.getNome());
             preparedStatement.setString(2, c.getCognome());
             preparedStatement.setInt(5, c.getTel());
-            preparedStatement.setString(6, c.getDettagli());
             preparedStatement.setString(6, String.valueOf(c.getCartaPred()));
 
             preparedStatement.executeUpdate();
@@ -158,13 +157,14 @@ public class UserDAO implements DAO {
     }
 
     @Override
-    public Bean doRetrieveByKey(Object user) throws SQLException {
+    public synchronized Collection<Bean> doRetrieveByKey(Object user) throws SQLException {
 
         String username=(String) user;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         UserBean bean = new UserBean();
+        Collection<Bean>Bean = new LinkedList<>();
 
         String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE username = ?";
 
@@ -183,9 +183,7 @@ public class UserDAO implements DAO {
                 bean.setCognome(rs.getString("Cognome"));
                 bean.setTel(rs.getInt("Telefono"));
                 bean.setEmail(rs.getString("Email"));
-                bean.setDettagli(rs.getString("Dettagli"));
-                bean.setDettagli(rs.getString("Dettagli"));
-
+                Bean.add(bean);
             }
 
         } finally {
@@ -197,12 +195,12 @@ public class UserDAO implements DAO {
                     connection.close();
             }
         }
-        return bean;
+        return Bean;
     }
 
 
     @Override
-    public Collection<Bean> doRetrieveAll(String order) throws SQLException {
+    public synchronized Collection<Bean> doRetrieveAll(String order) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -230,9 +228,6 @@ public class UserDAO implements DAO {
                 bean.setCognome(rs.getString("Cognome"));
                 bean.setTel(rs.getInt("Telefono"));
                 bean.setEmail(rs.getString("Email"));
-                bean.setDettagli(rs.getString("Dettagli"));
-                bean.setDettagli(rs.getString("Dettagli"));
-
             }
 
 
@@ -271,7 +266,6 @@ public class UserDAO implements DAO {
                 bean.setCognome(rs.getString("Cognome"));
                 bean.setTel(rs.getInt("Telefono"));
                 bean.setEmail(rs.getString("Email"));
-                bean.setDettagli(rs.getString("Dettagli"));
             }
             connection.commit();
         } finally {
@@ -310,7 +304,6 @@ public class UserDAO implements DAO {
                 bean.setCognome(rs.getString("Cognome"));
                 bean.setTel(rs.getInt("Telefono"));
                 bean.setEmail(rs.getString("Email"));
-                bean.setDettagli(rs.getString("Dettagli"));
                 bean.setCartaPred(rs.getString("CartaPred"));
 
             }
@@ -326,12 +319,12 @@ public class UserDAO implements DAO {
         }
         return bean;
     }
-    public synchronized void doUpdate(String column1, String column2, String column3, String column4, String column5,String column6,String column7,String column8,String column9, String username) throws SQLException
+    public synchronized void doUpdate(String column1, String column2, String column3, String column4, String column5,String column6, String column7, String username) throws SQLException
     {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String selectSQL ="UPDATE "+UserDAO.TABLE_NAME+" SET Cf=?, Username=?, 'Password'=?, Nome=?, Cognome=?, Telefono=?, Email=? WHERE Username='"+username+"'";
+        String selectSQL ="UPDATE "+UserDAO.TABLE_NAME+" SET Cf=? Username=?,Password=?,Nome=?, Cognome=?, Telefono=?, Email=? WHERE username='"+username+"'";
 
 
         try {
@@ -342,8 +335,8 @@ public class UserDAO implements DAO {
             preparedStatement.setString(3, column3);
             preparedStatement.setString(4, column4);
             preparedStatement.setString(5, column5);
-            preparedStatement.setString(6, column6);
-            preparedStatement.setString(7, column7);
+            preparedStatement.setString(6,column6);
+            preparedStatement.setString(7,column7);
 
 
 
@@ -361,43 +354,45 @@ public class UserDAO implements DAO {
             }
         }
     }
-    /* questo metodo deve permettere l'update della carta che lìutente possiede
-    *
 
-    public void doUpdateCard(String cartaPred, String username, int numCarta) throws SQLException {
-        Connection connection = null;
-    PreparedStatement preparedStatement = null;
 
-        String selectSQL = "UPDATE "+ UserDAO.TABLE_NAME + JoinTable Possiede as c + " SET c.numCarta= ? WHERE c.username= ?";
+    //questo metodo deve permettere l'update della carta che lìutente possiede
+
+
+   public synchronized void doUpdateCard(String column, String username, Object value) throws SQLException
+	{
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		String selectSQL = "UPDATE "+ UserDAO.TABLE_NAME + " as c SET "+column+"= ? WHERE c.Username= ?";
 
 		try {
-        connection = ds.getConnection();
-        preparedStatement = connection.prepareStatement(selectSQL);
+				connection = ds.getConnection();
+				preparedStatement = connection.prepareStatement(selectSQL);
 
-            Object value = null;
-            if(value instanceof String) {
-            String val = (String) value;
-            preparedStatement.setString(1, val);
-            preparedStatement.setString(2, username);
-        }
-        if(value instanceof Long) {
-            long val= (Long) value;
-            preparedStatement.setLong(1, val);
-            preparedStatement.setString(2, username);
-        }
+				if(value instanceof String) {
+					String val = (String) value;
+					preparedStatement.setString(1, val);
+					preparedStatement.setString(2, username);
+				}
+				if(value instanceof Long) {
+					long val= (Long) value;
+					preparedStatement.setLong(1, val);
+					preparedStatement.setString(2, username);
+				}
 
-        preparedStatement.executeUpdate();
-        connection.commit();
-    } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-        try {
-            if (preparedStatement != null)
-                preparedStatement.close();
-        } finally {
-            if (connection != null)
-                connection.close();
-        }
-    }
-}*/
+				preparedStatement.executeUpdate();
+				connection.commit();
+		    }
+
+	    finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+	    		}
+	}
 }

@@ -36,14 +36,14 @@ public class PModelDS implements DAO {
 
 
     @Override
-    public void doSave(Bean product) throws SQLException {
+    public synchronized  void doSave(Bean product) throws SQLException {
         PBean p = (PBean) product;
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         String insertSQL = "INSERT INTO " + PModelDS.TABLE_NAME
-                + " (Codice, Categoria, Immagine, Nome, disponibilita, prezzo, DescrizioneLunga, DescrizioneBreve, novita, offerta) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + " (Codice, Categoria, Immagine, Nome, disponibilita, prezzo, DescrizioneLunga, DescrizioneBreve, novita, offerta, IVA) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
         try {
             connection = ds.getConnection();
@@ -58,6 +58,7 @@ public class PModelDS implements DAO {
             preparedStatement.setString(8, p.getDescrizioneLunga());
             preparedStatement.setBoolean(9, p.isNovita());
             preparedStatement.setBoolean(10, p.isOfferta());
+            preparedStatement.setInt(11,p.getIVA());
 
 
             preparedStatement.executeUpdate();
@@ -76,7 +77,7 @@ public class PModelDS implements DAO {
 
 
     @Override
-    public boolean doDelete(Object key) throws SQLException {
+    public synchronized boolean doDelete(Object key) throws SQLException {
         int code = (int) codice;
         System.out.println(code);
         Connection connection = null;
@@ -106,12 +107,13 @@ public class PModelDS implements DAO {
     }
 
     @Override
-    public Bean doRetrieveByKey(Object key) throws SQLException {
+    public synchronized  Collection<Bean> doRetrieveByKey(Object key) throws SQLException {
         int code = (int) codice;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         PBean bean = new PBean();
+        Collection <Bean> Bean = new LinkedList<>();
 
         String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE Codice = ?";
 
@@ -132,6 +134,9 @@ public class PModelDS implements DAO {
                 bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
+                bean.setIVA(rs.getInt("IVA"));
+
+                Bean.add(bean);
             }
 
         } finally {
@@ -143,7 +148,7 @@ public class PModelDS implements DAO {
                     connection.close();
             }
         }
-        return bean;
+        return Bean;
     }
 
     public Collection<Bean> doRetrieveAll(String codice) throws SQLException {
@@ -178,6 +183,8 @@ public class PModelDS implements DAO {
                 bean.setPrezzo(rs.getFloat("Prezzo"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
+                bean.setIVA(rs.getInt("IVA"));
+
                 product.add(bean);
             }
         } finally {
@@ -220,6 +227,8 @@ public class PModelDS implements DAO {
                 bean.setPrezzo(rs.getFloat("Prezzo"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
+                bean.setIVA(rs.getInt("IVA"));
+
                 product.add(bean);
             }
 
@@ -239,7 +248,7 @@ public class PModelDS implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<PBean> product = new LinkedList<PBean>();
+        Collection<Bean> product = new LinkedList<Bean>();
 
         String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE Categoria=? ";
 
@@ -280,6 +289,8 @@ public class PModelDS implements DAO {
                 bean.setPrezzo(rs.getFloat("Prezzo"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
+                bean.setIVA(rs.getInt("IVA"));
+
                 product.add(bean);
             }
 
@@ -292,7 +303,7 @@ public class PModelDS implements DAO {
                     connection.close();
             }
         }
-        return (Collection<Bean>) bean;
+        return product;
     }
 
 
@@ -323,6 +334,8 @@ public class PModelDS implements DAO {
                 bean.setImmagine(rs.getString("Immagine"));
                 bean.setPrezzo(rs.getFloat("prezzo"));
                 bean.setOfferta(rs.getBoolean("Offerta"));
+                bean.setIVA(rs.getInt("IVA"));
+
                 product.add(bean);
             }
 
@@ -335,7 +348,7 @@ public class PModelDS implements DAO {
                     connection.close();
             }
         }
-        return Collections.singleton(bean);
+        return product;
     }
 
     public synchronized Collection<Bean> doRetrieveByResearch(String ric) throws SQLException {
@@ -363,6 +376,8 @@ public class PModelDS implements DAO {
                 bean.setPrezzo(rs.getFloat("Prezzo"));
                 bean.setNovita(rs.getBoolean("novita"));
                 bean.setOfferta(rs.getBoolean("offerta"));
+                bean.setIVA(rs.getInt("IVA"));
+
                 product.add(bean);
             }
 

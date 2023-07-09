@@ -1,5 +1,12 @@
 package controller.prodotto;
 
+import DAO.acquisto.AcquistoDAO;
+import DAO.product.AccessorioDAO;
+import DAO.product.CiboDAO;
+import DAO.product.CuraDAO;
+import bean.AccessorioBean;
+import bean.CiboBean;
+import bean.CuraBean;
 import bean.PBean;
 import DAO.DAO;
 import DAO.product.PModelDS;
@@ -11,85 +18,113 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 @WebServlet(name = "ProdottoServlet", value = "/ProdottoServlet")
 public class ProdottoServlet extends HttpServlet {
 
-    static boolean isDataSource = true;
+    private static final long serialVersionUID = 1L;
+    PModelDS pm=new PModelDS();
+    CuraDAO cud=new CuraDAO();
+    CiboDAO cid= new CiboDAO();
+    AccessorioDAO ad=new AccessorioDAO();
 
-    static DAO model;
-
-    static {
-        if (isDataSource) {
-            model = new PModelDS();
-        } else {
-            model = (DAO) new PModelDS();
-        }
-    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Cart cart = (Cart) request.getSession().getAttribute("cart");
-        if(cart == null) {
-            cart = new Cart();
-            request.getSession().setAttribute("cart", cart);
-        }
+        String numProd = request.getParameter("selProd");
+        String selCat =request.getParameter("selCat");
+        CuraBean cb = new CuraBean();
+        CiboBean cib= new CiboBean();
+        AccessorioBean ba = new AccessorioBean();
 
-        String action = request.getParameter("action");
 
-        try {
-            if (action != null) {
-                if (action.equalsIgnoreCase("addC")) {
-                    int codice = Integer.parseInt(request.getParameter("codice"));
-                    cart.addToCart(model.doRetrieveByKey(codice));
-                } else if (action.equalsIgnoreCase("deleteC")) {
-                    int codice = Integer.parseInt(request.getParameter("codice"));
-                } else if (action.equalsIgnoreCase("read")) {
-                    int codice = Integer.parseInt(request.getParameter("codice"));
-                    request.removeAttribute("DAO/product");
-                    request.setAttribute("product", model.doRetrieveByKey(codice));
-                } else if (action.equalsIgnoreCase("delete")) {
-                    int id = Integer.parseInt(request.getParameter("codice"));
-                    model.doDelete(String.valueOf(id));
-                } else if (action.equalsIgnoreCase("insert")) {
-                    String nome = request.getParameter("nome");
-                    String description = request.getParameter("description");
-                    float prezzo = Integer.parseInt(request.getParameter("prezzo"));
-                    int quantity = Integer.parseInt(request.getParameter("quantity"));
-
-                    PBean bean = new PBean();
-                    bean.setNome(nome);
-                    bean.setDescrizioneLunga(description);
-                    bean.setPrezzo(prezzo);
-                    model.doSave(bean);
-                }
+        if (Integer.parseInt(selCat) == 1)
+        {
+            CuraDAO gm = new CuraDAO();
+            try
+            {
+                cb = (CuraBean) cud.doRetrieveByKey(Integer.parseInt(numProd));
             }
-        } catch (SQLException e) {
-            System.out.println("Error:" + e.getMessage());
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+
+            request.setAttribute("cura", cb);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/prodotto.jsp");
+            dispatcher.forward(request, response);
+        }
+        else if (Integer.parseInt(selCat) == 2)
+        {
+            AccessorioDAO am = new AccessorioDAO();
+            try
+            {
+                ba = (AccessorioBean) ad.doRetrieveByKey(Integer.parseInt(numProd));
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+
+            request.setAttribute("accessorio", ba);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/prodotto.jsp");
+            dispatcher.forward(request, response);
+
+        }else if (Integer.parseInt(selCat) == 3)
+        {
+            CiboDAO cd = new CiboDAO();
+            try
+            {
+                cd = (CiboDAO) cid.doRetrieveByKey(Integer.parseInt(numProd));
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+
+            request.setAttribute("cibo", cib);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/prodotto.jsp");
+            dispatcher.forward(request, response);
+
         }
 
-        request.getSession().setAttribute("cart", cart);
-        request.setAttribute("cart", cart);
-
-
-        String sort = request.getParameter("sort");
-
-        try {
-            request.removeAttribute("products");
-            request.setAttribute("products", model.doRetrieveAll(sort));
-        } catch (SQLException e) {
-            System.out.println("Error:" + e.getMessage());
-        }
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
-        dispatcher.forward(request, response);
     }
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        HttpSession session = request.getSession();
+        String codP=request.getParameter("codProd");
+        AccessorioBean ba = new AccessorioBean();
+        CuraBean cu = new CuraBean();
+        CiboBean cib= new CiboBean();
+        PBean bp=new PBean();
+
+        try {
+            bp= (PBean) pm.doRetrieveByKey(Integer.parseInt(codP));
+            if (Objects.equals(bp.getCategoria(), "Cura")) {
+                cu= (CuraBean) cud.doRetrieveByKey(Integer.parseInt(codP));
+                session.setAttribute("prodotto", bp);
+                session.setAttribute("cura", cu);
+            }
+            else if(Objects.equals(bp.getCategoria(), "Accessorio")) {
+                ba= (AccessorioBean) ad.doRetrieveByKey(Integer.parseInt(codP));
+                session.setAttribute("accessorio", ba);
+                session.setAttribute("prodotto", bp);
+            }
+            else if(Objects.equals(bp.getCategoria(), "Cibo")) {
+                cib= (CiboBean) cid.doRetrieveByKey(Integer.parseInt(codP));
+                session.setAttribute("Cibo", cib);
+                session.setAttribute("prodotto", bp);
+            }
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("sono nella post");
     }
 }

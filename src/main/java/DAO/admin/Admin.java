@@ -14,7 +14,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.RandomAccess;
 
 public class Admin implements DAO {
 
@@ -96,7 +95,7 @@ public class Admin implements DAO {
 
 
     @Override
-    public Bean doRetrieveByKey(Object codice) throws SQLException {
+    public Collection<Bean> doRetrieveByKey(Object codice) throws SQLException {
         String username=(String) codice;
         Connection connection = null;
         PreparedStatement preparedStatement = null;

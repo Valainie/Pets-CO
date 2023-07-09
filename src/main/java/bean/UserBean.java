@@ -12,13 +12,12 @@ public class UserBean extends Bean implements Serializable {
     String cognome;
     int tel;
     String email;
-    String dettagli;
     private Object cartaPred;
 
     public UserBean() {
     }
 
-    public UserBean(String cf, String username, String password, String nome, String cognome, int tel, String email, String dettagli) {
+    public UserBean(String cf, String username, String password, String nome, String cognome, int tel, String email, int cartaPred) {
         this.cf = cf;
         this.username = username;
         this.password = password;
@@ -26,12 +25,13 @@ public class UserBean extends Bean implements Serializable {
         this.cognome = cognome;
         this.tel = tel;
         this.email = email;
-        this.dettagli = dettagli;
         cartaPred=99999;
 
     }
 
-
+    public void setCartaPred(Object cartaPred) {
+        this.cartaPred = cartaPred;
+    }
 
     public String getCf() {
         return cf;
@@ -89,13 +89,6 @@ public class UserBean extends Bean implements Serializable {
         this.email = email;
     }
 
-    public String getDettagli() {
-        return dettagli;
-    }
-
-    public void setDettagli(String dettagli) {
-        this.dettagli = dettagli;
-    }
 
     @Override
     public String toString() {
@@ -107,7 +100,7 @@ public class UserBean extends Bean implements Serializable {
                 ", cognome='" + cognome + '\'' +
                 ", tel=" + tel +
                 ", email='" + email + '\'' +
-                ", dettagli='" + dettagli + '\'' +
+                ", Carta='" + cartaPred + '\'' +
                 '}';
     }
 
@@ -122,7 +115,6 @@ public class UserBean extends Bean implements Serializable {
     }
 
     public long getCartaPred() {
-        this.cartaPred = cartaPred;
         return 0;
     }
 

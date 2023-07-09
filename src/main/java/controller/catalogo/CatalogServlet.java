@@ -1,4 +1,4 @@
-package controller.catalogo;
+/*package controller.catalogo;
 
 import DAO.product.Catalogo;
 import bean.ProdottoCatalogo;
@@ -63,4 +63,4 @@ public class CatalogServlet extends HttpServlet {
         }
         out.println("<HR>\n</BODY></HTML>");
     }
-}
+}*/

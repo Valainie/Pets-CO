@@ -1,16 +1,21 @@
 package controller.user;
 
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.Collection;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import DAO.acquisto.MetodoPDAO;
 import bean.Bean;
 import bean.MetodoDiPagamentoBean;
 import bean.PBean;
-
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Collection;
 
 @WebServlet(name = "PaymentServlet", value = "/PaymentServlet")
 public class PaymentServlet extends HttpServlet {
@@ -27,7 +32,7 @@ public class PaymentServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String username=request.getParameter("Username");
         String securecode=request.getParameter("pin");
-        Collection<Bean> bo=null;
+        Collection<Bean> bo;
 
         if(username!=null && request.getParameter("retrieve") != null) {
             try {
@@ -79,7 +84,7 @@ public class PaymentServlet extends HttpServlet {
             metodo.setNumCarta(Integer.parseInt(request.getParameter("numero")));
             metodo.setCvv(Integer.parseInt(request.getParameter("cvv")));
             metodo.setCircuito(request.getParameter("circuito"));
-            metodo.setScadenza(request.getParameter("scadenza"));
+            metodo.setScadenza(Date.valueOf(request.getParameter("scadenza")));
             metodo.setPin();
             try {
                 pm.customDoSave(metodo, request.getParameter("username"));

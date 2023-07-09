@@ -10,7 +10,7 @@ public interface DAO {
 
     public boolean doDelete(Object key) throws SQLException;
 
-    public Bean doRetrieveByKey(Object key) throws SQLException;
+    public Collection<Bean> doRetrieveByKey(Object key) throws SQLException;
 
     public Collection<Bean> doRetrieveAll(String order) throws SQLException;
 }

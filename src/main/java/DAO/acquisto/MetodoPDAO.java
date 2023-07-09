@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -50,7 +49,7 @@ public class MetodoPDAO implements DAO {
             entStatement.setString(1, c.getCircuito());
             entStatement.setLong(2, c.getNumCarta());
             entStatement.setInt(3, c.getCvv());
-            entStatement.setString(4, c.getScadenza());
+            entStatement.setDate(4, c.getScadenza());
             entStatement.executeUpdate();
 
             relStatement = connection.prepareStatement(insertRel);
@@ -80,7 +79,7 @@ public class MetodoPDAO implements DAO {
     }
 
     @Override
-    public boolean doDelete(Object codice) throws SQLException {
+    public synchronized boolean doDelete(Object codice) throws SQLException {
         long code=(long) codice;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -111,13 +110,14 @@ public class MetodoPDAO implements DAO {
 
 
     @Override
-    public Bean doRetrieveByKey(Object key) throws SQLException {
+    public synchronized Collection<Bean> doRetrieveByKey(Object key) throws SQLException {
 
         int CodiceMetodo= (int) key;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         MetodoDiPagamentoBean bean = new MetodoDiPagamentoBean();
+        Collection<Bean> metodo= new LinkedList<Bean>();
 
         String selectSQL ="SELECT * FROM " + MetodoPDAO.TABLE_NAME + " WHERE numCarta = ?";
 
@@ -132,8 +132,9 @@ public class MetodoPDAO implements DAO {
                 bean.setCircuito(rs.getString("circuito"));
                 bean.setNumCarta((rs.getInt("numCarta")));
                 bean.setCvv(rs.getInt("cvv"));
-                bean.setScadenza(rs.getString("scadenza"));
+                bean.setScadenza(rs.getDate("scadenza"));
                 bean.setPin();
+                metodo.add(bean);
             }
 
         } finally {
@@ -145,12 +146,12 @@ public class MetodoPDAO implements DAO {
                     connection.close();
             }
         }
-        return bean;
+        return metodo;
     }
 
 
     @Override
-    public Collection<Bean> doRetrieveAll(String order) throws SQLException {
+    public synchronized Collection<Bean> doRetrieveAll(String order) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -175,7 +176,7 @@ public class MetodoPDAO implements DAO {
                 bean.setNumCarta((rs.getInt("numCarta")));
                 bean.setCvv(rs.getInt("cvv"));
                 bean.setCircuito(rs.getString("circuito"));
-                bean.setScadenza(rs.getString("scadenza"));
+                bean.setScadenza(rs.getDate("scadenza"));
                 bean.setPin();
                 pagamento.add(bean);
             }
@@ -211,7 +212,7 @@ public class MetodoPDAO implements DAO {
                 bean.setCircuito(rs.getString("circuito"));
                 bean.setNumCarta(rs.getInt("numCarta"));
                 bean.setCvv(rs.getInt("cvv"));
-                bean.setScadenza(rs.getString("scadenza"));
+                bean.setScadenza(rs.getDate("scadenza"));
                 bean.setPin();
                 bean.add();
             }

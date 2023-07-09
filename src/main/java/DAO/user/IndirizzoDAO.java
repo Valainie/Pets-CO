@@ -91,13 +91,14 @@ public class IndirizzoDAO implements DAO {
     }
 
     @Override
-    public Bean doRetrieveByKey(Object key) throws SQLException {
+    public Collection<Bean> doRetrieveByKey(Object key) throws SQLException {
 
         int codiceIndirizzo= (int) key;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         IndirizzoBean bean = new IndirizzoBean();
+        Collection<Bean> Bean= new LinkedList<>();
 
         String selectSQL = "SELECT * FROM " + IndirizzoDAO.TABLE_NAME + " WHERE codiceIndirizzo = ?";
 
@@ -114,6 +115,7 @@ public class IndirizzoDAO implements DAO {
                 bean.setVia((rs.getString("via")));
                 bean.setCivico(rs.getInt("civico"));
                 bean.setCap(rs.getInt("cap"));
+                Bean.add(bean);
             }
 
         } finally {
@@ -125,7 +127,7 @@ public class IndirizzoDAO implements DAO {
                     connection.close();
             }
         }
-        return bean;
+        return Bean;
     }
     
     @Override

@@ -5,8 +5,8 @@
       <configuration>
         <descriptors>
           <deploymentDescriptor name="context.xml" url="file://$MODULE_DIR$/webapp/META-INF/context.xml" />
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/webapp/web/WEB-INF/web.xml" />
           <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/webapp/WEB-INF/web.xml" />
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/webapp/web/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
           <root url="file://$MODULE_DIR$/webapp" relative="/" />
@@ -16,8 +16,8 @@
     <facet type="web" name="Web2">
       <configuration>
         <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/web/WEB-INF/web.xml" />
           <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/web/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
@@ -37,17 +37,9 @@
     <orderEntry type="library" exported="" name="mysql-connector-j-8.0.33" level="project" />
     <orderEntry type="library" exported="" name="jstl-1.2" level="project" />
     <orderEntry type="library" exported="" name="Java EE 6-Java EE 6" level="project" />
-    <orderEntry type="library" exported="" name="moment.js" level="application" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="sweetalert2" level="application" />
-    <orderEntry type="library" exported="" name="jquery-1.12.4" level="application" />
     <orderEntry type="library" exported="" name="@popperjs/core" level="application" />
-    <orderEntry type="library" exported="" name="popper.js" level="application" />
-    <orderEntry type="library" exported="" name="bootstrap" level="application" />
-    <orderEntry type="library" exported="" name="bootstrap-datepicker" level="application" />
-    <orderEntry type="library" exported="" name="jquery" level="application" />
-    <orderEntry type="library" exported="" name="iconify" level="application" />
     <orderEntry type="library" exported="" name="iconify-icon" level="application" />
     <orderEntry type="library" exported="" name="gson-2.8.2" level="project" />
-    <orderEntry type="library" name="gson-2.10" level="project" />
+    <orderEntry type="library" name="iconify-icon" level="application" />
   </component>
 </module>

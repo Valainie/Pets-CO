@@ -7,18 +7,12 @@ G
 webapp/CartJSP/cart.jsp,0\7\0712c2e833fa7d32174f5802aa66eb2b666adfaa
 M
 webapp/AdminJSP/adminpage.jsp,1\7\1723432b9834c9e7f8436683df12ff3408c59206
-b
-2src/main/java/controller/servlet/UserPServlet.java,f\1\f1dc4a9389a1e4c165227f3fa8704bcc2a41f8c5
-_
-/src/main/java/controller/user/LoginServlet.java,d\1\d1a5768e889c4ae7dda16915d5474aac44759e8a
 E
 webapp/css/footer.css,7\c\7c329d55f49536f265b9197ca19b48306f448a5a
 Z
 *src/main/java/DAO/user/UserController.java,2\c\2c03f01b046dd1e6bc7907f23752cec69da19719
 S
 #src/main/java/DAO/user/UserDAO.java,c\7\c7a109e9e1ca540561e7c77cf67aa3d0ef22c95b
-U
-%src/main/java/DAO/user/AdressDAO.java,0\a\0a31539aeb5be5968dcef91f7a29ed023b087e1e
 P
  src/main/java/bean/Carrello.java,d\5\d58bc0f2ab23cef7cace283cd1909634fc449a1a
 M

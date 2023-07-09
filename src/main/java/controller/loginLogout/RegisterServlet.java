@@ -1,4 +1,4 @@
-package controller.user;
+package controller.loginLogout;
 
 import DAO.user.UserController;
 
@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -44,10 +45,8 @@ public class RegisterServlet extends HttpServlet {
             String c = request.getParameter("Cognome");
             int tel = Integer.parseInt(request.getParameter("Telefono"));
             String mail = request.getParameter("Email");
-            String det = request.getParameter("Dettagli");
-
             UserController controller = new UserController();
-            boolean result = controller.register(cf, n, p, no, c, tel, mail, det);
+            boolean result = controller.register(cf, n, p, no, c, tel, mail);
             if (!result) {
                 System.out.println("you are registered already");
                 response.sendRedirect("userJSP/userLogged.jsp");
@@ -59,6 +58,8 @@ public class RegisterServlet extends HttpServlet {
             response.sendRedirect("userJSP/invalidLogin.jsp");
 
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

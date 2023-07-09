@@ -1,23 +1,25 @@
 package DAO.acquisto;
 
 import bean.Bean;
+import bean.Carrello;
 
-import java.math.BigDecimal;
+import java.math.*;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Cart {
-    private ArrayList<bean.Carrello> products;
+    private Collection<Carrello> products;
     BigDecimal totale;
     BigDecimal ivaTotale;
     public Cart() {
-        products = new ArrayList<bean.Carrello>();
+        products = new ArrayList<Carrello>();
         totale=new BigDecimal("0");
         ivaTotale=new BigDecimal("0");
 
     }
 
-    public void addProduct(bean.Carrello bce) {
+    public void addProduct(Carrello bce) {
         products.add(bce);
 
         totale=totale.add(bce.getPrezzoTotale());
@@ -35,9 +37,9 @@ public class Cart {
 
 
 
-    public void deleteProduct(bean.Carrello bce) {
-        ArrayList<bean.Carrello> toRemove=new ArrayList<bean.Carrello>();
-        for(bean.Carrello prod : products) {
+    public void deleteProduct(Carrello bce) {
+        Collection<Carrello> toRemove=new ArrayList<Carrello>();
+        for(Carrello prod : products) {
             if(prod.getCodP() == bce.getCodP()) {
                 toRemove.add(prod);
 
@@ -49,44 +51,44 @@ public class Cart {
         products.removeAll(toRemove);
     }
 
-    public void setQuant(bean.Carrello bce, int quant)
+    public void setQuant(Carrello bce,int quant)
     {
-        bean.Carrello selected = null;
+        Carrello selected = null;
 
-        for(bean.Carrello b: products)
+        for(Carrello b: products)
         {
             if(bce.getCodP()==b.getCodP())
             {
                 selected = b;
             }
         }
-
-        totale=totale.subtract(BigDecimal.valueOf(selected.getProduct().getPrezzo()*selected.getQuantita()));
-        //	oldquantita=selected.getQuantita();
+        totale=totale.subtract(BigDecimal.valueOf(selected.getProduct().getPrezzo()*(selected.getQuantita())));
         selected.setQuantita(selected.getQuantita()+quant);
-        selected.setPrezzoTotale(BigDecimal.valueOf(selected.getProduct().getPrezzo()*selected.getQuantita()));
-        totale=totale.add(BigDecimal.valueOf(selected.getProduct().getPrezzo()*selected.getQuantita()));
+        selected.setPrezzoTotale(BigDecimal.valueOf(selected.getProduct().getPrezzo()*(selected.getQuantita())));
+
+        totale=totale.add(BigDecimal.valueOf(selected.getProduct().getPrezzo()*(selected.getQuantita())));
+
     }
 
-    public void refresh(bean.Carrello bce, int quant)
+    public void refresh(Carrello bce,int quant)
     {
-        for(bean.Carrello b: products)
+        for(Carrello b: products)
             if(bce.getCodP()==b.getCodP())
             {
-                totale=totale.subtract(BigDecimal.valueOf(b.getProduct().getPrezzo()*b.getQuantita()));
+                totale=totale.subtract(BigDecimal.valueOf(b.getProduct().getPrezzo()*(b.getQuantita())));
                 b.setQuantita(quant);
-                b.setPrezzoTotale(BigDecimal.valueOf(b.getProduct().getPrezzo()*b.getQuantita()));
-                totale=totale.add(BigDecimal.valueOf(b.getProduct().getPrezzo()*b.getQuantita()));
+                b.setPrezzoTotale(BigDecimal.valueOf(b.getProduct().getPrezzo()*(quant)));
+                totale=totale.add(BigDecimal.valueOf(b.getProduct().getPrezzo()*(b.getQuantita())));
             }
     }
 
 
-    public ArrayList<bean.Carrello> getProducts() {
+    public Collection<Carrello> getProducts() {
         return products;
     }
 
     public void printCart () {
-        for(bean.Carrello bce : products) {
+        for(Carrello bce : products) {
             System.out.println(bce.toString());
         }
     }
@@ -95,7 +97,7 @@ public class Cart {
     {
         int result = 0;
 
-        for(bean.Carrello p: products)
+        for(Carrello p: products)
         {
             result = result + p.getQuantita();
         }
@@ -103,9 +105,9 @@ public class Cart {
         return result;
     }
 
-    public boolean cartContains(bean.Carrello bce)
+    public boolean cartContains(Carrello bce)
     {
-        for(bean.Carrello p: products)
+        for(Carrello p: products)
         {
             if(p.getCodP()==bce.getCodP())
                 return true;
@@ -117,7 +119,7 @@ public class Cart {
     {
         int c=1;
         String format="[\n";
-        for(bean.Carrello b : products)
+        for(Carrello b : products)
         {
             if (c < products.size())
             {
@@ -142,9 +144,9 @@ public class Cart {
         return format + "\n]";
     }
 
-
-    public void addToCart(Bean doRetrieveByKey) {
+    public Object getIva() {
+        // TODO Auto-generated method stub
+        return ivaTotale.setScale(2, RoundingMode.UNNECESSARY);
     }
+
 }
-
-
