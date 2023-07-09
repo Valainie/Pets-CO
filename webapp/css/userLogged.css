@@ -16,14 +16,6 @@ body{
     border-radius: 10%;
 }
 
-.anagrafica :link{
-    color: #0e8800;
-}
-
-.anagrafica :visited{
-    color: #E07D00;
-}
-
 .indirizzi{
     margin-left: 5%;
     background-color: #8067b5;
@@ -52,4 +44,27 @@ body{
     border-color: #FFFFFF;
     border-bottom-style: solid;
     border-bottom-width: 2px;
+}
+
+.client-but  {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #03588c;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.client-but:hover {
+    background-color: #033656;
+}
+
+.hiddenForm{
+    background-color: #8067b5;
+    color: #FFFFFF;
+    padding: 2%;
+    border-color: #FFFFFF;
+    border-style: solid;
+    border-width: 2px;
+    margin-top: 3%;
 }
