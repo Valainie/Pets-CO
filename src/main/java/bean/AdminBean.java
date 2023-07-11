@@ -3,14 +3,14 @@ package bean;
 import java.io.Serializable;
 
 public class AdminBean extends Bean implements Serializable {
-    String recapito;
+    String email;
     String username;
     String password;
     String nome;
     String cognome;
 
-    public AdminBean(String recapito, String username, String password, String nome, String cognome) {
-        this.recapito = "";
+    public AdminBean(String email, String username, String password, String nome, String cognome) {
+        this.email = "";
         this.username = "";
         this.password = "";
         this.nome ="";
@@ -21,12 +21,12 @@ public class AdminBean extends Bean implements Serializable {
 
     }
 
-    public String getRecapito() {
-        return recapito;
+    public String getEmail() {
+        return email;
     }
 
-    public void setRecapito(String recapito) {
-        this.recapito = recapito;
+    public void setEmail(String recapito) {
+        this.email = recapito;
     }
 
     public String getUsername() {
@@ -64,7 +64,7 @@ public class AdminBean extends Bean implements Serializable {
     @Override
     public String toString() {
         return "AdminBean{" +
-                "recapito='" + recapito + '\'' +
+                "recapito='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", nome='" + nome + '\'' +

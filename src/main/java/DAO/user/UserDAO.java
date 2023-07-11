@@ -89,7 +89,7 @@ public class UserDAO implements DAO {
             if (!rs.next()) {
                 System.out.println("Sorry, you are not a registered user! Please sign up first");
             } else {
-                String user = rs.getString("Nome");
+                String user = rs.getString("Username");
                 bean.setNome(user);
 
                 System.out.println("Welcome " + user);

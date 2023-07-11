@@ -1,6 +1,6 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
     <title>Pagina Cliente Pets&Co</title>
     <%@include file="/includes/head.jsp"%>
@@ -26,7 +26,6 @@
 <body>
 <%@include file="/includes/header.jsp" %>
 
-<h1 class="Slogan">Users's Page</h1>
 
 <div class="row" style="margin-left: 1%">
     <div id="PanelloSx" class="col-lg-2 col-md-2 col-sm-2 col-xs-12 d-none d-lg-block ">

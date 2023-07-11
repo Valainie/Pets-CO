@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/loginservlet.css" type="text/css">
 </head>
 <body>
-
 <h1 class="Slogan">Welcome Back! Pets&CO is here for all your pet's needs</h1>
         <!-- 	fine messaggi di errore nella registrazione -->
 
@@ -35,7 +34,7 @@
                                 <div class="form-group" >
                                     <input id="emailInput" placeholder="Username" oninput="validateLogin(document.loginpage.pw, document.loginpage.un, document.loginpage.btn)"
                                            class="form-control form-control-sm" type="text" name="un"
-                                           required autocomplete="off" value="${cookie.saveUser.value}">
+                                           required autocomplete="off" value="${cookie.saveEmail.value}">
                                 </div>
 
                                 <div class="form-group">
@@ -49,7 +48,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-lg btn-block" name="btn" id="button" disabled>Login</button>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block" name="btn" id="button" >Login</button>
                                 </div>
                             </form>
                         </div>
@@ -65,6 +64,5 @@
 
             <!-- fine sistema di colonne -->
         </div>
-    </div>
 </body>
 </html>

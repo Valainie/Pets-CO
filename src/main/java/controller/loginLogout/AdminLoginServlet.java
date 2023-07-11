@@ -1,32 +1,28 @@
 package controller.loginLogout;
 
+import DAO.admin.Admin;
 import DAO.user.UserDAO;
-import  bean.UserBean;
+import bean.AdminBean;
+import bean.UserBean;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Objects;
 
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@WebServlet(name = "AdminLoginServlet", value = "/AdminLoginServlet")
+public class AdminLoginServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    public LoginServlet()
-    {
-        super();
     }
 
-
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession newSession = request.getSession(true);
 
-        UserBean cliente = new UserBean();
+        AdminBean amministratore = new AdminBean();
         String email;
         String pass;
         String rem = request.getParameter("remember");
@@ -55,11 +51,12 @@ public class LoginServlet extends HttpServlet {
         Cookie savePass;
         Cookie saveMail;
         UserDAO cm;
+        Admin am;
 
         try
         {
-            cm = new UserDAO();
-            cliente = cm.doRetrieveByUserPass(email, pass);
+            am = new Admin();
+            amministratore = am.doRetrieveByUserPass(email, pass);
 
         }
         catch (SQLException e)
@@ -67,26 +64,27 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        if ((cliente.getPassword()!= "")&& (cliente.getEmail()!=""))
+      if ((amministratore.getPassword()!= "") && (amministratore.getEmail()!= ""))
         {
-            newSession.setAttribute("currentSessionUser", cliente);
+
+            newSession.setAttribute("currentSessionUser", amministratore);
             newSession.setAttribute("accessDone", true);
 
             if (rem != null)
             {
                 savePass = new Cookie("savePass", pass);
-                saveMail = new Cookie("saveUser", email);
+                saveMail = new Cookie("saveMail", email);
                 savePass.setMaxAge(50000);
                 saveMail.setMaxAge(50000);
                 response.addCookie(savePass);
                 response.addCookie(saveMail);
             }
 
+            newSession.setAttribute("isAdmin", true);
             request.setAttribute("loginSuccess", true);
-            response.sendRedirect("userJSP/userLogged.jsp");
+           response.sendRedirect("homePage.jsp");
         }
-
-         if ( cliente.getEmail() == "")
+       if (amministratore.getEmail() == "" )
         {
             request.setAttribute("loginFail", true);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("userJSP/invalidLogin.jsp");
@@ -95,5 +93,5 @@ public class LoginServlet extends HttpServlet {
         }
 
     }
-
 }
+

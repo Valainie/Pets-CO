@@ -40,12 +40,12 @@ public class Admin implements DAO {
         PreparedStatement preparedStatement = null;
 
         String insertSQL = "INSERT INTO " + Admin.TABLE_NAME
-                + " (Recapito,Username,Password,Nome,Cognome) VALUES (?, ?, ?, ?, ?)";
+                + " (Email,Username,Password,Nome,Cognome) VALUES (?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setString(1, a.getRecapito());
+            preparedStatement.setString(1, a.getEmail());
             preparedStatement.setString(2, a.getUsername());
             preparedStatement.setString(3, a.getPassword());
             preparedStatement.setString(4, a.getNome());
@@ -112,7 +112,7 @@ public class Admin implements DAO {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                b.setRecapito(rs.getString("Recapito"));
+                b.setEmail(rs.getString("Email"));
                 b.setUsername(rs.getString("Username"));
                 b.setPassword(rs.getString("Password"));
                 b.setNome(rs.getString("Nome"));
@@ -152,7 +152,7 @@ public class Admin implements DAO {
 
             while (rs.next()) {
                 AdminBean bean = new AdminBean();
-                bean.setRecapito(rs.getString("Recapito"));
+                bean.setEmail(rs.getString("Recapito"));
                 bean.setUsername(rs.getString("Username"));
                 bean.setPassword(rs.getString("Password"));
                 bean.setCognome(rs.getString("Nome"));
@@ -173,30 +173,29 @@ public class Admin implements DAO {
         return  Amministratore;
     }
 
-    public synchronized AdminBean doRetrieveByUserPass(String user, String pass) throws SQLException {
+    public synchronized AdminBean doRetrieveByUserPass(String mail, String pass) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         AdminBean bean = new AdminBean();
 
-        String selectSQL = "SELECT * FROM " + Admin.TABLE_NAME + " WHERE Username = ? AND `Password` = ?";
+        String selectSQL = "SELECT * FROM " + Admin.TABLE_NAME + " WHERE Email = ? AND `Password` = ?";
 
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, user);
+            preparedStatement.setString(1, mail);
             preparedStatement.setString(2, pass);
 
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                bean.setRecapito(rs.getString("Recapito"));
+                bean.setEmail(rs.getString("Email"));
                 bean.setUsername(rs.getString("Username"));
                 bean.setPassword(rs.getString("Password"));
                 bean.setCognome(rs.getString("Nome"));
                 bean.setNome(rs.getString("Cognome"));
             }
-
         } finally {
             try {
                 if (preparedStatement != null)

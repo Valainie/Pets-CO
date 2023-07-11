@@ -9,12 +9,8 @@ R
 "webapp/AdminJSP/deleteProducts.jsp,a\b\abb46afaba3a05adb4f91f99de919dccd7ce4d38
 E
 webapp/css/footer.css,7\c\7c329d55f49536f265b9197ca19b48306f448a5a
-S
-#src/main/java/DAO/user/UserDAO.java,c\7\c7a109e9e1ca540561e7c77cf67aa3d0ef22c95b
 P
  src/main/java/bean/Carrello.java,d\5\d58bc0f2ab23cef7cace283cd1909634fc449a1a
-M
-webapp/userJSP/userLogged.jsp,c\e\ce36db0370995ebc30085e51e4b6fb421fb0ca74
 I
 webapp/css/userLogged.css,c\d\cd00668e49b989ab110e60e2009ff68b470e1876
 G
