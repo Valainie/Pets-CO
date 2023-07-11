@@ -45,22 +45,8 @@
 
             <div class="row">
                 <div class="col">
-                    <ul class="product_grid" id="product_container">
+                    <ul class="product_grid" id="product_container" style="list-style: none;">
 
-                            <!--
-                                <li class="products">
-
-                                    <img src="${pageContext.request.contextPath}/Immagini/immagini/P3.jpg" alt="">
-
-                                    <div class="content">
-                                        <div class="title">Collare Scalibor</div>
-                                        <div class="prezzo">Prezzo:<span>30&euro;</span></div>
-                                        <div class="descrizioneBreve">Da prendere dal DB.</div>
-                                        <button class="AddToCart">add to cart need href</button>
-                                        <button class="dettagli">dettagli need href</button>
-                                    </div>
-                                </li>
-                             -->
                 </ul>
             </div>
 

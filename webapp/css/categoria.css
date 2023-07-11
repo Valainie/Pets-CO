@@ -21,29 +21,26 @@ img:hover {
     max-width: 70%;
 }
 
-
-
-table {
+.product_grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
     text-align: left;
     position: relative;
     border-collapse: collapse;
-    background-color: #f6f6f6;
     width: 100%;
     box-shadow: 0 3px #666;
 }
 
-td, th {
-    border: 1px solid #999;
-    padding: 10px;
-}
-
-th {
+.products {
     background: #FFFFFF;
     color: black;
     border-radius: 0;
     position: sticky;
     top: 0;
     padding: 10px;
+    margin: 2%;
 }
 
 .bx-sign-up{

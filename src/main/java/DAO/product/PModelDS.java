@@ -158,7 +158,7 @@ public class PModelDS implements DAO {
 
         Collection<PBean> product = new LinkedList<>();
 
-        String selectSQL = "SELECT Immagine,Nome,Disponibilita,prezzo,DescrizioneBreve FROM Prodotto ";
+        String selectSQL = "SELECT Codice,Immagine,Nome,Disponibilita,prezzo,DescrizioneBreve FROM Prodotto ";
 
         if (order != null && !order.equals("")) {
             selectSQL += " ORDER BY" + order;
@@ -173,11 +173,13 @@ public class PModelDS implements DAO {
 
             while (rs.next()) {
                 bean = new PBean();
-                bean.setDescrizioneLunga(rs.getString("Immagine"));
+                bean.setCodice(rs.getInt("Codice"));
+                bean.setImmagine(rs.getString("Immagine"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
                 bean.setDisponibilita(rs.getInt("disponibilita"));
                 bean.setPrezzo(rs.getFloat("prezzo"));
+                bean.setIVA(22);
 
                 product.add(bean);
             }

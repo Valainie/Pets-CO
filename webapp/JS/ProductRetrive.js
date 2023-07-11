@@ -5,17 +5,25 @@ $(document).ready(function() {
             type: 'GET',
             dataType: 'json',
             success: function (products) {
-                let productContainer = $('#product_container');
-                let html = generateProduct(products);
-                productContainer.append(html);
+                PopulateHome(products)
             },
         });
 });
 
+function PopulateHome(products){
+    let productContainer = $('#product_container');
+    let n = 0;
+    $.each(products, function(){
+        let html = generateProduct(products[n]);
+        productContainer.append(html);
+        n++;
+    });
+}
+
 function generateProduct(product) {
     let html =
         '<li class="products">' +
-        '<img src="' + product.Immagine + '" alt="">' +
+        '<img src="' + product.immagine + '" alt="">' +
         '<div class="content">' +
         '<div class="title">' + product.nome + '</div>' +
         '<div class="prezzo">Prezzo:<span>'+ product.prezzo +'&euro;</span></div>' +
