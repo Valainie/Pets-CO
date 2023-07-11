@@ -1,9 +1,7 @@
 $(document).ready(function() {
-    let c = 0;
-    while (c != -1){
-        c++;
+
         $.ajax({
-            url: '${pageContext.request.contextPath}/JsonRevtrieveForHomeServlet.java?codice=' + c,
+            url: '/Pets_Co/JsonRevtrieveForHomeServlet',
             type: 'GET',
             dataType: 'json',
             success: function (products) {
@@ -11,10 +9,8 @@ $(document).ready(function() {
                 let html = generateProduct(products);
                 productContainer.append(html);
             },
-            error: c = -1
-        })
-    }
-})
+        });
+});
 
 function generateProduct(product) {
     let html =

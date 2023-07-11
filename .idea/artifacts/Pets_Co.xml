@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="LoginRegistration">
-    <output-path>$PROJECT_DIR$/classes/artifacts/LoginRegistration</output-path>
+  <artifact type="exploded-war" name="Pets_Co">
+    <output-path>$PROJECT_DIR$/classes/artifacts/Pets_Co</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -21,9 +21,9 @@
           <element id="library" level="application" name="@popperjs/core" />
         </element>
       </element>
+      <element id="directory" name="folder" />
       <element id="javaee-facet-resources" facet="LoginRegistration/web/Web" />
       <element id="javaee-facet-resources" facet="LoginRegistration/web/Web2" />
-      <element id="directory" name="folder" />
     </root>
   </artifact>
 </component>

@@ -151,14 +151,14 @@ public class PModelDS implements DAO {
         return Bean;
     }
 /*LA JSON JsonRevtrieveForHomeServlet PRENDE DA QUI GLI ATRIBUTI DELLA TABELLA PRODOTTO NECESSARI PER IL CATALOGO/HOME PAGE*/
-    public synchronized Collection<Bean> doRetrieveHome(String codice) throws SQLException{
+    public synchronized Collection<PBean> doRetrieveHome() throws SQLException{
         String order = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<Bean> product = new LinkedList<Bean>();
+        Collection<PBean> product = new LinkedList<>();
 
-        String selectSQL = "SELECT (Immagine,Nome,Disponibilita,prezzo,DescrizioneBreve ) FROM Prodotto WHERE Codice=?";
+        String selectSQL = "SELECT Immagine,Nome,Disponibilita,prezzo,DescrizioneBreve FROM Prodotto ";
 
         if (order != null && !order.equals("")) {
             selectSQL += " ORDER BY" + order;
@@ -174,11 +174,10 @@ public class PModelDS implements DAO {
             while (rs.next()) {
                 bean = new PBean();
                 bean.setDescrizioneLunga(rs.getString("Immagine"));
-                bean.setCodice(rs.getInt("Codice"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
                 bean.setDisponibilita(rs.getInt("disponibilita"));
-                bean.setPrezzo(rs.getFloat("Prezzo"));
+                bean.setPrezzo(rs.getFloat("prezzo"));
 
                 product.add(bean);
             }
