@@ -91,17 +91,19 @@
 
 
 
-    <ul style="list-style: none; padding: 0; text-align: center;margin-top: 20 ">
+    <ul style=" padding: 0; text-align: center;margin-top: 20 ">
       <li style="display: inline-block; margin-right: 10px;">
-        <a href="pagina-di-ricerca?query=cura" class="categories">Cura</a>
+        <a href="pagina-di-ricerca?query=cura" class="categories">cane </a>
       </li>
 
       <li style="display: inline-block; margin-right: 10px;">
-        <a href="pagina-di-ricerca?query=cibo" class="categories">Cibo</a>
+        <a href="pagina-di-ricerca?query=cibo" class="categories">gatto</a>
       </li>
       <li style="display: inline-block; margin-right: 10px;">
-        <a href="pagina-di-ricerca?query=accessori" class="categories">Accessori</a>
-      </li>
+        <a href="pagina-di-ricerca?query=accessori" class="categories">uccelli</a>
+      </li><li style="display: inline-block; margin-right: 10px;">
+      <a href="pagina-di-ricerca?query=accessori" class="categories">roditori</a>
+    </li>
     </ul>
 
 

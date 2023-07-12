@@ -9,6 +9,7 @@
           <element id="library" level="application" name="popper.js" />
           <element id="library" level="application" name="bootstrap" />
           <element id="library" level="application" name="jquery" />
+          <element id="javaee-facet-classes" facet="Pets_Co/web/Web" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="mysql-connector-j-8.0.33" />
@@ -23,8 +24,10 @@
         </element>
       </element>
       <element id="directory" name="folder" />
-      <element id="javaee-facet-resources" facet="LoginRegistration/web/Web" />
-      <element id="javaee-facet-resources" facet="LoginRegistration/web/Web2" />
+      <element id="javaee-facet-resources" facet="Pets_Co/web/Web" />
+      <element id="javaee-facet-resources" facet="Pets_Co/web/Web2" />
+      <element id="javaee-facet-resources" facet="Pets_Co/web/Web2" />
+      <element id="javaee-facet-resources" facet="Pets_Co/web/Web2" />
     </root>
   </artifact>
 </component>
