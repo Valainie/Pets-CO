@@ -7,17 +7,27 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class AcquistoBean extends Bean implements Serializable, Collection<Bean> {
+public class AcquistoBean extends Bean implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
-    LocalDate dataSpedizione, dataOrdine;
+    LocalDate dataSpedizione;
+    LocalDate dataOrdine;
     int codiceAcquisto;
     String indirizzoSpedizione;
     BigDecimal importo;
     String statoProdotti;
     Long metodo;
     int codiceProdotto;
+    String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public AcquistoBean(LocalDate dataSpedizione, LocalDate dataOrdine, int codiceAcquisto, String indirizzoSpedizione, BigDecimal importo, String statoProdotti, Long metodo, int codiceProdotto) {
         this.dataSpedizione = dataSpedizione;
@@ -98,81 +108,36 @@ public class AcquistoBean extends Bean implements Serializable, Collection<Bean>
         this.codiceProdotto = codiceProdotto;
     }
 
-    @Override
-    public String toString() {
-        return null;
-    }
+
 
     public void setSecureCode() {
+        MetodoDiPagamentoBean b = new MetodoDiPagamentoBean();
+        b.getSecureCode();
+
     }
 
-    public void setUsername(String username) {
+    public void setUsername() {
+        UserBean u = new UserBean();
+        u.getUsername();
     }
 
-    @Override
-    public int size() {
-        return 0;
-    }
 
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
 
     @Override
-    public boolean contains(Object o) {
-        return false;
+    public String toString() {
+        return "AcquistoBean{" +
+                "dataSpedizione=" + dataSpedizione +
+                ", dataOrdine=" + dataOrdine +
+                ", codiceAcquisto=" + codiceAcquisto +
+                ", indirizzoSpedizione='" + indirizzoSpedizione + '\'' +
+                ", importo=" + importo +
+                ", statoProdotti='" + statoProdotti + '\'' +
+                ", metodo=" + metodo +
+                ", codiceProdotto=" + codiceProdotto +
+                '}';
     }
 
-    @Override
-    public Iterator<Bean> iterator() {
-        return null;
-    }
 
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @Override
-    public <T> T[] toArray(T[] a) {
-        return null;
-    }
-
-    @Override
-    public boolean add(Bean bean) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends Bean> c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public void clear() {
-
-    }
 }
 
 

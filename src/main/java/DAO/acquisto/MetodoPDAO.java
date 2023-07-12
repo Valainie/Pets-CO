@@ -214,7 +214,7 @@ public class MetodoPDAO implements DAO {
                 bean.setCvv(rs.getInt("cvv"));
                 bean.setScadenza(rs.getDate("scadenza"));
                 bean.setPin();
-                bean.add();
+                Pagamento.add(bean);
             }
         } finally {
             try {

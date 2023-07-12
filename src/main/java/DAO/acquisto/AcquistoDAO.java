@@ -108,13 +108,15 @@ public class AcquistoDAO implements DAO {
     }
 
     @Override
-    public synchronized AcquistoBean doRetrieveByKey(Object username) throws SQLException {
+    public synchronized Collection<Bean>  doRetrieveByKey(Object username) throws SQLException {
 
         int code=(int) username;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        Collection<Bean> Bean = new LinkedList<>();
 
         AcquistoBean bean = new AcquistoBean();
+
 
         String selectSQL = "SELECT * FROM " + AcquistoDAO.TABLE_NAME + " WHERE codiceAcquisto = ?";
 
@@ -134,6 +136,7 @@ public class AcquistoDAO implements DAO {
                 bean.setStatoProdotti(rs.getString("statoProdotti"));
                 bean.setMetodo(rs.getLong("metodo"));
                 bean.setSecureCode();
+                Bean.add(bean);
 
             }
 
@@ -146,7 +149,7 @@ public class AcquistoDAO implements DAO {
                     connection.close();
             }
         }
-        return bean;
+        return Bean;
     }
 
     @Override
@@ -154,7 +157,7 @@ public class AcquistoDAO implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         System.out.println(order);
-        Collection<Bean> Acquisto = new LinkedList<Bean>();
+        Collection<Bean> Acquisto = new LinkedList<>();
 
         String selectSQL = "SELECT o.codiceAcquisto, o.indirizzoSpedizione, o.dataOrdine, o.dataSpedizione, o.importo, o.statoProdotti, o.metodo, e.username\r\n" +
                 " FROM " + AcquistoDAO.TABLE_NAME +" as o JOIN Effettua as e on o.codiceAcquisto=e.codiceAcquisto";

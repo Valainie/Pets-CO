@@ -115,7 +115,7 @@ public class PModelDS implements DAO {
         PBean bean = new PBean();
         Collection <Bean> Bean = new LinkedList<>();
 
-        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE Codice = ?";
+        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE Codice = ? AND Deleted=false";
 
         try {
             connection = ds.getConnection();
@@ -124,7 +124,7 @@ public class PModelDS implements DAO {
 
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                bean.setCodice(rs.getInt("Codice"));
+                bean.setCodice();
                 bean.setCategoria(rs.getString("Categoria"));
                 bean.setImmagine(rs.getString("Immagine"));
                 bean.setNome(rs.getString("Nome"));
@@ -152,19 +152,13 @@ public class PModelDS implements DAO {
     }
 /*LA JSON JsonRevtrieveForHomeServlet PRENDE DA QUI GLI ATRIBUTI DELLA TABELLA PRODOTTO NECESSARI PER IL CATALOGO/HOME PAGE*/
     public synchronized Collection<PBean> doRetrieveHome() throws SQLException{
-        String order = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         Collection<PBean> product = new LinkedList<>();
 
-        String selectSQL = "SELECT Codice,Immagine,Nome,Disponibilita,prezzo,DescrizioneBreve FROM Prodotto ";
-
-        if (order != null && !order.equals("")) {
-            selectSQL += " ORDER BY" + order;
-        }
-
-        PBean bean = null;
+        String selectSQL = "SELECT Codice,Immagine,Nome,Disponibilita,prezzo,DescrizioneBreve FROM Prodotto WHERE Deleted= false order by Codice";
+        PBean bean = new PBean();
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
@@ -173,7 +167,7 @@ public class PModelDS implements DAO {
 
             while (rs.next()) {
                 bean = new PBean();
-                bean.setCodice(rs.getInt("Codice"));
+                bean.setCodice();
                 bean.setImmagine(rs.getString("Immagine"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
@@ -200,9 +194,9 @@ public class PModelDS implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<Bean> product = new LinkedList<Bean>();
+        Collection<Bean> product = new LinkedList<>();
 
-        String selectSQL = "SELECT * FROM Prodotto";
+        String selectSQL = "SELECT * FROM Prodotto WHERE Deleted= FALSE";
 
         PBean bean = null;
         try {
@@ -213,7 +207,7 @@ public class PModelDS implements DAO {
 
             while (rs.next()) {
                 bean = new PBean();
-                bean.setCodice(rs.getInt("Codice"));
+                bean.setCodice();
                 bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setImmagine(rs.getString("Immagine"));
@@ -244,9 +238,9 @@ public class PModelDS implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<PBean> product = new LinkedList<PBean>();
+        Collection<PBean> product = new LinkedList<>();
 
-        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE " + no + "= ? ORDER BY Codice";
+        String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE " + no + "= ?  AND Deleted=false ORDER BY Codice";
 
         try {
             connection = ds.getConnection();
@@ -257,7 +251,7 @@ public class PModelDS implements DAO {
 
             while (rs.next()) {
                 PBean bean = new PBean();
-                bean.setCodice(rs.getInt("Codice"));
+                bean.setCodice();
                 bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setImmagine(rs.getString("Immagine"));
@@ -288,7 +282,7 @@ public class PModelDS implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<Bean> product = new LinkedList<Bean>();
+        Collection<Bean> product = new LinkedList<>();
 
         String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE Categoria=? ";
 
@@ -319,7 +313,7 @@ public class PModelDS implements DAO {
 
             while (rs.next()) {
                 bean = new PBean();
-                bean.setCodice(rs.getInt("Codice"));
+                bean.setCodice();
                 bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setImmagine(rs.getString("Immagine"));
@@ -365,7 +359,7 @@ public class PModelDS implements DAO {
             while (rs.next()) {
                 bean = new PBean();
 
-                bean.setCodice(rs.getInt("Codice"));
+                bean.setCodice();
                 bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
@@ -395,7 +389,7 @@ public class PModelDS implements DAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<Bean> product = new LinkedList<Bean>();
+        Collection<Bean> product = new LinkedList<>();
         String selectSQL = "SELECT * FROM " + PModelDS.TABLE_NAME + " WHERE MATCH (Nome, DescrizioneBreve) AGAINST ('" + ric + "')";
 
         try {
@@ -406,10 +400,10 @@ public class PModelDS implements DAO {
 
             while (rs.next()) {
                 PBean bean = new PBean();
-                bean.setCodice(rs.getInt("Codice"));
+                bean.setCodice();
                 bean.setCategoria(rs.getString("Categoria"));
                 bean.setNome(rs.getString("Nome"));
-                bean.setDescrizioneLunga(rs.getString("Immagine"));
+                bean.setImmagine(rs.getString("Immagine"));
                 bean.setDescrizioneBreve(rs.getString("DescrizioneBreve"));
                 bean.setDescrizioneLunga(rs.getString("DescrizioneLunga"));
                 bean.setDisponibilita(rs.getInt("disponibilita"));
@@ -476,10 +470,6 @@ public class PModelDS implements DAO {
             }
         }
     }
-
-    public void Naviga (String tag, int codice){
-
-        }
 
 }
 

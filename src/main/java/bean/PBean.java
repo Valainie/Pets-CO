@@ -15,9 +15,9 @@ public class    PBean  extends Bean implements Serializable {
     String descrizioneLunga;
     boolean novita;
     boolean offerta;
-    int IVA;
+    int iva = 22;
     
-    public PBean(int codice,String categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, boolean novita, boolean offerta, int IVA) {
+    public PBean(int codice,String categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, boolean novita, boolean offerta, int iva) {
         this.codice = codice;
         this.categoria=categoria;
         Immagine = immagine;
@@ -28,7 +28,7 @@ public class    PBean  extends Bean implements Serializable {
         this.descrizioneLunga = descrizioneLunga;
         this.novita=novita;
         this.offerta=offerta;
-        this.IVA=22;
+        this.iva=iva;
     }
 
     public String getCategoria() {
@@ -52,18 +52,18 @@ public class    PBean  extends Bean implements Serializable {
     }
 
     public int getIVA() {
-        return IVA;
+        return iva;
     }
 
     public void setIVA(int IVA) {
-        this.IVA = IVA;
+        this.iva = IVA;
     }
 
     public int getCodice() {
         return codice;
     }
 
-    public void setCodice(int codice) {
+    public void setCodice() {
         this.codice = codice;
     }
 
@@ -144,7 +144,7 @@ public class    PBean  extends Bean implements Serializable {
                 ", descrizioneLunga='" + descrizioneLunga + '\'' +
                 ", novita=" + novita +
                 ", offerta=" + offerta +
-                ", IVA=" + IVA +
+                ", IVA=" + iva +
                 '}';
     }
 }

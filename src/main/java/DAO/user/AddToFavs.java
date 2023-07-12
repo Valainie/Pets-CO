@@ -32,14 +32,13 @@ public class AddToFavs implements DAO {
         }
     }
     private static final String TABLE_NAME = "Preferiti";
-    public synchronized void doCustomSave(Bean preferiti, String Username) throws SQLException {
+    public synchronized void doCustomSave(Bean preferiti, String username) throws SQLException {
         PreferitiBean pb = (PreferitiBean) preferiti;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         PreparedStatement relStatement = null;
 
-        String selectSQL = "SELECT p.Codice," +
-                "FROM Prodotto as p JOIN Cliente as c on p.Codice=? and c.Username=?";
+        String selectSQL = "SELECT Codice FROM Prodotto as p JOIN Cliente as c on p.Codice=? and c.Username=?";
 
         String insertRel = "INSERT INTO Preferiti (Username,CodiceProdotto) VALUES (?, ?)";
 

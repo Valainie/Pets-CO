@@ -67,7 +67,7 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        if ((cliente.getPassword()!= "")&& (cliente.getEmail()!=""))
+        if ((!"".equals(cliente.getPassword()))&& (!"".equals(cliente.getEmail())))
         {
             newSession.setAttribute("currentSessionUser", cliente);
             newSession.setAttribute("accessDone", true);

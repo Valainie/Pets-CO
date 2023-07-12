@@ -3,12 +3,13 @@ package DAO.acquisto;
 import bean.Bean;
 import bean.Carrello;
 
+import java.io.Serializable;
 import java.math.*;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Cart {
+public class Cart implements Serializable {
     private Collection<Carrello> products;
     BigDecimal totale;
     BigDecimal ivaTotale;

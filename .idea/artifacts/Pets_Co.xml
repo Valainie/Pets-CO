@@ -19,6 +19,7 @@
           <element id="library" level="application" name="iconify" />
           <element id="library" level="application" name="bootstrap-datepicker" />
           <element id="library" level="application" name="@popperjs/core" />
+          <element id="library" level="application" name="iconify-icon" />
         </element>
       </element>
       <element id="directory" name="folder" />

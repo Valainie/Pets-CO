@@ -63,6 +63,12 @@ public class IndirizzoBean extends Bean implements Serializable {
 
     @Override
     public String toString() {
-        return null;
+        return "IndirizzoBean{" +
+                "codiceIndirizzo=" + codiceIndirizzo +
+                ", città='" + città + '\'' +
+                ", via='" + via + '\'' +
+                ", civico=" + civico +
+                ", cap=" + cap +
+                '}';
     }
 }

@@ -1,4 +1,4 @@
-package controller.loginLogout;
+package controller.admin;
 
 import DAO.admin.Admin;
 import DAO.user.UserDAO;

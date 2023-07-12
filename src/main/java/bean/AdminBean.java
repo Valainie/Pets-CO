@@ -10,11 +10,11 @@ public class AdminBean extends Bean implements Serializable {
     String cognome;
 
     public AdminBean(String email, String username, String password, String nome, String cognome) {
-        this.email = "";
-        this.username = "";
-        this.password = "";
-        this.nome ="";
-        this.cognome = "";
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.nome =nome;
+        this.cognome = cognome;
     }
 
     public AdminBean() {

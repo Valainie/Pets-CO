@@ -26,6 +26,7 @@ public class JsonRevtrieveForHomeServlet extends HttpServlet {
         try {
             bp =  model.doRetrieveHome();
                 jsonBean = new Gson().toJson(bp);
+
             } catch (SQLException e) {
             throw new RuntimeException(e);
         }

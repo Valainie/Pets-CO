@@ -72,7 +72,7 @@ public class AdminServlet extends HttpServlet {
             String offerta=request.getParameter("offerta");
             System.out.println(offerta);
 
-            p.setCodice(codP);
+            p.setCodice();
             p.setDescrizioneBreve(descrizioneBreve);
             p.setDescrizioneLunga(descrizioneLunga);
             p.setDisponibilita(Integer.parseInt(disponibilita));

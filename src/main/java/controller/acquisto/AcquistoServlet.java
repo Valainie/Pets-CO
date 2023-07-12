@@ -22,7 +22,6 @@ public class AcquistoServlet extends HttpServlet {
 
     public AcquistoServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,7 +36,7 @@ public class AcquistoServlet extends HttpServlet {
 
 
         if (ordine == null) {
-            if (dataDa != null && dataDa != "" && (username == "" || username == null) && (dataA == "" || dataA == null)) {
+            if (dataDa != null && !"".equals(dataDa) && ("".equals(username) || username == null) && ("".equals(dataA) || dataA == null)) {
                 try {
                     ba = ad.doRetrieveByDateFrom(LocalDate.parse(dataDa));
                     System.out.println("retrieve by DateFrom:" + ba);
@@ -48,7 +47,7 @@ public class AcquistoServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-            if (dataA != null && dataA != "" && (username == "" || username == null) && (dataDa==null || dataDa=="")) {
+            if (dataA != null && !"".equals(dataA) && ("".equals(username) || username == null) && (dataDa==null || "".equals(dataDa))) {
                 try {
                     ba = ad.doRetrieveByDateTo(LocalDate.parse(dataA));
                     session.setAttribute("listaOrdini", ba);
@@ -72,8 +71,8 @@ public class AcquistoServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-            if (dataDa != null && dataA != null && dataDa!="" && dataA!="") {
-                if (username != null && username!="") {
+            if (dataDa != null && dataA != null && !"".equals(dataDa) && !"".equals(dataA)) {
+                if (username != null && !"".equals(username)) {
                     try {
                         ba = ad.doRetrieveByUserBetweenDate(LocalDate.parse(dataDa), LocalDate.parse(dataA), username);
                         session.setAttribute("listaOrdini", ba);

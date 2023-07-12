@@ -7,7 +7,7 @@ public class NavigazioneBean extends Bean implements Serializable {
     String tag;
     int codiceProdotto;
 
-    public NavigazioneBean(String tag) {
+    public NavigazioneBean(String tag, int codiceProdotto) {
         this.tag = tag;
         this.codiceProdotto = codiceProdotto;
     }

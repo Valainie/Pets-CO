@@ -27,11 +27,11 @@ public class PurchaseServlet extends HttpServlet {
      */
     public PurchaseServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        doPost(request, response);
     }
 
     @Override
@@ -81,6 +81,6 @@ public class PurchaseServlet extends HttpServlet {
 		session.removeAttribute("totale");
 		session.removeAttribute("iva");
 
-		response.sendRedirect("/homePage.jsp?orderDone=true");
+		response.sendRedirect("/homePage.jsp");
 }
 }

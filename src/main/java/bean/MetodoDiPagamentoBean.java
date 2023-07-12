@@ -12,11 +12,12 @@ public class MetodoDiPagamentoBean extends Bean implements Serializable {
     String pin;
 
 
-    public MetodoDiPagamentoBean(String circuito, long numCarta, int cvv, Date scadenza) {
+    public MetodoDiPagamentoBean(String circuito, long numCarta, int cvv,Date scadenza, String pin) {
         this.circuito = circuito;
         this.numCarta = numCarta;
         this.cvv = cvv;
         this.scadenza = scadenza;
+        this.pin=pin;
     }
 
     public MetodoDiPagamentoBean() {
@@ -66,18 +67,15 @@ public class MetodoDiPagamentoBean extends Bean implements Serializable {
     }
 
 
-
-    public void add() {
+    public void setNumCarta(long numCarta) {
+        this.numCarta = numCarta;
     }
 
     public String getPin() {
-
         return pin;
     }
 
     public void setPin() {
-        String pin = Long.toString(numCarta);
-        pin = pin.substring(pin.length() - 4);
     }
 
     public Object getSecureCode() {

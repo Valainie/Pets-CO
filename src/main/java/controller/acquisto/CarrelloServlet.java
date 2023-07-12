@@ -17,6 +17,7 @@ import java.util.Collection;
 public class CarrelloServlet extends HttpServlet implements Serializable {
     private static final long serialVersionUID = 1L;
     static PModelDS model= new PModelDS();
+    static Cart cart = new Cart();
 
 
     public CarrelloServlet() {
@@ -26,7 +27,7 @@ public class CarrelloServlet extends HttpServlet implements Serializable {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        Cart cart = (Cart)request.getSession().getAttribute("cart");
+      cart = (Cart)request.getSession().getAttribute("cart");
         if(cart == null) {
             cart = new Cart();
             session.setAttribute("cart", cart);
@@ -34,8 +35,8 @@ public class CarrelloServlet extends HttpServlet implements Serializable {
             session.setAttribute("totale", cart.getTotale());
         }
 
-        int quant=Integer.parseInt (request.getParameter("quantita"));
-        int id=Integer.parseInt(request.getParameter("codice"));
+        int quant= Integer.parseInt(request.getParameter("quantita"));
+        int id= Integer.parseInt(request.getParameter("codice"));
 
 
         try {

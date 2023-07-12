@@ -25,14 +25,14 @@ public class AcquistoViewServlet extends HttpServlet {
         String username = request.getParameter("username");
         String dataDa = request.getParameter("dataDa");
         String dataA = request.getParameter("dataA");
-        String ordine = request.getParameter("ordinebtn");
+        String acquisto = request.getParameter("acquisto");
         Collection<Bean> ba = null;
 
-        System.out.println("Ecco l'ordine"+ordine);
+        System.out.println("Ecco il tuo acquisto"+acquisto);
 
 
-        if (ordine == null) {
-            if (dataDa != null && dataDa != "" && (username == "" || username == null) && (dataA == "" || dataA == null)) {
+        if (acquisto == null) {
+            if (dataDa != null && !"".equals(dataDa) && ("".equals(username) || username == null) && ("".equals(dataA) || dataA == null)) {
                 try {
                     ba = ad.doRetrieveByDateFrom(LocalDate.parse(dataDa));
                     System.out.println("retrieve by DateFrom:" + ba);
@@ -54,7 +54,7 @@ public class AcquistoViewServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-            if (username != null && username != "" && (dataDa == null || dataDa == "") && (dataA == "" || dataA == null)) {
+            if (username != null && !"".equals(username) && (dataDa == null || "".equals(dataDa)) && ("".equals(dataA) || dataA == null)) {
                 try {
                     ba = ad.doRetrieveByUser(username);
                     session.setAttribute("listaOrdini", ba);
@@ -67,8 +67,8 @@ public class AcquistoViewServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-            if (dataDa != null && dataA != null && dataDa!="" && dataA!="") {
-                if (username != null && username!="") {
+            if (dataDa != null && dataA != null && !"".equals(dataDa) && !"".equals(dataA)) {
+                if (username != null && !"".equals(username)) {
                     try {
                         ba = ad.doRetrieveByUserBetweenDate(LocalDate.parse(dataDa), LocalDate.parse(dataA), username);
                         session.setAttribute("listaOrdini", ba);
@@ -91,7 +91,7 @@ public class AcquistoViewServlet extends HttpServlet {
                 }
             }
 
-            if ((username == null || username=="") && (dataDa==null||dataDa=="") && (dataA==null||dataA=="")) {
+            if ((username == null || "".equals(username)) && (dataDa==null||"".equals(dataDa)) && (dataA==null||"".equals(dataA))) {
                 System.out.println("lista totale");
                 try {
                     ba = ad.doRetrieveAll("codiceOrdine");
@@ -109,10 +109,10 @@ public class AcquistoViewServlet extends HttpServlet {
 
 		else{
 			try {
-				ba=ud.doRetrieveByKey(ordine);
+				ba=ud.doRetrieveByKey(acquisto);
 				session.setAttribute("cliente",ba);
 
-				System.out.println(ordine);
+				System.out.println(acquisto);
 
 				RequestDispatcher rd=request.getRequestDispatcher("order.jsp");
 				rd.forward(request, response);

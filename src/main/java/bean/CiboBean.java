@@ -7,7 +7,7 @@ public class CiboBean extends Bean implements Serializable {
 
     int codice;
     String categoria="Cibo";
-    String Immagine;
+    String immagine;
     String nome;
     int disponibilita;
     float prezzo;
@@ -20,7 +20,7 @@ public class CiboBean extends Bean implements Serializable {
     public CiboBean(int codice, String categoria, String immagine, String nome, int disponibilita, float prezzo, String descrizioneBreve, String descrizioneLunga, boolean novita, boolean offerta) {
         this.codice = codice;
         this.categoria = categoria;
-        Immagine = immagine;
+        this.immagine = immagine;
         this.nome = nome;
         this.disponibilita = disponibilita;
         this.prezzo = prezzo;
@@ -60,12 +60,12 @@ public class CiboBean extends Bean implements Serializable {
     }
 
     public String getImmagine() {
-        return Immagine;
+        return immagine;
     }
 
-    public void setImmagine(String immagine) {
-        Immagine = immagine;
-    }
+    public String setImmagine(String immagine) {
+
+return immagine;    }
 
     public String getNome() {
         return nome;
@@ -128,7 +128,7 @@ public class CiboBean extends Bean implements Serializable {
         return "CiboBean{" +
                 "codice=" + codice +
                 ", categoria='" + categoria + '\'' +
-                ", Immagine='" + Immagine + '\'' +
+                ", Immagine='" + immagine + '\'' +
                 ", nome='" + nome + '\'' +
                 ", disponibilita=" + disponibilita +
                 ", prezzo=" + prezzo +

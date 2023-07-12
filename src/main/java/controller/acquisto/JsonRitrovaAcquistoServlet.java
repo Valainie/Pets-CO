@@ -28,7 +28,7 @@ AcquistoBean ba= new AcquistoBean();
         String username= request.getParameter("username");
         String jsonBean = null;
         try {
-            ba =ad.doRetrieveByKey(username);
+            ba = (AcquistoBean) ad.doRetrieveByKey(username);
             jsonBean= new Gson().toJson(ba);
             System.out.println(jsonBean);
         } catch (SQLException e) {

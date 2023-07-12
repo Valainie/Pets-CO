@@ -19,7 +19,6 @@ public class UpdateCarrelloServlet extends HttpServlet {
 
     public UpdateCarrelloServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {HttpSession session = request.getSession();
@@ -60,7 +59,6 @@ public class UpdateCarrelloServlet extends HttpServlet {
 
         Collection<Carrello> bce = cart.getProducts();
         session.setAttribute("cartitems", bce);
-        // cart.printCart();
 
         response.setStatus(200);
 

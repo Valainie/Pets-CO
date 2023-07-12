@@ -2,18 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class PreferitiBean extends Bean implements Serializable {
-    public PreferitiBean() {
-
-    }
-
-    @Override
-    public String toString() {
-        return "PreferitiBean{" +
-                "username='" + username + '\'' +
-                ", codiceProdotto=" + codiceProdotto +
-                '}';    }
-
+public class PreferitiBean  extends Bean implements Serializable{
     String username;
     int codiceProdotto;
 
@@ -22,21 +11,36 @@ public class PreferitiBean extends Bean implements Serializable {
         this.codiceProdotto = codiceProdotto;
     }
 
+    public PreferitiBean() {
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public int getCodiceProdotto() {
-        return codiceProdotto;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setCodiceProdotto(int codiceProdotto) {
-        this.codiceProdotto = codiceProdotto;
+    public void setUsername(String username) {
+        UserBean u= new UserBean();
+        this.username=u.getUsername();
     }
 
+    public int getCodiceProdotto() {
+        PBean p = new PBean();
+        this.codiceProdotto = p.getCodice();
+        return codiceProdotto;
+    }
+
+    public void setCodiceProdotto(int codiceProdotto) {
+        PBean p = new PBean();
+        this.codiceProdotto=p.getCodice();
+
+    }
+
+    @Override
+    public String toString() {
+        return "PreferitiBean{" +
+                "username='" + username + '\'' +
+                ", CodiceProdotto=" + codiceProdotto +
+                '}';
+    }
 }
