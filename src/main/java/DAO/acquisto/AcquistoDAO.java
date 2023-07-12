@@ -15,6 +15,9 @@ import java.util.LinkedList;
 
 public class AcquistoDAO implements DAO {
     private static DataSource ds;
+    /*SONARCLOUD SAYING TO DEFINE A CONSTANT*/
+
+
 
     static {
         try {
@@ -68,9 +71,13 @@ public class AcquistoDAO implements DAO {
             } finally {
                 if (connection != null)
                     connection.close();
+                if (relStatement !=null)
+                        relStatement.close();
             }
+
         }
-    }
+        }
+
 
 
     @Override

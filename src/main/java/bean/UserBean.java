@@ -17,7 +17,7 @@ public class UserBean extends Bean implements Serializable {
     public UserBean() {
     }
 
-    public UserBean(String cf, String username, String password, String nome, String cognome, int tel, String email, int cartaPred) {
+    public UserBean(String cf, String username, String password, String nome, String cognome, int tel, String email) {
         this.cf = cf;
         this.username = username;
         this.password = password;
@@ -118,7 +118,10 @@ public class UserBean extends Bean implements Serializable {
         return 0;
     }
 
-    public void setCartaPred(String dettagli) {
+    public Long setCartaPred(Long cartaPred) {
+        MetodoDiPagamentoBean cp= new MetodoDiPagamentoBean();
+        cartaPred=cp.getNumCarta();
+        return cartaPred;
     }
 }
 

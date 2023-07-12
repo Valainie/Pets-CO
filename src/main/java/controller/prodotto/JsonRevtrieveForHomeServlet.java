@@ -28,7 +28,7 @@ public class JsonRevtrieveForHomeServlet extends HttpServlet {
                 jsonBean = new Gson().toJson(bp);
 
             } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         if (jsonBean != null) {
             response.getWriter().write(jsonBean);

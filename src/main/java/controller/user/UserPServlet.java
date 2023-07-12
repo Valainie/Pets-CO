@@ -24,23 +24,23 @@ public class UserPServlet extends HttpServlet {
 
     /*SERVLET CHE SERVE A METTERE IL METODO DI PAGAMENTO DEL CLIENTE*/
 
-    @SuppressWarnings("unchecked")
+   @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //prende la carta predefinita
-
+        String card="newcard";
         HttpSession session = request.getSession();
         UserBean c = (UserBean) session.getAttribute("currentSessionUser");
         String pred = Long.toString(c.getCartaPred());
         String securecode = pred.substring(pred.length() - 4);
         Collection<Bean> bo=null;
 
-        bo=(Collection<Bean>) session.getAttribute("metodi");
+        bo= (Collection<Bean>) session.getAttribute("metodi");
 
         //lo esegue quando l'utente aggiunge una carta da order
-        if (request.getParameter("newCard") != null)
+        if (request.getParameter(card) != null)
         {
-            String ncSecure = (String) request.getParameter("newCard");
+            String ncSecure = request.getParameter(card);
             for (Bean b : bo)
             {
                 if (((MetodoDiPagamentoBean) b).getPin().equals(ncSecure))
@@ -53,7 +53,7 @@ public class UserPServlet extends HttpServlet {
 
         }
 
-        if (request.getParameter("newCard") == null)
+        if (request.getParameter(card) == null)
         {
             for (Bean b : bo)
             {
@@ -97,7 +97,7 @@ public class UserPServlet extends HttpServlet {
              try {
                     model.doUpdateCard("cartaPred", username, ((MetodoDiPagamentoBean) b).getNumCarta());
                 } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                 e.printStackTrace();
                 }
                 break;
             }

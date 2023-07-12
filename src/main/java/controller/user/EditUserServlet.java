@@ -14,12 +14,9 @@ public class EditUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     UserDAO ud=new UserDAO();
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public EditUserServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

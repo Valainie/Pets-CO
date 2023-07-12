@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="LoginRegistration" options="--add-exports java.base/jdk.internal.module=ALL-UNNAMED --add-exports java.base/sun.net.ftp.impl=ALL-UNNAMED" />
+      <module name="Pets_Co" options="--add-exports java.base/jdk.internal.module=ALL-UNNAMED --add-exports java.base/sun.net.ftp.impl=ALL-UNNAMED" />
     </option>
   </component>
 </project>

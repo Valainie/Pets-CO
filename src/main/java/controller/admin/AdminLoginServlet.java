@@ -64,7 +64,7 @@ public class AdminLoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-      if ((amministratore.getPassword()!= "") && (amministratore.getEmail()!= ""))
+      if ((!"".equals(amministratore.getPassword())) && (!"".equals(amministratore.getEmail())))
         {
 
             newSession.setAttribute("currentSessionUser", amministratore);

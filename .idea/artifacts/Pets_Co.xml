@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="LoginRegistration" />
+          <element id="module-output" name="Pets_Co" />
           <element id="library" level="application" name="jquery-1.12.4" />
           <element id="library" level="application" name="popper.js" />
           <element id="library" level="application" name="bootstrap" />
